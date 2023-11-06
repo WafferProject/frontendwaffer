@@ -1,0 +1,31 @@
+
+.container{
+  width:100%;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  align-items: left;
+  justify-content: space-between;
+  gap: 1rem;
+  background-color: #4db897;
+  border-radius: 10px;
+
+}
+.navbar{
+  background-color: #feb257;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  /* Custom CSS */
+.nav-item {
+    margin-right: 10px; /* Adjust the margin to your desired spacing */
+    background-color: white;
+    border-radius: 30px;
+  }
+
+.btn{
+  border-radius: 10px;
+}

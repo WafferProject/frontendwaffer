@@ -1,0 +1,14 @@
+
+.App{
+   
+    width: "50%";
+    height: "1000px";
+    margin: "40px auto 0";
+    display: "flex";
+    flex-Direction: "column";
+    background-Color: "#FBFAF5";
+    border-Radius: "10px";
+    font-Family: "Comic Sans MS"
+  
+}
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
