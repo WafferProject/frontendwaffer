@@ -1,9 +1,9 @@
 
 .button-box {
-	width: 153px;
+	width: 164px;
 	margin: 35px auto;
 	position: relative;
-	border-radius: 30px;
+	border-radius: 10px;
 	background: white;
     display: flex; /* Add this to create a flex container */
     justify-content: space-around;
@@ -18,15 +18,17 @@
 	position: relative;
 	text-align: center;
     display: inline-block;
+		margin-right: 5px;
 }
 
 #btn {
 	
 	position: absolute;
-	margin: 3px;
-	width: 74px;
+	margin: 2px auto;
+	margin-left: 3px;
+	width: 77px;
 	height: 91%;
 	background: #e67e22;
-	border-radius: 30px;
+	border-radius: 10px;
 	transition: .5s;
 }

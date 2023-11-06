@@ -5,6 +5,7 @@ import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Paper, Button, Alert } from "@mui/material";
 import AddLocationAltOutlinedIcon from "@mui/icons-material/AddLocationAltOutlined";
+import './Map.css'
 
 export default function Map() {
   let DefaultIcon = L.icon({
@@ -39,13 +40,14 @@ export default function Map() {
   useEffect(askPermission, []);
 
   return hasPermissionRef.current ? (
-    <Paper
-      style={{ margin: "25px", textAlign: "center", borderRadius: "40px" }}
+    <Paper 
+    className="map-container-container"
+      
       elevation={8}
     >
       {/* map display if user gives permission */}
       <MapContainer
-        style={{ height: "300px", width: "100%" }}
+      className="map-container"
         center={[userCord.lat, userCord.long]}
         zoom={13}
         scrollWheelZoom={false}
@@ -54,7 +56,7 @@ export default function Map() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={[51.505, -0.09]}>
+        <Marker position={[userCord.lat, userCord.long]}>
           <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>
@@ -62,7 +64,8 @@ export default function Map() {
       </MapContainer>
     </Paper>
   ) : (
-    <Paper /* unavailable map display if user doesnt give permission     , enable location button and prompt */
+    <Paper 
+    className="map-error-container "/* unavailable map display if user doesnt give permission     , enable location button and prompt */
       style={{
         margin: "14px",
         textAlign: "center",
