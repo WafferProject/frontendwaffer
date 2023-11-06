@@ -1,0 +1,32 @@
+
+.button-box {
+	width: 153px;
+	margin: 35px auto;
+	position: relative;
+	border-radius: 30px;
+	background: white;
+    display: flex; /* Add this to create a flex container */
+    justify-content: space-around;
+}
+
+.toggle-btn {
+	padding: 10px 5px;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	outline: none;
+	position: relative;
+	text-align: center;
+    display: inline-block;
+}
+
+#btn {
+	
+	position: absolute;
+	margin: 3px;
+	width: 74px;
+	height: 91%;
+	background: #e67e22;
+	border-radius: 30px;
+	transition: .5s;
+}

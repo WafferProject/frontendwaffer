@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f4a262;
+    box-sizing: border-box;
+    text-align: left;
+    font: bold 13px sans-serif;
+    padding: 5px 8px;
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between; 
+    
+}
+
+@media (max-height: 800px) {
+    .footer {
+        position: static;
+    }
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+    display: inline-block;
+    vertical-align: top;
+    
+}
+
+.footer-left {
+    width: 30%;
+}
+
+.footer h3 {
+    font: normal 18px 'cookie', cursive;
+    margin: 0;
+}
+
+.footer-website-name {
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.footer-center {
+    width: 35%;
+   
+}
+
+/* Adjusting the font size of the envelope icon */
+.footer-center .fa-envelope {
+    font-size: 17px;
+    margin-right: 5px; /* Adding space between icon and paragraph */
+}
+
+.footer-center p {
+    display: inline-block;
+    font-size: 14px;
+   
+}
+.footer-center .fa-location-dot,
+.footer-center .fa-envelope,
+.footer-center .fa-phone {
+    margin-right: 10px; /* Adjust the margin to space out the icons */
+    font-size: 16px;
+}
+.footer-right .fa-square-facebook,
+.footer-right .fa-instagram,
+.footer-right .fa-linkedin {
+    margin-right: 10px; /* Adjust the margin to space out the icons */
+    font-size: 16px;
+}
