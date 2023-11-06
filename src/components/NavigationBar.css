@@ -12,6 +12,7 @@
 }
 .navbar{
   background-color: #feb257;
+  padding:10px ;
 }
 
 .navbar-nav {
@@ -21,9 +22,9 @@
   }
   /* Custom CSS */
 .nav-item {
-    margin-right: 10px; /* Adjust the margin to your desired spacing */
+    margin-right: 15px; /* Adjust the margin to your desired spacing */
     background-color: white;
-    border-radius: 30px;
+    border-radius: 10px;
   }
 
 .btn{

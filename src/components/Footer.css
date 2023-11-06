@@ -1,56 +1,62 @@
-body {
-    margin: 0;
-    padding: 0;
-}
-
 .footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #f4a262;
-    box-sizing: border-box;
-    text-align: left;
-    font: bold 13px sans-serif;
-    padding: 5px 8px;
-    margin-top: 80px;
+    
+    background-color:  #f4a262; /* You can adjust the background color as needed */
+    padding: 10px;
+    height: 205px;
     display: flex;
-    justify-content: space-between; 
-    
-}
+    justify-content: space-between;
+    align-items: center;
+    color:black;
+  }
+ 
+  
+  .footer-left {
+    text-align: center;
+  }
+  
+  .footer-center {
 
-@media (max-height: 800px) {
-    .footer {
-        position: static;
-    }
-}
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
 
-.footer-left,
-.footer-center,
-.footer-right {
-    display: inline-block;
-    vertical-align: top;
-    
-}
+  }
+  
+  .footer-right {
+    text-align: right;
 
-.footer-left {
-    width: 30%;
-}
+  }
+  
+  .icons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end; /* Adjust as needed to control the spacing between icons */
+  }
+  
+ 
+
+  
+
+
+hr {
+    margin: 0;
+    margin-bottom: 5px; /* Example margin values for top and bottom, adjust as needed */
+    border-top: 2px solid #000; /* Example border styling */
+  }
+
+
+
 
 .footer h3 {
-    font: normal 18px 'cookie', cursive;
-    margin: 0;
+    font: normal 23px 'cookie', cursive;
 }
 
 .footer-website-name {
-    font-size: 13px;
-    font-weight: normal;
-    margin: 0;
+    font-size: 12px;
 }
 
-.footer-center {
-    width: 35%;
-   
-}
+
 
 /* Adjusting the font size of the envelope icon */
 .footer-center .fa-envelope {
@@ -59,19 +65,18 @@ body {
 }
 
 .footer-center p {
-    display: inline-block;
+    
     font-size: 14px;
    
 }
 .footer-center .fa-location-dot,
 .footer-center .fa-envelope,
 .footer-center .fa-phone {
-    margin-right: 10px; /* Adjust the margin to space out the icons */
     font-size: 16px;
 }
 .footer-right .fa-square-facebook,
 .footer-right .fa-instagram,
 .footer-right .fa-linkedin {
-    margin-right: 10px; /* Adjust the margin to space out the icons */
     font-size: 16px;
 }
+  
