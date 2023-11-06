@@ -1,10 +1,10 @@
 import './App.css';
 import {BrowserRouter , Routes, Route} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Offer from './Components/Offer'
-import NavigationBar from './Components/NavigationBar';
+import Offer from './components/Offer'
+import NavigationBar from './components/NavigationBar';
 
-import Footer from './Components/Footer';
+import Footer from './components/Footer';
 
 
 function App() {
