@@ -1,15 +1,20 @@
+
+
+
+
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Offer from "./components/Offer";
-import NavigationBar from "./components/NavigationBar";
+
 import Map from "./components/Map";
 import Footer from "./components/Footer";
+import Navbar from "./components/Navbar"
 
 function App() {
   return (
     <BrowserRouter>
-      <NavigationBar />
+     <Navbar/>
       <Map />
       <div className="App">
         <Offer />

@@ -39,7 +39,7 @@ const Footer = () => {
       </div>
       <div className="footer-right">
         <p>Coming Soon On</p>
-        <div className="icons">
+        <div className="iconsFooter">
           <FontAwesomeIcon icon={faSquareFacebook} />
           <FontAwesomeIcon icon={faInstagram} />
           <FontAwesomeIcon icon={faLinkedin} />
