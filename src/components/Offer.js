@@ -9,34 +9,41 @@ import AddLocationAltOutlinedIcon from "@mui/icons-material/AddLocationAltOutlin
 import { Paper } from "@mui/material";
 import { Button } from "@mui/joy";
 import ArrowOutwardOutlinedIcon from "@mui/icons-material/ArrowOutwardOutlined";
+import {CardActionArea} from "@mui/material";
 
-export default function Offer() {
+export default function Offer({setSelectedOffer , data , button}) {
   return (
+    
+        
     <Card
       variant="outlined"
       sx={{
-        width: "450px",
+        width: "420px",
         "&:hover": {
           boxShadow: "lg",
           borderColor: "success.outlinedHoverBorder",
         },
-        margin:'0 auto'
+        margin:'15px',
+        height:'275px', 
       }}
     >
+      <CardActionArea onClick={()=>{setSelectedOffer({}) ; console.log("click done") }}>
       <div style={{ display: "flex" }}>
         <Paper
-          elevation={24}
           style={{ width: 210, marginRight: "15px", padding: "10px" }}
           variant="outlined"
         >
+          
           <Paper elevation={6} style={{ marginBottom: "15px" }}>
             <AspectRatio ratio="2">
+            
               <img
                 src="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318"
                 srcSet="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318&dpr=2 2x"
                 loading="lazy"
                 alt=""
               />
+              
             </AspectRatio>
           </Paper>
           <hr style={{ margin: "0 auto ", width: "150px" }} />
@@ -46,7 +53,9 @@ export default function Offer() {
           >
             <Typography level="title-md">KFC</Typography>
             <Typography level="body-sm">
+            
               Aouina <AddLocationAltOutlinedIcon />
+             
             </Typography>
           </CardContent>
         </Paper>
@@ -120,7 +129,7 @@ export default function Offer() {
       <Paper elevation={2}>
         <CardOverflow
           variant="soft"
-          sx={{ bgcolor: "background.level2", height: "50px" }}
+          sx={{ bgcolor: "background.level2", height: "50px" , position:''}}
         >
           <CardContent orientation="horizontal">
             <Typography
@@ -133,23 +142,25 @@ export default function Offer() {
             </Typography>
             <Divider orientation="vertical" />
 
-            <Button
+
+          {  button&&<Button
               style={{
-                position: "absolute ",
+                position: "relative ",
                 height: "40px",
                 width: "135px",
-                right: "6px",
-                top: "5px",
+                right: "-100px",
+                top: "-7px",
               }}
               variant="outlined"
               endDecorator={<ArrowOutwardOutlinedIcon />}
               color="primary"
             >
               See details
-            </Button>
+            </Button>}
           </CardContent>
         </CardOverflow>
       </Paper>
+      </CardActionArea>
     </Card>
   );
 }

@@ -1,18 +1,18 @@
-.map-container {
-    height: 300px ; width:  100% ;  border-radius: 20px  ;
-}
+
 .map-container-container{
-    margin: 25px auto ;  text-align: center ;  width: 85% ;   border-radius: 20px 
+    margin: 10px auto ;  text-align: center ;  width: 85% ;  
 }
 .map-error-container{
     margin: 14px ;
         text-align:  center ;
         height: 280px ; 
-        width: 96% ; 
-        border-radius: 15px ; 
+        width: 85% ; 
+        border-radius: 40px ; 
         border: 1px solid grey ; 
         padding: 75px ;
         display: flex ; 
         flex-direction: column ; 
         gap: 20px ;
+        margin: 25px auto;
+
       }
