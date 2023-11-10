@@ -10,14 +10,15 @@ import Offer from "./components/Offer";
 import Map from "./components/Map";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar"
+import OfferCreation from "./components/OfferCreation";
 
 function App() {
   return (
     <BrowserRouter>
      <Navbar/>
-      <Map />
+      
       <div className="App">
-        <Offer />
+        <OfferCreation/>
       </div>
       <Footer />
     </BrowserRouter>
