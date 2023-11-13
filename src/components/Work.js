@@ -1,7 +1,10 @@
 import React from "react";
-import PickMeals from "../assets/pick-meals-image.png";
-import ChooseMeals from "../assets/choose-image.png";
-import HappyCustomer from "../assets/HappyCustomer.png";
+
+import PickMeals from "../images/pick-meals-image.png";
+import ChooseMeals from "../images/choose-image.png";
+import DeliveryMeals from "../images/delivery-image.png";
+import "./Work.css";
+
 
 const Work = () => {
   const workInfoData = [
@@ -16,7 +19,9 @@ const Work = () => {
       text: "Choose the items you want, add them to your cart, and complete your order seamlessly.",
     },
     {
-      image: HappyCustomer,
+
+      image: DeliveryMeals,
+
       title: "Collect Your Savings",
       text: "Visit the specified location to collect your selected items, enjoying significant savings on quality food.",
     },
@@ -25,6 +30,7 @@ const Work = () => {
     <div className="work-section-wrapper">
       <div className="work-section-top">
         <h1 className="primary-heading">How It Works</h1>
+
       </div>
       <div className="work-section-bottom">
         {workInfoData.map((data) => (
