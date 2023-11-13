@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -97,8 +98,15 @@ body {
     display: none;
   }
   .navbar-menu-container {
+   //salmen branch 
+ .App {
+    width: 100%;
+    height: 100%;
+    margin: 40px auto 0;
+
     display: flex;
   }
+// walid branch
   .home-bannerImage-container {
     max-width: 450px;
   }
@@ -142,3 +150,4 @@ body {
     display: none;
   }
 }
+

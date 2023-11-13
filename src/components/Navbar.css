@@ -1,34 +1,120 @@
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 90px;
-  }
-  .navbar-menu-container {
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #FECDA6; /* Tomato Red */
+  border-bottom: 3px solid #FFA500; /* Orange */
+  color: #FFFFFF; /* White */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.navbar-logo {
+  margin-right: 20px; /* Or any value that gives enough space */
+  display: flex; /* Use flex to center the content vertically */
+  align-items: center;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 10px 0; /* Center vertically */
+  z-index: 1002; 
+}
+ 
+
+
+.navbar-toggle {
+  display: none;
+  cursor: pointer;
+  color: #FFFFFF; /* White */
+  font-size: 2em; /* Increase the size of the 'X' and hamburger icon */
+  padding: 10px; /* Add padding to ensure visibility and clickability */
+  z-index: 1000; /* Make sure it's above other elements */
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  align-items: center; /* Ensure vertical alignment */
+  flex-grow: 1; /* Let the navbar links grow to use available space */
+}
+
+.navbar-links li {
+  margin: 0 15px;
+}
+
+.navbar-item, .toggle-btn {
+  display: inline-block;
+  background: #FFFFFF; /* White */
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: #FF6347; /* Tomato Red */
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s, color 0.3s;
+}
+
+.navbar-item:hover/*, .toggle-btn.active:hover*/ {
+  background: #FF6347; /* Tomato Red */
+  color: #FFFFFF; /* White */
+}
+
+@media (max-width: 768px) {
+  .navbar-links {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: #FECDA6; /* Tomato Red */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    padding: 0; /* Remove padding if present */
+    margin: 0; /* Remove margin if present */
+    list-style: none;
     display: none;
   }
-  .navbar-links-container a {
-    margin-right: 3rem;
-    text-decoration: none;
-    color: black;
-    font-size: 1.1rem;
-    font-weight: 600;
+  
+  .navbar-links li,
+  .navbar-links .switch-button { /* Added .switch-button to apply the same styles */
+    background: none; /* Remove the white background */
+    padding: 10px 20px; /* Adjust padding to match non-mobile view, if needed */
+    margin: 0; /* Remove margin to make it full width */
+    border-radius: 0; /* Remove border-radius if present */
   }
-  .navbar-cart-icon {
-    font-size: 1.15rem;
+  .navbar-links.show {
+    display: flex; /* Show when 'show' class is added */
   }
-  .navbar-menu-container svg {
-    font-size: 1.5rem;
-    cursor: pointer;
+  .button-box {
+    justify-content: center; /* Center the toggle buttons */
+    background: none; /* Remove the white background */
+    margin: 10px 0; /* Add some margin at the top and bottom */
+    padding: 0; /* Remove padding if present */
   }
-  @media (max-width: 800px) {
-    .nav-logo-container {
-      max-width: 140px;
-    }
-    .navbar-links-container {
-      display: none;
-    }
-    .navbar-menu-container {
-      display: flex;
-    }
+
+  #btn {
+    display: none; /* Hide the slider since it might not fit well in the mobile design */
+  }
+
+  .toggle-btn {
+    background: none;
+    color: #FFFFFF; /*Set the text color to white*/
+    font-weight: bold;
+  }
+
+  .toggle-btn.active {
+    /* background: none; */
+    color: #FF6347; /* Highlight color for the active state */
+  
+    display: inline-block;
+  }
+  .navbar-toggle {
+    display: block;
+    z-index: 1002; 
+  }
+
 }
