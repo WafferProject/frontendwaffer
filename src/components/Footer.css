@@ -1,0 +1,82 @@
+.footer {
+    
+    background-color:  #f4a262; /* You can adjust the background color as needed */
+    padding: 10px;
+    height: 205px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color:black;
+  }
+ 
+  
+  .footer-left {
+    text-align: center;
+  }
+  
+  .footer-center {
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+
+  }
+  
+  .footer-right {
+    text-align: right;
+
+  }
+  
+  .icons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end; /* Adjust as needed to control the spacing between icons */
+  }
+  
+ 
+
+  
+
+
+hr {
+    margin: 0;
+    margin-bottom: 5px; /* Example margin values for top and bottom, adjust as needed */
+    border-top: 2px solid #000; /* Example border styling */
+  }
+
+
+
+
+.footer h3 {
+    font: normal 23px 'cookie', cursive;
+}
+
+.footer-website-name {
+    font-size: 12px;
+}
+
+
+
+/* Adjusting the font size of the envelope icon */
+.footer-center .fa-envelope {
+    font-size: 17px;
+    margin-right: 5px; /* Adding space between icon and paragraph */
+}
+
+.footer-center p {
+    
+    font-size: 14px;
+   
+}
+.footer-center .fa-location-dot,
+.footer-center .fa-envelope,
+.footer-center .fa-phone {
+    font-size: 16px;
+}
+.footer-right .fa-square-facebook,
+.footer-right .fa-instagram,
+.footer-right .fa-linkedin {
+    font-size: 16px;
+}
+  
