@@ -1,17 +1,18 @@
 .footer {
-    
-    background-color:  #f4a262; /* You can adjust the background color as needed */
-    padding: 10px;
-    height: 205px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color:black;
-  }
+  background-color: #FECDA6; /* Footer background is white */
+  border-top: 5px solid #f4a262; /* Top border is orange, adjust the thickness (5px) as needed */
+  padding: 10px;
+  height: 205px; /* or 'auto' if you want the height to adjust based on content */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+}
  
   
   .footer-left {
     text-align: center;
+    margin-left:10px ;
   }
   
   .footer-center {
@@ -25,13 +26,14 @@
   
   .footer-right {
     text-align: right;
+    margin-right: 10px;
 
   }
   
-  .icons {
+  .iconsFooter {
     display: flex;
     gap: 10px;
-    justify-content: flex-end; /* Adjust as needed to control the spacing between icons */
+    justify-content: flex-end; 
   }
   
  
@@ -41,8 +43,8 @@
 
 hr {
     margin: 0;
-    margin-bottom: 5px; /* Example margin values for top and bottom, adjust as needed */
-    border-top: 2px solid #000; /* Example border styling */
+    margin-bottom: 5px; 
+    border-top: 2px solid #000; 
   }
 
 
@@ -58,10 +60,10 @@ hr {
 
 
 
-/* Adjusting the font size of the envelope icon */
+
 .footer-center .fa-envelope {
     font-size: 17px;
-    margin-right: 5px; /* Adding space between icon and paragraph */
+    margin-right: 5px; 
 }
 
 .footer-center p {
@@ -79,4 +81,3 @@ hr {
 .footer-right .fa-linkedin {
     font-size: 16px;
 }
-  

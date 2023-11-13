@@ -1,32 +1,38 @@
-import { Link } from 'react-router-dom';
-import "./NavigationBar.css"
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Switch from './SwitchButton';
-import Nav from 'react-bootstrap/Nav';
-import Navbarr from 'react-bootstrap/Navbar';
-import wafferLogo from '../images/LogoWaffer.png';
-function Navbar() {
-  return (
-    <Navbarr expand="lg" className="navbar">
-      <Container fluid className="container">
-        <Navbarr.Brand>
-        <img src={wafferLogo} alt="Waffer Logo" width="90px" height="90px"/>
-        </Navbarr.Brand>
-        <Navbarr.Toggle aria-controls="offcanvasNavbar" />
-        <Navbarr.Collapse id="offcanvasNavbar" className="justify-content-end">
-        <Nav className="me-auto navbar-nav">
-          <Nav.Link as={Link} to="/" className="nav-item">Home</Nav.Link>
-          <Nav.Link as={Link} to="/about" className="nav-item">About</Nav.Link>
-          <Nav.Link as={Link} to="/contact" className="nav-item">Contact</Nav.Link>
-          <Switch className="nav-item" />
-        </Nav>
 
-          <Button className="btn" variant="outline-success">Sign In</Button>
-        </Navbarr.Collapse>
-      </Container>
-    </Navbarr>
-  );
+
+import React, { useState } from 'react';
+import './Navbar.css';
+import { Link } from 'react-router-dom';
+import SwitchButton from './SwitchButton'; // Import the SwitchButton component
+import WafferLogo from '../images/WafferLogo.png';
+const Navbar = () => {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+    const handleMobileMenuToggle = () => {
+        setMobileMenuOpen(!mobileMenuOpen);
+    };
+
+    return (
+        <nav className="navbar">
+            <div className="navbar-logo">
+                <Link to="/"><img src={WafferLogo} alt="Waffer Logo" width="90px" height="90px"/></Link>
+            </div>
+            <div className="navbar-toggle" onClick={handleMobileMenuToggle}>
+                {mobileMenuOpen ? 'X' : <div>&#9776;</div>}
+            </div>
+              <ul className={`navbar-links ${mobileMenuOpen ? 'show' : ''}`}>
+            <li><Link to="/about" className="navbar-item">About</Link></li>
+            <li><SwitchButton /></li> {/* This is now wrapped in a <li> */}
+            {/* <li><Link to="/" className="navbar-item">About</Link></li> */}
+           
+          <li><Link to="/contact" className="navbar-item">Contact</Link></li>
+          <li><Link to="/signin" className="navbar-item">Sign In</Link></li>
+
+        </ul>
+
+        </nav>
+    );
+
 }
 
 export default Navbar;
