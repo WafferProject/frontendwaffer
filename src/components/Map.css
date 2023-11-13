@@ -1,6 +1,7 @@
 
 .map-container-container{
-    margin: 20px auto ;  text-align: center ;  width: 85% ;  
+    margin: 40px auto ;  text-align: center ;  width: 85% ;  
+    margin-bottom: 100px;
 }
 .map-error-container{
     margin: 14px ;
