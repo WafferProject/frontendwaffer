@@ -15,16 +15,16 @@ export default function OfferList() {
 
       <div className="offers-list">
        
-          <Offer button={true} setSelectedOffer={setSelectedOffer} />
-          <Offer button={true} setSelectedOffer={setSelectedOffer} />
-          <Offer button={true} setSelectedOffer={setSelectedOffer} />
-          <Offer button={true} setSelectedOffer={setSelectedOffer} />
-          <Offer button={true} setSelectedOffer={setSelectedOffer} />
-          <Offer button={true} setSelectedOffer={setSelectedOffer} />
-          <Offer button={true} setSelectedOffer={setSelectedOffer} />
+          <Offer defaultOffer={true} setSelectedOffer={setSelectedOffer} />
+          <Offer defaultOffer={true} setSelectedOffer={setSelectedOffer} />
+          <Offer defaultOffer={true} setSelectedOffer={setSelectedOffer} />
+          <Offer defaultOffer={true} setSelectedOffer={setSelectedOffer} />
+          <Offer defaultOffer={true} setSelectedOffer={setSelectedOffer} />
+          <Offer defaultOffer={true} setSelectedOffer={setSelectedOffer} />
+          <Offer defaultOffer={true} setSelectedOffer={setSelectedOffer} />
 
          
-
+    
       </div>
       {selectedOffer && <Popup offer= {selectedOffer}   setSelectedOffer={setSelectedOffer} />}
     </>

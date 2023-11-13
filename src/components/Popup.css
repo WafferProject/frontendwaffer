@@ -12,6 +12,20 @@
     margin: 0 auto;
   }
   
+  @keyframes dropTop {
+    0% {
+      transform: translateY(-100%) scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0%) scale(1);
+      opacity: 1;
+    }
+  }
+  
+  
+  
+  
   .popup-header {
     border-bottom: 2px solid lightgray;
     padding:2px 10px;

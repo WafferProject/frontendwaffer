@@ -5,14 +5,19 @@ import OfferList from "./components/OfferList";
 import NavigationBar from "./components/NavigationBar";
 import Map from "./components/Map";
 import Footer from "./components/Footer";
+import Filter from "./components/Filter";
+import Login from "./components/Login"; 
+import SignUp from "./components/Signup";
 
 function App() {
   return (
     <BrowserRouter>
       <NavigationBar />
-      <Map />
+      <Login/>
+     <SignUp/>
+
       <div className="App">
-      
+       
       <OfferList/>
       </div>
       <Footer />

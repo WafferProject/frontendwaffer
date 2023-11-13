@@ -27,8 +27,10 @@ const Popup = ({ setSelectedOffer }) => {
         open={true}
         sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
         closeAfterTransition
+        
       >
         {/* Content */}
+
         <div onClick={(e) => e.stopPropagation()} className="popup-content">
           <Map />
           <div className="popup-header">
@@ -78,7 +80,7 @@ const Popup = ({ setSelectedOffer }) => {
                     setOrderPlaced(true);
                     setTimeout(() => {
                       setSelectedOffer(null);
-                    }, 1500);
+                    }, 1700);
                   }}
                 >
                   Place Order
@@ -92,19 +94,9 @@ const Popup = ({ setSelectedOffer }) => {
         variant="soft"
         color="success"
         open={isOrderPlaced}
-        onClose={() => setOrderPlaced(false)}
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         startDecorator={<CheckCircle />}
-        endDecorator={
-          <Button
-            onClick={() => setOrderPlaced(false)}
-            size="sm"
-            variant="soft"
-            color="success"
-          >
-            Dismiss
-          </Button>
-        }
+        
       >
         Your order was placed successfully
       </Snackbar>
