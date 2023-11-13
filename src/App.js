@@ -12,8 +12,6 @@ import Login from "./components/Login";
 import SignUp from "./components/Signup";
 
 import Offer from "./components/Offer";
-import Map from "./components/Map";
-import Footer from "./components/Footer";
 import Navbar from "./components/Navbar"
 import Home from "./components/Home";
 import Partners from "./components/Partners";
