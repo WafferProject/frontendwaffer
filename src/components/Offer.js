@@ -11,10 +11,12 @@ import { Button } from "@mui/joy";
 import ArrowOutwardOutlinedIcon from "@mui/icons-material/ArrowOutwardOutlined";
 import { CardActionArea } from "@mui/material";
 import RouteOutlinedIcon from "@mui/icons-material/RouteOutlined";
+import "./Offer.css"
 
 export default function Offer({ setSelectedOffer, data, defaultOffer }) {
   return (
     <Card
+    
       variant="outlined"
       sx={{
         width: "420px",
@@ -22,7 +24,7 @@ export default function Offer({ setSelectedOffer, data, defaultOffer }) {
           boxShadow: "lg",
           borderColor: "success.outlinedHoverBorder",
         },
-        margin: "15px",
+        margin: "20px",
         height: "275px",
       }}
     >
@@ -34,7 +36,7 @@ export default function Offer({ setSelectedOffer, data, defaultOffer }) {
       >
         <div style={{ display: "flex" }}>
           <Paper
-            style={{ width: 210, marginRight: "15px", padding: "10px" }}
+          className="img-restaurant-div"
             variant="outlined"
           >
             <Paper elevation={6} style={{ marginBottom: "15px" }}>
@@ -72,16 +74,8 @@ export default function Offer({ setSelectedOffer, data, defaultOffer }) {
             }}
           >
             <div
-              style={{
-                backgroundColor: "#FBFAF5",
-                height: "100%",
-                width: "100%",
-                display: "flex",
-                flexDirection: "column",
-                borderRadius: "7px",
-                padding: "10px",
-                gap: "10px",
-              }}
+            className="inner-info-container"
+             
             >
               <Typography
                 level="body-xs"
@@ -142,13 +136,8 @@ export default function Offer({ setSelectedOffer, data, defaultOffer }) {
 
               {defaultOffer ? (
                 <Button
-                  style={{
-                    position: "relative ",
-                    height: "40px",
-                    width: "135px",
-                    right: "-100px",
-                    top: "-7px",
-                  }}
+                className="place-order-btn"
+              
                   variant="outlined"
                   endDecorator={<ArrowOutwardOutlinedIcon />}
                   color="primary"
