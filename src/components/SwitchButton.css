@@ -1,0 +1,51 @@
+.switch-button {
+	display: flex;
+	align-items: center;
+	justify-content: center; /* Center the button box */
+  }
+  
+  .button-box {
+	width: auto; /* Auto width to fit content */
+	background: #FFFFFF; /* White */
+	border-radius: 20px; /* Same border-radius as navbar items */
+	display: inline-flex; /* Make the button box an inline-flex item */
+	position: relative;
+	margin: 0 15px; /* Same margin as navbar items for consistency */
+  }
+  
+  .toggle-btn {
+	background: transparent;
+	border: 0;
+	outline: none;
+	color: #FFFFFF;
+	padding: 10px 20px; /* Same padding as navbar-item */
+	color: #FF6347; /* Tomato Red */
+	text-decoration: none;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background 0.3s, color 0.3s;
+	position: relative; /* Make sure the button is positioned relative to the button box */
+	z-index: 2; /* Ensure the buttons are above the slider */
+  }
+  
+  .toggle-btn.active {
+	color: #FFFFFF;
+	background: #FF6347; /* Tomato Red - for active state */
+    
+  }
+  
+  #btn {
+	position: absolute;
+	left: 0;
+	width: 50%; /* Adjust width to half of the parent to fit nicely */
+	height: 100%;
+	background: #FF6347; /* Tomato Red */
+	border-radius: 20px;
+	transition: 0.5s; /* Smooth transition for the sliding effect */
+	z-index: 1; /* Place the slider just below the buttons */
+  }
+  .button-box #btn {
+    display: block; /* Ensure the slider is visible */
+     /* A distinct color for the slider background */
+  }
+  

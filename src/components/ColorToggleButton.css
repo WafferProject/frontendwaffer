@@ -1,0 +1,19 @@
+.ToggleButtonGroup-root {
+    display: flex;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .ToggleButton-root {
+    background-color: #0077B6; 
+    color: #fff; 
+    border: none;
+    margin: 2px;
+    flex: 1;
+    transition: background-color 0.3s ease;
+  }
+
+  .ToggleButton-root:hover {
+    background-color: #005d8f; 
+  } 
