@@ -3,7 +3,6 @@
  
   
   .title {
-    width: 100%;
     height: 40px;
     display: flex;
     align-items: center;
@@ -76,14 +75,6 @@
     font-size: 13px;
   }
   
-  .price sub {
-    width: fit-content;
-    position: absolute;
-    font-size: 11px;
-    color: #5f5d6b;
-    bottom: 5px;
-    display: inline-block;
-  }
   
 
   

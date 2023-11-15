@@ -6,12 +6,17 @@ import Popup from "./Popup";
 import { Button } from "@mui/joy";
 import OrderTab from "./OrderTab";
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import BuisnessProfile from "./BuisnessProfile";
 
 export default function OfferList() {
   const data = [0, 1, 2, 3, 4, 5, 8];
   const [selectedOffer, setSelectedOffer] = useState(null);
   //for order tab state
   const [isOrderOpen, setOrderOpen] = useState(false);
+  const [isProfileOpen, setProfileOpen] = useState(false);
+
+
+  
 
   const toggleDrawer = (inOpen) => (event) => {
     if (
@@ -26,6 +31,7 @@ export default function OfferList() {
 
   return (
     <>
+    <BuisnessProfile  ProfileOpen={isProfileOpen} setProfileOpen={setProfileOpen}/>
       <OrderTab isOrderOpen={isOrderOpen} setOrderOpen={toggleDrawer} />
       <Button
         style={{ position: "relative", left: " 757px", width: "200px" }}
@@ -39,13 +45,14 @@ export default function OfferList() {
       </Button>
 
       <div className="offers-list">
-        <Offer defaultOffer={true} setSelectedOffer={setSelectedOffer} />
-        <Offer defaultOffer={true} setSelectedOffer={setSelectedOffer} />
-        <Offer defaultOffer={true} setSelectedOffer={setSelectedOffer} />
-        <Offer defaultOffer={true} setSelectedOffer={setSelectedOffer} />
-        <Offer defaultOffer={true} setSelectedOffer={setSelectedOffer} />
-        <Offer defaultOffer={true} setSelectedOffer={setSelectedOffer} />
-        <Offer defaultOffer={true} setSelectedOffer={setSelectedOffer} />
+      <Offer defaultOffer={true} setSelectedOffer={setSelectedOffer} setProfileOpen={setProfileOpen} />
+      <Offer defaultOffer={true} setSelectedOffer={setSelectedOffer} setProfileOpen={setProfileOpen} />
+      <Offer defaultOffer={true} setSelectedOffer={setSelectedOffer} setProfileOpen={setProfileOpen} />
+      <Offer defaultOffer={true} setSelectedOffer={setSelectedOffer} setProfileOpen={setProfileOpen} />
+      <Offer defaultOffer={true} setSelectedOffer={setSelectedOffer} setProfileOpen={setProfileOpen} />
+      <Offer defaultOffer={true} setSelectedOffer={setSelectedOffer} setProfileOpen={setProfileOpen} />
+      <Offer defaultOffer={true} setSelectedOffer={setSelectedOffer} setProfileOpen={setProfileOpen} />
+
       </div>
       {selectedOffer && (
         <Popup offer={selectedOffer} setSelectedOffer={setSelectedOffer} />
