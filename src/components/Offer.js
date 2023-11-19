@@ -10,11 +10,13 @@ import { Paper } from "@mui/material";
 import { Button } from "@mui/joy";
 import ArrowOutwardOutlinedIcon from "@mui/icons-material/ArrowOutwardOutlined";
 import { CardActionArea } from "@mui/material";
-import RouteOutlinedIcon from "@mui/icons-material/RouteOutlined";
+import RouteOutlinedIcon  from '@mui/icons-material/DirectionsOutlined';
+import "./Offer.css"
 
-export default function Offer({ setSelectedOffer, data, defaultOffer }) {
+export default function Offer({ setSelectedOffer, data, defaultOffer , setProfileOpen }) {
   return (
     <Card
+    
       variant="outlined"
       sx={{
         width: "420px",
@@ -22,21 +24,18 @@ export default function Offer({ setSelectedOffer, data, defaultOffer }) {
           boxShadow: "lg",
           borderColor: "success.outlinedHoverBorder",
         },
-        margin: "15px",
+        margin: "20px",
         height: "275px",
       }}
     >
-      <CardActionArea
-        onClick={() => {
-          setSelectedOffer({});
-          console.log("click done");
-        }}
-      >
+     
         <div style={{ display: "flex" }}>
+     
           <Paper
-            style={{ width: 210, marginRight: "15px", padding: "10px" }}
+          className="img-restaurant-div"
             variant="outlined"
           >
+               <CardActionArea onClick={()=>{setProfileOpen(true)}}>
             <Paper elevation={6} style={{ marginBottom: "15px" }}>
               <AspectRatio ratio="2">
                 <img
@@ -57,7 +56,10 @@ export default function Offer({ setSelectedOffer, data, defaultOffer }) {
                 Aouina <AddLocationAltOutlinedIcon />
               </Typography>
             </CardContent>
+            </CardActionArea>
           </Paper>
+          
+          
           <Divider orientation="vertical" />
 
           <Paper
@@ -71,17 +73,15 @@ export default function Offer({ setSelectedOffer, data, defaultOffer }) {
               marginLeft: "15px",
             }}
           >
+            <CardActionArea
+        onClick={() => {
+          setSelectedOffer({});
+          console.log("click done");
+        }}
+      >
             <div
-              style={{
-                backgroundColor: "#FBFAF5",
-                height: "100%",
-                width: "100%",
-                display: "flex",
-                flexDirection: "column",
-                borderRadius: "7px",
-                padding: "10px",
-                gap: "10px",
-              }}
+            className="inner-info-container"
+             
             >
               <Typography
                 level="body-xs"
@@ -123,6 +123,7 @@ export default function Offer({ setSelectedOffer, data, defaultOffer }) {
               </Typography>
               <Divider />
             </div>
+            </CardActionArea>
           </Paper>
         </div>
         <Paper elevation={2}>
@@ -142,16 +143,13 @@ export default function Offer({ setSelectedOffer, data, defaultOffer }) {
 
               {defaultOffer ? (
                 <Button
-                  style={{
-                    position: "relative ",
-                    height: "40px",
-                    width: "135px",
-                    right: "-100px",
-                    top: "-7px",
-                  }}
+                className="place-order-btn"
+              
                   variant="outlined"
                   endDecorator={<ArrowOutwardOutlinedIcon />}
                   color="primary"
+                  onClick={() => {
+                    setSelectedOffer({});}}
                 >
                   See details
                 </Button>
@@ -169,7 +167,7 @@ export default function Offer({ setSelectedOffer, data, defaultOffer }) {
             </CardContent>
           </CardOverflow>
         </Paper>
-      </CardActionArea>
+     
     </Card>
   );
 }

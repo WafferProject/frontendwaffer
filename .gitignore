@@ -1,6 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-/App.js
-/App.css
+src/App.js
+src/App.css
 # dependencies
 /node_modules
 /.pnp

@@ -26,7 +26,7 @@ const Popup = ({ setSelectedOffer }) => {
       <Modal
         open={true}
         sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
-        closeAfterTransition
+        onClose={()=>{setSelectedOffer(null)}}
         
       >
         {/* Content */}
