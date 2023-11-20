@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import "./Profile.css";
-
+import Alert from '@mui/material/Alert';
 function Profile() {
   const [activeTab, setActiveTab] = useState('general');
   const [userData, setUserData] = useState({
@@ -15,6 +15,7 @@ function Profile() {
   });
 
   const [originalData, setOriginalData] = useState({});
+  const [showAlert, setShowAlert] = useState(false);
 
 useEffect(() => {
   // Assuming you fetch the user data here, set it as the original data
@@ -64,7 +65,9 @@ useEffect(() => {
     
     // After saving the data successfully, update the originalData
     setOriginalData(userData);
-    alert('Changes saved successfully!');
+    setShowAlert(true);
+    
+
   
     // Reset the edit modes
     setEditMode({
@@ -106,6 +109,25 @@ useEffect(() => {
  
   return (
     <div className="containerProfile">
+      {showAlert && (
+             <Alert
+             severity="success"
+             onClose={() => setShowAlert(false)}
+             
+                style={{
+                   position: 'absolute',
+                    top: '20px',
+                    right: '20px',
+                    zIndex: 9999,
+                    transition: 'transform 0.3s ease-in-out',
+                    transform: showAlert ? 'translateX(0)' : 'translateX(100%)'
+                
+             }}
+         >
+             Changes saved successfully!
+         </Alert>
+
+    )}
       <h4 className="font-weight-bold py-3 mb-4">Account settings</h4>
 
       <div className="card overflow-hidden">
