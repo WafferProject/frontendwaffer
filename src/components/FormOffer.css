@@ -1,0 +1,159 @@
+.formContainer{
+/* padding: 0; */
+  /* margin: 0; */
+  margin-top: 20px;
+  margin-bottom: 100px;
+  padding-bottom: 100px;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  display: flex;
+  
+  justify-content: center;
+  /* height: 100vh; */
+  /* background-image: linear-gradient(#380036,#000CBABA); */
+
+
+
+}
+
+.container{
+  
+  max-width:650px;
+  padding: 28px;
+  border-radius: 10px;
+  overflow: hidden;
+  background:white;
+  box-shadow: 0 10px 10px rgba(0,0,0,0.2);
+}
+.header{
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid silver;
+  
+}
+.content{
+  margin-top: 28px;
+}
+.input_field{
+ 
+  display: flex;
+  /* flex-wrap:wrap ; */
+  justify-content: space-between;
+  /* width: 50%; */
+  padding-bottom: 15px;
+}
+.field {
+  flex: 1;
+  margin-right: 10px;
+}
+.field:last-child {
+  margin-right: 0;
+}
+.input_field:nth-child(2n){
+  justify-content: end;
+}
+
+.input_field label{
+  /* width: 95%; */
+
+  font-weight: bold;
+
+
+}
+.input_field label, .input_field input, .input_field textarea {
+  flex: 1;
+  margin-right: 10px;
+}
+.input_field input,textarea{
+  height: 40px;
+ 
+  padding: 0 10px;
+  border-radius: 5px;
+  border: 1px solid;
+  outline: none;
+}
+.input_field input,textarea :is(:focus,:valid){
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+.button_container{
+  margin: 15px 0;
+}
+.button_submit{
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  display: block;
+  font-size: 20px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  background-image: linear-gradient(to right, #F49D5D,#DA7C3D);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.button_submit:hover{
+  background-image: linear-gradient(to right ,#DA7C3D,#F49D5D);
+}
+
+input[type="file"]{
+  margin-top: 5px;
+  
+}
+
+ .close {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: opacity 0.3s ease; /* Add a transition for opacity */
+
+}
+
+
+.close:hover {
+  opacity: 0.7; /* Reduce opacity on hover */
+}
+.field label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.field input[type="file"] {
+  display: none; 
+}
+
+.field label.upload-button {
+  display: inline-block;
+  padding: 10px 15px;
+  background-color: green;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.field label.upload-button:hover {
+  background-color: #0d8bf5;
+}
+@media(max-width:600px){
+  .container{
+    min-width: 280px;
+
+  }
+  .content{
+    max-height: 380px;
+    overflow: auto;
+  }
+  .input_field{
+    margin-bottom: 12px;
+    width: 100%;
+  }
+  .input_field:nth-child(2n){
+    justify-content: space-between;
+  }
+  .content::-webkit-scrollbar{
+    width: 5;
+  }
+}

@@ -10,6 +10,7 @@ import { Paper } from "@mui/material";
 import { Button } from "@mui/joy";
 import ArrowOutwardOutlinedIcon from "@mui/icons-material/ArrowOutwardOutlined";
 import { CardActionArea } from "@mui/material";
+
 import RouteOutlinedIcon  from '@mui/icons-material/DirectionsOutlined';
 import "./Offer.css"
 
@@ -28,6 +29,7 @@ export default function Offer({ setSelectedOffer, data, defaultOffer , setProfil
         height: "275px",
       }}
     >
+
      
         <div style={{ display: "flex" }}>
      
@@ -35,6 +37,7 @@ export default function Offer({ setSelectedOffer, data, defaultOffer , setProfil
           className="img-restaurant-div"
             variant="outlined"
           >
+
                <CardActionArea onClick={()=>{setProfileOpen(true)}}>
             <Paper elevation={6} style={{ marginBottom: "15px" }}>
               <AspectRatio ratio="2">
@@ -56,6 +59,7 @@ export default function Offer({ setSelectedOffer, data, defaultOffer , setProfil
                 Aouina <AddLocationAltOutlinedIcon />
               </Typography>
             </CardContent>
+
             </CardActionArea>
           </Paper>
           
@@ -73,6 +77,7 @@ export default function Offer({ setSelectedOffer, data, defaultOffer , setProfil
               marginLeft: "15px",
             }}
           >
+
             <CardActionArea
         onClick={() => {
           setSelectedOffer({});
@@ -123,6 +128,7 @@ export default function Offer({ setSelectedOffer, data, defaultOffer , setProfil
               </Typography>
               <Divider />
             </div>
+
             </CardActionArea>
           </Paper>
         </div>
@@ -148,6 +154,7 @@ export default function Offer({ setSelectedOffer, data, defaultOffer , setProfil
                   variant="outlined"
                   endDecorator={<ArrowOutwardOutlinedIcon />}
                   color="primary"
+
                   onClick={() => {
                     setSelectedOffer({});}}
                 >
@@ -167,6 +174,7 @@ export default function Offer({ setSelectedOffer, data, defaultOffer , setProfil
             </CardContent>
           </CardOverflow>
         </Paper>
+
      
     </Card>
   );
