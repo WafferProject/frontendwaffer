@@ -1,0 +1,44 @@
+
+.title_offer {
+    text-align: center;
+    font-weight: bold;
+    font-family: "Arial";
+
+    
+    margin: 40px auto 0;
+    
+  }
+  .menu-tab-wp {
+    margin-top: 10px;
+    margin-bottom: 80px;
+}
+
+.menu-tab ul {
+    padding: 10px;
+    display: inline-block;
+    border-radius: 60px;
+    background: linear-gradient(145deg, #ececec, #ffffff);
+    box-shadow: 28px 28px 55px #d4d4d4, -28px -28px 55px #ffffff;
+    position: relative;
+    z-index: 2;
+}
+
+.menu-tab ul li, .menu-tab ul .filter-active {
+    display: inline-flex;
+    text-transform: capitalize;
+    font-size: 18px;
+    line-height: normal;
+    cursor: pointer;
+    padding: 10px 26px;
+    border-radius: 30px;
+    transition:  0.3s ease-in-out;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.menu-tab ul .filter-active {
+  color: #ffffff;
+  background: linear-gradient(145deg, #FF6347, #ffc933);
+}

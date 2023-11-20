@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 import AspectRatio from "@mui/joy/AspectRatio";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
@@ -9,13 +9,51 @@ import AddLocationAltOutlinedIcon from "@mui/icons-material/AddLocationAltOutlin
 import { Paper } from "@mui/material";
 import { Button } from "@mui/joy";
 import ArrowOutwardOutlinedIcon from "@mui/icons-material/ArrowOutwardOutlined";
+import OrderDetails from "./OrderDetails";
+import DeleteIcon from '@mui/icons-material/Delete';
 
-export default function Offer() {
+function OfferCreation({ offer, updateOffer, deleteOffer }) {
+  const [isViewOrdersClicked, setIsViewOrdersClicked] = useState(false);
+  const handleViewOrdersClick = () => {
+    setIsViewOrdersClicked(true);
+  };
+  const [updatedOfferData, setUpdatedOfferData] = useState({
+    offerName: offer.offerName,
+    category: offer.category,
+    quantityAvailable:offer.quantityAvailable,
+    originalPrice:offer.originalPrice,
+    discountedPrice:offer.discountedPrice,
+    expirationDate:offer.expirationDate,
+    productDescription:offer.productDescription,
+    imagePreview:offer.imagePreview
+    
+  });
+  
+ 
+  const handleUpdateOffer = () => {
+    // Pass the updated offer data to the parent component for updating
+    updateOffer(offer.id, updatedOfferData);
+  };
+
+  const handleDeleteOffer = () => {
+    // Trigger the delete offer function in the parent component
+    deleteOffer(offer.id);
+  };
+  
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUpdatedOfferData({
+      ...updatedOfferData,
+      [name]: value,
+    });
+  };
   return (
+    <div style={{ marginTop: '10px' }}>
     <Card
       variant="outlined"
       sx={{
         width: "450px",
+        margin: '10px auto',
         "&:hover": {
           boxShadow: "lg",
           borderColor: "success.outlinedHoverBorder",
@@ -32,21 +70,21 @@ export default function Offer() {
           <Paper elevation={6} style={{ marginBottom: "15px" }}>
             <AspectRatio ratio="2">
               <img
-                src="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318"
-                srcSet="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318&dpr=2 2x"
+                src={offer.imagePreview} // Use the offer's image URL here
                 loading="lazy"
                 alt=""
               />
             </AspectRatio>
           </Paper>
+          
           <hr style={{ margin: "0 auto ", width: "150px" }} />
           <CardContent
             orientation="vertical"
             style={{ marginLeft: "5px", marginTop: "10px" }}
           >
-            <Typography level="title-md">KFC</Typography>
+            <Typography level="title-md">{offer.restaurant}</Typography>
             <Typography level="body-sm">
-              Aouina <AddLocationAltOutlinedIcon />
+              {offer.location} <AddLocationAltOutlinedIcon />
             </Typography>
           </CardContent>
         </Paper>
@@ -81,7 +119,7 @@ export default function Offer() {
               textColor="text.secondary"
               fontFamily={"roboto"}
             >
-              Sandwich
+              {offer.category}
             </Typography>
             <Divider />
             <Typography
@@ -92,7 +130,7 @@ export default function Offer() {
             >
               Price : &nbsp; &nbsp;
               <Typography fontFamily={"Lobster"} textColor="#c94438">
-                <s>6 TND </s> &nbsp; 4 TND
+                <s>{offer.originalPrice} TND </s> &nbsp; {offer.discountedPrice} TND
               </Typography>
             </Typography>
             <Divider />
@@ -102,7 +140,7 @@ export default function Offer() {
               textColor="text.secondary"
               fontFamily={"roboto"}
             >
-              10 pieces to save !
+              {offer.quantity} pieces to save !
             </Typography>
             <Divider />
             <Typography
@@ -111,7 +149,7 @@ export default function Offer() {
               textColor="text.secondary"
               fontFamily={"roboto"}
             >
-              pickup between 8 and 7
+              Pickup between {offer.pickupStart} and {offer.pickupEnd}
             </Typography>
             <Divider/>
           </div>
@@ -125,14 +163,14 @@ export default function Offer() {
           <CardContent orientation="horizontal">
             <Typography
               level="body-xs"
-              fontWeight="md"
+              fontWeight="bold"
               textColor="text.secondary"
               alignContent={"baseline"}
             >
               Created about 10 minutes ago
             </Typography>
             <Divider orientation="vertical" />
-
+         
             <Button
               style={{
                 position: "absolute ",
@@ -144,12 +182,25 @@ export default function Offer() {
               variant="outlined"
               endDecorator={<ArrowOutwardOutlinedIcon />}
               color="primary"
+              onClick={handleViewOrdersClick}
             >
-              View Orders
+              Track Orders
             </Button>
           </CardContent>
         </CardOverflow>
       </Paper>
+      {isViewOrdersClicked && <OrderDetails handleClose={() => setIsViewOrdersClicked(false)} />}
+      <div>
+          <Button variant="outlined" color="primary" onClick={handleUpdateOffer}>
+            Update Offer
+          </Button>
+          <Button variant="outlined" color="secondary" onClick={handleDeleteOffer}>
+            Delete Offer
+          </Button>
+        </div>     
     </Card>
+    </div>
   );
 }
+
+export default OfferCreation;

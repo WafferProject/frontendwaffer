@@ -1,28 +1,26 @@
-
-
-
-
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import OfferList from "./components/OfferList";
-import NavigationBar from "./components/NavigationBar";
-import Map from "./components/Map";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar"
-import OfferCreation from "./components/OfferCreation";
+
+
+import FormOffer from "./components/FormOffer";
+
+import React, { useState } from 'react';
+import ProfileSettings from "./pages/ProfileSettings";
+
 
 function App() {
+ 
   return (
     <BrowserRouter>
-     <Navbar/>
+     
+      <Routes>
       
-      <div className="App">
-        <OfferCreation/>
-      
-      <OfferList/>
-      </div>
-      <Footer />
+        <Route path="/form" element={<FormOffer />} />
+      </Routes>
+   
+     <ProfileSettings/>
+   
     </BrowserRouter>
   );
 }

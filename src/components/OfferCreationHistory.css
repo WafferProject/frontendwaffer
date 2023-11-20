@@ -1,0 +1,46 @@
+.offerHistoryContainer {
+    /* border: 1px solid #ccc; 
+    padding: 30px; 
+    width: 70%;
+    display: block;
+    margin: 40px auto 0;
+    background-color: #FBFAF5;
+    height: auto;
+    border-radius: 20px;
+    font-family: "Arial";
+  
+    height: 1000px;
+   */
+   height: auto;
+   margin: 40px auto 0;
+   width:90%;
+   display: block;
+   padding: 20px;
+   
+   border-radius: 10px;
+   box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  }
+  
+
+.offerofferHistoryCreatedsCreated{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around ;  
+      flex-wrap: wrap;
+      
+  }
+  .emptyHistoryContainer{
+    display: flex; /* Change this to flex */
+    justify-content: center; /* Add this line */
+    align-items: center; /* Add this line */
+    flex-direction: column;
+  }
+  .post{
+    text-align: center;
+    font-weight: bold;
+    font-family: "Arial";
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+  }
+  

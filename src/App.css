@@ -1,9 +1,9 @@
-.App {
+/* .App {
     width: 70%;
     display: block;
     margin: 40px auto 0;
     background-color: #FBFAF5;
-height: auto;
+    height: auto;
     border-radius: 20px;
     font-family: "Arial";
     padding: 20px;
@@ -18,7 +18,7 @@ height: auto;
       transform: translateY(0%) scale(1);
       opacity: 1;
     }
-  }
+  }  */
 
 /* 
 .button-28 {
@@ -64,4 +64,13 @@ height: auto;
   box-shadow: none;
   transform: translateY(0);
 }
-  */
+ */
+/* 
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+.main-content {
+  flex-grow: 1; 
+} */
