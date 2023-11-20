@@ -1,36 +1,101 @@
-.field {
-    display: flexbox;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .field label {
-    font-size: 18px;
-    font-weight: bold !important;
-  
-    color: #33333351;
-  }
-  
-  .field input[type="text"],
-  .field input[type="email"],
-  .field input[type="password"] {
-    padding: 10px;
-  
-    border: none;
-    border-radius: 5px;
-  
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    background-color: bisque;
-  }
-  
-  
-  
-  .field button:hover {
-    background-color: #991515;
-  }
-  body.SignUp {
-    background-color: #e91313f5;
-  }
+
+.MuiContainer-root {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.MuiTypography-h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.MuiTextField-root {
+  margin-bottom: 15px;
+}
+
+.MuiButton-containedPrimary {
+  background-color: #007bff;
+}
+
+.MuiButton-containedPrimary:hover {
+  background-color: #0056b3;
+}
+
+.MuiGrid-container {
+  margin-top: 15px;
+}
+
+.MuiToggleButtonGroup-root {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.MuiToggleButtonGroup-root .MuiToggleButton-root {
+  background-color: #007bff;
+  color: white;
+}
+
+.MuiToggleButtonGroup-root .MuiToggleButton-root.Mui-selected {
+  background-color: #0056b3;
+}
+
+.MuiAvatar-root {
+  background-color: #007bff;
+}
+
+.MuiLink-root {
+  color: #007bff;
+}
+
+.MuiLink-root:hover {
+  text-decoration: underline;
+}
+
+/* Additional styles for the final section */
+
+.MuiContainer-root {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin: 4rem auto;
+  max-width: 600px;
+}
+
+.MuiButton-root {
+  background-color: #007bff;
+  color: #ffffff;
+  font-weight: bold;
+  border: 2px solid #007bff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.MuiButton-root:hover {
+  background-color: #0056b3;
+  color: #ffffff;
+}
+
+.MuiGrid-container {
+  margin-top: 20px;
+}
+
+.MuiToggleButtonGroup-root {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.MuiToggleButtonGroup-root .MuiToggleButton-root {
+  background-color: #007bff;
+  color: #ffffff;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.MuiToggleButtonGroup-root .MuiToggleButton-root.Mui-selected {
+  background-color: #0056b3;
+} 
