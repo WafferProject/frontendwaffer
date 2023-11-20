@@ -1,10 +1,19 @@
 import React, { useEffect } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './Partners.css'; // Import the CSS file for your component
+
 import $ from 'jquery';
 import 'slick-carousel';
-import { FiArrowRight } from "react-icons/fi";
+import './Partners.css'; 
+import adidasLogo from '../images/adidas.png';
+import facebookLogo from '../images/facebook.png';
+import KFCLogo from '../images/KFC.png';
+import instagramLogo from '../images/instagram.png';
+import nikeLogo from '../images/nike.png';
+import BaristasLogo from '../images/Baristas.png';
+import youtubeLogo from '../images/youtube.png';
+
+
 
 const Partners = () => {
   useEffect(() => {
@@ -43,35 +52,29 @@ const Partners = () => {
 
       <section className="customer-logos slider">
         <div className="slide">
-          <img src="/images/adidas.png" alt="logo" />
+          <img src={adidasLogo }alt="adidaslogo" />
         </div>
         <div className="slide">
-          <img src="images/facebook.png" alt="logo" />
+          <img src={KFCLogo }alt="KFClogo" />
         </div>
         <div className="slide">
-          <img src="images/google.png" alt="logo" />
+          <img src={facebookLogo} alt="facebooklogo" />
         </div>
         <div className="slide">
-          <img src="images/instagram.png" alt="logo" />
+          <img src={instagramLogo} alt="logo" />
         </div>
         <div className="slide">
-          <img src="images/nike.png" alt="logo" />
+          <img src={nikeLogo} alt="logo" />
         </div>
         <div className="slide">
-          <img src="images/Baristas.png" alt="logo" />
+          <img src={BaristasLogo}alt="logo" />
         </div>
         <div className="slide">
-          <img src="images/KFC.png" alt="logo" />
-        </div>
-        <div className="slide">
-          <img src="images/youtube.png" alt="logo" />
+          <img src={youtubeLogo} alt="logo" />
         </div>
       </section>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-    <button className="secondary-button">
-      Let's Get Started <FiArrowRight />
-    </button>
-  </div>
+
+     
     </div>
   );
 };
