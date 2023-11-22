@@ -2,11 +2,7 @@
   text-decoration: line-through;
 }
 
-.MuiDataGrid-root .MuiDataGrid-columnHeader {
-  background-color: #f0f0f0 ; 
-  color: #333 ; 
-  font-weight: bold ;
-}
+
 .checkbox-wrapper-19 {
   box-sizing: border-box;
   --background-color: #fff;
@@ -174,6 +170,6 @@
 }
 
 .scrollable-table {
-  height: 500px; /* Adjust as needed */
+  height: 500px; 
   overflow: auto;
 }

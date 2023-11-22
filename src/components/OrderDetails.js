@@ -29,24 +29,24 @@ const OrderDetails = ({ handleClose }) => {
   }, [rows]);
 
   const handleDeleteRow = (id) => {
-    // Instead of removing the row, update the 'selected' field
+    
     setRows(rows.map(row => row.id === id ? { ...row, selected: !row.selected } : row));
   };
   const selectedRows = rows.filter(row => row.selected).map(row => row.id);
 
   return (
     <Modal open={true} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} closeAfterTransition>
-  {/* Content */}
+
   <div>
     <div onClick={(e) => e.stopPropagation()} className="order-details-content">
-      {/* Your detailed order information goes here */}
+      
       <div className="title">
         <p>Order Details</p>     
          </div>
          <OrderTable rows={rows} onDeleteRow={handleDeleteRow} selectedRows={selectedRows}/>
 
 
-      {/* Close button */}
+    
      
       <div className="close">
               <CloseOutlined
