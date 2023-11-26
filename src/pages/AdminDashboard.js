@@ -6,10 +6,9 @@ import MainDashboard from '../components/MainDashboard'
 function AdminDashboard() {
   return (
     <div className="adminDashboard">
-      <div className="AppGlass">
+      
         <Sidebar/>
-        <MainDashboard/>
-      </div>
+       <MainDashboard/>
     </div>
   )
 }

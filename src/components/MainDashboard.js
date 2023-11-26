@@ -1,20 +1,29 @@
 import React from 'react'
 import "./MainDashboard.css"
-import CardDashboard from './CardDashboard';
+import CardAdmin from"./CardAdmin.js"
+import Featured from "./Featured.js"
+import Chart from './Chart.js'
 function MainDashboard() {
   return (
-    
-        <div className="MainDash">
-      <h1>Dashboard</h1>
+    <div className="homeContainer">
+     
       <div className="widgets">
-          <CardDashboard type="user" />
-          <CardDashboard type="order" />
-        
+        <CardAdmin type="Consumers"/>
+        <CardAdmin type="Businesses"/>
+        <CardAdmin type="Orders"/>
+       
+      </div>
+      <div className="charts">
+        <Featured/>
+        <Chart/>
+      </div>
+      <div className="listContainer">
+        <div className="listTitle">
+          Latest Transactions
         </div>
-
+      </div>
     </div>
-    
   )
 }
 
-export default MainDashboard;
+export default MainDashboard
