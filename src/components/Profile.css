@@ -1,0 +1,162 @@
+
+.containerProfile{
+   
+    height: auto;
+    margin: 40px auto 0;
+    width:90%;
+    display: block;
+    padding: 20px;
+    
+    border-radius: 10px;
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+}
+.ui-w-80 {
+    width : 80px ;
+    height: auto;
+}
+
+.btn-default {
+    border-color: rgba(24, 28, 33, 0.1);
+    background  : rgba(0, 0, 0, 0);
+    color       : #4E5155;
+}
+
+label.btn {
+    margin-bottom: 0;
+}
+
+.btn-outline-primary {
+    border-color: #e76f51;
+    background  : transparent;
+    color       : #e76f51;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.text-light {
+    color: #babbbc !important ;
+}
+
+
+
+.card {
+    background-clip: padding-box;
+    box-shadow     : 0 1px 4px rgba(24, 28, 33, 0.012);
+}
+
+.row-bordered {
+    overflow: hidden;
+}
+
+.account-settings-fileinput {
+    position  : absolute;
+    visibility: hidden;
+    width     : 1px;
+    height    : 1px;
+    opacity   : 0;
+}
+
+.account-settings-links .list-group-item.active {
+    font-weight: bold;
+    background-color: #e76f51;
+    border-color: none;
+}
+
+
+.list-group-item.active {
+    border-color: transparent;
+}
+.account-settings-multiselect~.select2-container {
+    width: 100% ;
+}
+
+.light-style .account-settings-links .list-group-item {
+    padding     : 0.85rem 1.5rem;
+    border-color: rgba(24, 28, 33, 0.03) ;
+}
+
+.light-style .account-settings-links .list-group-item.active {
+    color: #4e5155 ;
+}
+
+.material-style .account-settings-links .list-group-item {
+    padding     : 0.85rem 1.5rem;
+    border-color: rgba(24, 28, 33, 0.03) ;
+}
+
+.material-style .account-settings-links .list-group-item.active {
+    color: #4e5155 ;
+}
+
+.dark-style .account-settings-links .list-group-item {
+    padding     : 0.85rem 1.5rem;
+    border-color: rgba(255, 255, 255, 0.03);
+}
+
+.dark-style .account-settings-links .list-group-item.active {
+    color: #fff ;
+}
+
+.light-style .account-settings-links .list-group-item.active {
+    color: #4E5155 ;
+}
+
+.light-style .account-settings-links .list-group-item {
+    padding     : 0.85rem 1.5rem;
+    border-color: rgba(24, 28, 33, 0.03) ;
+}
+.button-container{
+    display: flex;
+    justify-content: flex-end;
+}
+.button-spacing {
+    margin-right: 8px;
+  }
+  .upload{
+    margin-top: 10px;
+  }
+  .editable-field {
+    display: flex;
+    justify-content: space-between; /* This will push the icon to the right */
+    align-items: center;
+  }
+  
+  .editable-field .edit-icon {
+    margin-left: 10px; /* Or any other suitable spacing */
+    cursor: pointer;
+  }
+  /* This assumes you have an orange color similar to the "Account settings" header */
+.btn-primary {
+    background-color: #ff6f00; /* Orange color */
+    border-color: #ff6f00; /* Orange color */
+}
+
+/* Optional: Change the hover state as well */
+.btn-primary:hover {
+    background-color: #e65a00; /* A slightly darker orange for hover */
+    border-color: #e65a00;
+}
+
+/* If you also want to change the Cancel button color, add this */
+.btn-default {
+    background-color: #f0f0f0; /* Light gray background */
+    color: #333; /* Darker text color for contrast */
+    border-color: #ddd; /* Light gray border */
+}
+
+/* Adjust hover state for the Cancel button as needed */
+.btn-default:hover {
+    background-color: #e0e0e0;
+    color: #111;
+}
+.btn-outline-primary:hover {
+    background-color: #ff6f00; /* Orange color for hover */
+    color: #fff; /* White text for contrast */
+    border-color: #ff6f00; /* Orange border to match the background */
+}
+
+.form-label{
+font-weight: bold;
+}

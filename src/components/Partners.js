@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
 import $ from 'jquery';
 import 'slick-carousel';
 import './Partners.css'; 
@@ -11,6 +12,7 @@ import instagramLogo from '../images/instagram.png';
 import nikeLogo from '../images/nike.png';
 import BaristasLogo from '../images/Baristas.png';
 import youtubeLogo from '../images/youtube.png';
+
 
 
 const Partners = () => {
@@ -47,6 +49,7 @@ const Partners = () => {
       <div className="work-section-top">
       <h1 className="primary-heading">Our Partners</h1>
       </div>
+
       <section className="customer-logos slider">
         <div className="slide">
           <img src={adidasLogo }alt="adidaslogo" />
@@ -70,6 +73,8 @@ const Partners = () => {
           <img src={youtubeLogo} alt="logo" />
         </div>
       </section>
+
+     
     </div>
   );
 };

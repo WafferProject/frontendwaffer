@@ -1,9 +1,11 @@
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
+
 import Burger from "../images/Burger.png";
 import Navbar from "./Navbar";
 import "./Home.css";
+
 
 const Home = () => {
   const navigate = useNavigate();
@@ -15,6 +17,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
+
       <Navbar />
       <div className="home-banner-container">
         <div className="home-text-section">
@@ -27,6 +30,7 @@ const Home = () => {
           <button className="secondary-button" onClick={handleGetStartedClick}>
             Let's Get Started <FiArrowRight />{" "}
           </button>
+
         </div>
         <div className="home-image-section">
           <img src={Burger} alt="" />
