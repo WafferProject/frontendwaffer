@@ -3,6 +3,8 @@ import "./MainDashboard.css"
 import CardAdmin from"./CardAdmin.js"
 import Featured from "./Featured.js"
 import Chart from './Chart.js'
+import TableAdmin from './TableAdmin.js'
+
 function MainDashboard() {
   return (
     <div className="homeContainer">
@@ -21,6 +23,7 @@ function MainDashboard() {
         <div className="listTitle">
           Latest Transactions
         </div>
+        <TableAdmin/>
       </div>
     </div>
   )
