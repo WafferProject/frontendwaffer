@@ -49,3 +49,11 @@ h2{
 .copy{
     padding-top: 250px;
 }
+.primary-heading {
+    text-align: center;
+    max-width: 90%;
+  }
+  .primary-text {
+    text-align: center;
+    max-width: 80%;
+  }
