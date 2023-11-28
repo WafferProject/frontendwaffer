@@ -1,0 +1,85 @@
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    height: 300px; /* adjust as needed */
+    width: 250px; /* adjust as needed */
+    border-radius: 10px;
+    color: #333; /* dark gray */
+    cursor: pointer;
+    padding: 10px;
+    background-color: #f5f5f5; /* light gray */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* subtle box shadow */
+    transition: 400ms;
+    font-family: 'Arial', sans-serif; /* modern sans-serif font */
+    overflow: hidden; /* add this line to prevent overflow */
+}
+
+.card img {
+    width: 100px; /* make the image take the full width of the card */
+    height: auto; /* keep the original aspect ratio of the image */
+    object-fit: cover; /* cover the entire width of the card without stretching */
+}
+
+.card p {
+    font-size: 0.8em; /* adjust as needed */
+    color: #333; /* dark gray */
+    margin: 0.5em 0; /* add some vertical margin between the text elements */
+    line-height: 1.2; /* increase the line height for better readability */
+    overflow: hidden; /* add this line to prevent overflow */
+    text-overflow: ellipsis; /* add this line to truncate text with an ellipsis when it overflows */
+}
+  
+.team-card-container {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* responsive grid */
+    gap: 5px; /* reduce space between the cards */
+    justify-content: center; /* center the cards horizontally */
+    align-content: start; /* align the cards at the top */
+    padding: 5px; /* add padding to create space around the cards */
+}
+  
+  .card p.second-text {
+    font-size: 0.9em; /* make the name slightly larger */
+    font-weight: bold; /* make the name bold */
+  }
+  
+.card:hover {
+    transform: scale(1.05, 1.05); /* slightly smaller scale on hover */
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1); /* lighter box shadow on hover */
+}
+  
+.card:hover ~ * {
+    filter: blur(10px);
+}
+.Btn {
+    
+    width: 45px;
+    height: 45px;
+    border-radius: 20%;
+    background-color: #00acee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition-duration: .5s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.137);
+    border: 2px solid #bbecff;
+  }
+  
+  .logoIcon {
+    fill: white;
+    width: 20px; /* adjust as needed */
+    height: 20px; /* adjust as needed */
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .Btn:hover .logoIcon {
+    transform: scale(1.2); /* slightly larger scale on hover */
+  }
+  
+  

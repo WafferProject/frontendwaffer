@@ -1,0 +1,42 @@
+.header-container {
+    text-align: center;
+    margin-bottom: 10px; /* adjust as needed */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+.text-6xl {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 60px; /* adjust as needed */
+    background: -webkit-linear-gradient(45deg, orange, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-4xl {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 60px; /* adjust as needed */
+    background: -webkit-linear-gradient(45deg, orange, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.button-container {
+    width: 100%;
+    margin-top: 10px; /* adjust as needed */
+    text-align: center;
+}
+
+.banner-container {
+    background-color: rgba(0, 0, 0, 0.425);
+    background-image: url('https://th.bing.com/th/id/OIP.t_dEtnYML93be3ik7dQdCQHaKY?pid=ImgDet&w=740&h=1037&rs=1');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 60vh;
+    height: 90vh;
+    display: flex;
+    flex-direction: column; /* stack the children vertically */
+    justify-content: center;
+    background-blend-mode: overlay;
+}

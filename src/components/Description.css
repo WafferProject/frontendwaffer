@@ -1,0 +1,61 @@
+.description-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw; /* make the container take up the full viewport width */
+}
+
+.description-card {
+    width: 90%; /* adjust this as needed */
+    height: 70%; /* adjust this as needed */
+    border-radius: 4px;
+    background: #ffffffb6;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: .4em;
+    justify-content: space-around; /* distribute the cards evenly horizontally */
+    align-items: center;
+}
+
+
+.description-card p {
+    flex-grow: 1; 
+    height: 100%;
+    flex: 1;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all .5s;
+    background: #FFFFFF; /* changed to white */
+    border: 1px solid #ff5a91;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000; /* changed text color to black */
+}
+
+.description-card p:hover {
+    flex: 4;
+    /* background: #eec6d3;  */
+    color: #FFFFFF; /* changed text color on hover to white */
+}
+
+.description-card p span {
+    min-width: 14em;
+    padding: .5em;
+    text-align: center;
+    transform: rotate(-90deg);
+    transition: all .5s;
+    text-transform: uppercase;
+    color: #000000;
+    /* font-weight: bold;  */
+    font-size: 1.2em; /* increase the font size */
+    letter-spacing: .1em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* add a text shadow */
+}
+
+.description-card p:hover span {
+    transform: rotate(0);
+}

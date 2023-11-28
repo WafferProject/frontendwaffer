@@ -1,0 +1,16 @@
+/* src/components/Button/Button.css */
+
+.btn {
+    font-size: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(45deg, orange, red);
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: linear-gradient(45deg, red, orange);
+}
