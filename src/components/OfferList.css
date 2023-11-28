@@ -1,7 +1,9 @@
 .offers-list{
     display: flex;
-    flex-direction: row;
-    justify-content: space-around ;  
+    justify-content: space-around;
       flex-wrap: wrap;
+      background-color: #FDFDFB;
+      border-radius: 20px;
+
   }
   

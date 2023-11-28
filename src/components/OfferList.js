@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import Offer from "./Offer";
 import "./OfferList.css";
-import Map from "./Map";
 import Popup from "./Popup";
 
 import { Button } from "@mui/joy";
@@ -37,7 +36,7 @@ export default function OfferList() {
     <BuisnessProfile  ProfileOpen={isProfileOpen} setProfileOpen={setProfileOpen}/>
       <OrderTab isOrderOpen={isOrderOpen} setOrderOpen={toggleDrawer} />
       <Button
-        style={{ position: "relative", left: " 757px", width: "200px" }}
+        style={{ position: "relative", left: " 870px",bottom:"15px", width: "200px" }}
         onClick={
           toggleDrawer(true)
           
