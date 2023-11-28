@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 
 function FormOffer({addOffer}) {
-  const [imagePreview, setImagePreview] = useState('https://bootdey.com/img/Content/avatar/avatar1.png');
+  const defaultImagePreview = 'https://bootdey.com/img/Content/avatar/avatar1.png';
   const [formData, setFormData] = useState({
     offerName: '',
     category: '',
@@ -12,56 +12,35 @@ function FormOffer({addOffer}) {
     discountedPrice: '',
     expirationDate: '',
     productDescription: '',
-    imagePreview:imagePreview
+    image: null,
+    imagePreview: defaultImagePreview
   });
+
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        console.log(reader.result)
-        setImagePreview(reader.result); // Set the preview URL to the result of the FileReader
+        setFormData({ ...formData, image: file, imagePreview: reader.result });
       };
       reader.readAsDataURL(file);
-      console.log(file) // Read the file to get the data URL for preview
     }
   };
+
   const handleResetImage = () => {
-    setImagePreview("https://bootdey.com/img/Content/avatar/avatar1.png"); // Reset to default avatar
+    setFormData({ ...formData, image: null, imagePreview: defaultImagePreview });
   };
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    if (name === 'image') {
-      // If the target is an image input, set the image file and its name
-      const uploadedFile = files[0];
-      console.log(uploadedFile)
-      setFormData({
-        ...formData,
-        [name]: uploadedFile,
-        
-        imagePreview: uploadedFile ? uploadedFile.name : '', // Set the file name
-      });
-      setImagePreview(uploadedFile)
-      
-    } else {
-      setFormData({
-        ...formData,
-        [name]: value,
-      });
-    }
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Collect form data (formData)...
-  
-    // Pass the formData to the parent component
     addOffer(formData);
-  
-    // Clear form fields or reset form state if needed
-    // Reset formData state or clear form fields...
+    
   };
-  console.log(formData)
 
   return (
    

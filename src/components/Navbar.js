@@ -31,7 +31,7 @@ const Navbar = () => {
             <ul className={`navbar-links ${mobileMenuOpen ? 'show' : ''}`}>
                 {userType === 'consumer' ? (
                     <>
-                         <li><Link to="/" className="navbar-item">Home</Link></li>
+                         
                         <li><Link to="/offers" className="navbar-item">Offers</Link></li>
                         <li><Link to="/feedback" className="navbar-item">Feedback</Link></li>
                         <li><Link to="/logout">
@@ -46,7 +46,7 @@ const Navbar = () => {
                     </>
                 ) : userType === 'business' ? (
                     <>
-                        <li><Link to="/" className="navbar-item">Home</Link></li>
+                        
                         <li><Link to="/dashboard" className="navbar-item">Dashboard</Link></li>
                         <li><Link to="/feedback" className="navbar-item">Feedback</Link></li>
                         <li><Link to="/logout">

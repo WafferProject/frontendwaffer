@@ -19,7 +19,7 @@ function BusinessDashboard() {
     } else if (selectedTab === 'addOffer') {
       return <FormOffer addOffer={addOffer}/>;
     } else if (selectedTab === 'history') {
-      return <OfferCreationHistory deletedOffers={deletedOffers} />; // Display OfferHistory with deletedOffers
+      return <OfferCreationHistory deletedOffers={deletedOffers} />; 
     } else {
       return null;
     }
@@ -31,10 +31,10 @@ function BusinessDashboard() {
   };
   
   const updateOffer = (offerId, updatedOfferData) => {
-    // Find the index of the offer to be updated
+    
     const offerIndex = offers.findIndex(offer => offer.id === offerId);
     if (offerIndex !== -1) {
-      // Update the offer using spread operator and replace it in the offers array
+      
       const updatedOffers = [...offers];
       updatedOffers[offerIndex] = { ...updatedOffers[offerIndex], ...updatedOfferData };
       setOffers(updatedOffers);
