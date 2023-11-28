@@ -26,6 +26,7 @@ const Popup = ({ setSelectedOffer }) => {
       <Modal
         open={true}
         sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+
         onClose={()=>{setSelectedOffer(null)}}
         
       >
@@ -80,6 +81,7 @@ const Popup = ({ setSelectedOffer }) => {
                     setOrderPlaced(true);
                     setTimeout(() => {
                       setSelectedOffer(null);
+
                     }, 1700);
                   }}
                 >
@@ -94,6 +96,7 @@ const Popup = ({ setSelectedOffer }) => {
         variant="soft"
         color="success"
         open={isOrderPlaced}
+
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         startDecorator={<CheckCircle />}
         

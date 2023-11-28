@@ -14,6 +14,7 @@ import RouteOutlinedIcon from "@mui/icons-material/DirectionsOutlined";
 import InfoIcon from '@mui/icons-material/InfoOutlined';
 import "./Offer.css";
 
+
 export default function Offer({
   setSelectedOffer,
   data,
@@ -40,6 +41,7 @@ export default function Offer({
               setProfileOpen(true);
             }}
           >
+
             <Paper elevation={6} style={{ marginBottom: "15px" }}>
               <AspectRatio ratio="2">
                 <img
@@ -69,6 +71,7 @@ export default function Offer({
 
         <Divider orientation="vertical" />
 
+
         <Paper
           variant="outlined"
           elevation={24}
@@ -87,6 +90,7 @@ export default function Offer({
             }}
           >
             <div className="inner-info-container">
+
               <Typography
                 level="body-xs"
                 fontWeight="md"
@@ -158,6 +162,7 @@ export default function Offer({
                 See details
               </Button>
             ) : (
+
               <Typography
                 level="body-xs"
                 fontWeight="md"
@@ -171,6 +176,7 @@ export default function Offer({
           </CardContent>
         </CardOverflow>
       </Paper>
+
     </Card>
   );
 }

@@ -1,6 +1,17 @@
-// src/components/Footer.js
-// Footer using TailwindCSS and DaisyUI
-import React from 'react';
+
+import React from "react";
+import "./Footer.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faLocationDot,
+  faPhone,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons"; 
+import {
+  faSquareFacebook,
+  faInstagram,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
     // rest of your code...

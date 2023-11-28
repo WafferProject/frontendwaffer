@@ -12,6 +12,7 @@
     margin: 0 auto;
   }
   
+
   @keyframes dropTop {
     0% {
       transform: translateY(-100%) scale(0);
@@ -40,6 +41,7 @@
   .popup-close {
     cursor: pointer;
     position: absolute;
+
     top: 20px;
     right: 15px;
     transition: opacity 0.3s ease; /* Add a transition for opacity */
@@ -85,6 +87,7 @@
         color: black;
         user-select: none;
     }
+
    
 
   
