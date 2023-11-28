@@ -31,12 +31,12 @@ function OfferCreation({ offer, updateOffer, deleteOffer }) {
   
  
   const handleUpdateOffer = () => {
-    // Pass the updated offer data to the parent component for updating
+    
     updateOffer(offer.id, updatedOfferData);
   };
 
   const handleDeleteOffer = () => {
-    // Trigger the delete offer function in the parent component
+   
     deleteOffer(offer.id);
   };
   

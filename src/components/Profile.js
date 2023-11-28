@@ -18,7 +18,7 @@ function Profile() {
   const [showAlert, setShowAlert] = useState(false);
 
 useEffect(() => {
-  // Assuming you fetch the user data here, set it as the original data
+  
   const fetchedData = {
     username: 'nmaxwell',
     name: 'Nelle Maxwell',
@@ -61,9 +61,7 @@ useEffect(() => {
     setUserData(prevState => ({ ...prevState, imagePreview: "https://bootdey.com/img/Content/avatar/avatar1.png" }));
   };
   const handleSaveChanges = () => {
-    // Your validation and save logic here
     
-    // After saving the data successfully, update the originalData
     setOriginalData(userData);
     setShowAlert(true);
     
