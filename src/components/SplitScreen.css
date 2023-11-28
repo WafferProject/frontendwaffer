@@ -1,0 +1,72 @@
+.leftside,.rightside{
+    height:50vh;
+    width:100%;
+}
+@media screen and (min-width:768px){.leftside,.rightside{height:100vh;}}
+.rightside{
+    background:white;
+}
+.leftside{
+    background:#ff6347;
+}     
+.row [class*="col-"] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+.btnleft  
+ {
+    padding: 1rem 2rem;
+    background-color: white ;
+    outline: none;
+    border: none;
+    border-radius: 3rem;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: #ff6347 ;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btnleft svg {
+    margin-left: 0.15rem;
+    font-size: 1.25rem;
+}
+.btnright {
+    padding: 1rem 2rem;
+    background-color:#ff6347 ;
+    outline: none;
+    border: none;
+    border-radius: 5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: white;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}   
+.btnright svg {
+    margin-left: 1.25rem;
+    font-size: 1.5rem;
+}   
+/* SplitScreen.css */
+
+  
+  .sell-heading {
+    /* Styles for the big "SELL" heading */
+    font-size: 3rem; /* Adjust the font size as needed */
+    font-weight: bold;
+    margin-bottom: 10px; /* Add margin to separate heading and sentence */
+    justify-content: center;
+  }
+  
+  .sell-sentence {
+    /* Styles for the sentence below the heading */
+    font-size: 1rem; /* Adjust the font size as needed */
+    color: #555; /* Adjust the color as needed */
+    margin-bottom: 20px; /* Add margin for spacing */
+  }
+  

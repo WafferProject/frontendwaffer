@@ -15,7 +15,7 @@ const Letsgetstartedbutton = ({ text, onClick }) => { // add the onClick prop
     };
 
     return (
-        <button className="btn" onClick={handleClick}>{text}</button>
+        <button className="btnn" onClick={handleClick}>{text}</button>
     );
 };
 

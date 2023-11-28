@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as Components from "./signinupcomponents";
 import AddButton from "./AddButton";
-
+import "./Signupp.css";
 const SignInUpConsumer = () => {
   const [signIn, toggle] = React.useState(true);
   const [phoneNumbers, setPhoneNumbers] = useState([
@@ -24,7 +24,7 @@ const SignInUpConsumer = () => {
     setPhoneNumbers(values);
   };
   return (
-    <Components.Container>
+    <Components.Container classname="FullPageStyling">
       <Components.SignUpContainer signIn={signIn}>
         <Components.Form>
           <Components.Title>Create Account Consumer </Components.Title>
