@@ -11,7 +11,7 @@ export default function OrderTab({ isOrderOpen, setOrderOpen }) {
     
        
        <div className="card checkout">
-          <label className="title">YOYO</label>
+          <label className="order-title">YOYO</label>
           <label className="date">18:59</label>
           <div className="details">
             <span>Old Price:</span>
