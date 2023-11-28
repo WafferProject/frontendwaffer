@@ -21,7 +21,7 @@ export default function Filter() {
         justifyContent: "space-around",
         borderRadius: "20px",
         width: "70%",
-        margin: "auto",
+        margin: "   60px auto",
         height: "80px",
         backgroundColor: "#FBFAF5",
         paddingLeft: "35px",
