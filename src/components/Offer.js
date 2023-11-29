@@ -7,17 +7,22 @@ import Divider from "@mui/joy/Divider";
 import Typography from "@mui/joy/Typography";
 import AddLocationAltOutlinedIcon from "@mui/icons-material/AddLocationAltOutlined";
 import { Paper } from "@mui/material";
-import { Button } from "@mui/joy";
+import { Button, Chip } from "@mui/joy";
 import ArrowOutwardOutlinedIcon from "@mui/icons-material/ArrowOutwardOutlined";
 import { CardActionArea } from "@mui/material";
+import RouteOutlinedIcon from "@mui/icons-material/DirectionsOutlined";
+import InfoIcon from '@mui/icons-material/InfoOutlined';
+import "./Offer.css";
 
-import RouteOutlinedIcon  from '@mui/icons-material/DirectionsOutlined';
-import "./Offer.css"
 
-export default function Offer({ setSelectedOffer, data, defaultOffer , setProfileOpen }) {
+export default function Offer({
+  setSelectedOffer,
+  data,
+  defaultOffer,
+  setProfileOpen,
+}) {
   return (
     <Card
-    
       variant="outlined"
       sx={{
         width: "420px",
@@ -29,16 +34,14 @@ export default function Offer({ setSelectedOffer, data, defaultOffer , setProfil
         height: "275px",
       }}
     >
-
-     
-        <div style={{ display: "flex" }}>
-     
-          <Paper
-          className="img-restaurant-div"
-            variant="outlined"
+      <div style={{ display: "flex" }}>
+        <Paper className="img-restaurant-div" variant="outlined">
+          <CardActionArea
+            onClick={() => {
+              setProfileOpen(true);
+            }}
           >
 
-               <CardActionArea onClick={()=>{setProfileOpen(true)}}>
             <Paper elevation={6} style={{ marginBottom: "15px" }}>
               <AspectRatio ratio="2">
                 <img
@@ -50,44 +53,44 @@ export default function Offer({ setSelectedOffer, data, defaultOffer , setProfil
               </AspectRatio>
             </Paper>
             <hr style={{ margin: "0 auto ", width: "150px" }} />
+            <InfoIcon sx={{position:'absolute' , left:'120px', top:'105px', fontSize:'18px'}}/>
             <CardContent
               orientation="vertical"
               style={{ marginLeft: "5px", marginTop: "10px" }}
             >
-              <Typography level="title-md">KFC</Typography>
-              <Typography level="body-sm">
-                Aouina <AddLocationAltOutlinedIcon />
+              <Typography level="title-md">
+                KFC 
               </Typography>
+              <Typography level="body-sm">
+                Aouina 
+              </Typography>
+              <AddLocationAltOutlinedIcon sx={{position:'absolute' , left:'120px', top:'130px' , fontSize:'18px'}} />
             </CardContent>
+          </CardActionArea>
+        </Paper>
 
-            </CardActionArea>
-          </Paper>
-          
-          
-          <Divider orientation="vertical" />
+        <Divider orientation="vertical" />
 
-          <Paper
-            variant="outlined"
-            elevation={24}
-            style={{
-              padding: "8px",
-              width: "175px",
-              backgroundColor: "white",
-              borderRadius: "7px",
-              marginLeft: "15px",
+
+        <Paper
+          variant="outlined"
+          elevation={24}
+          style={{
+            padding: "8px",
+            width: "175px",
+            backgroundColor: "white",
+            borderRadius: "7px",
+            marginLeft: "15px",
+          }}
+        >
+          <CardActionArea
+            onClick={() => {
+              setSelectedOffer({});
+              console.log("click done");
             }}
           >
+            <div className="inner-info-container">
 
-            <CardActionArea
-        onClick={() => {
-          setSelectedOffer({});
-          console.log("click done");
-        }}
-      >
-            <div
-            className="inner-info-container"
-             
-            >
               <Typography
                 level="body-xs"
                 fontWeight="md"
@@ -128,54 +131,52 @@ export default function Offer({ setSelectedOffer, data, defaultOffer , setProfil
               </Typography>
               <Divider />
             </div>
+          </CardActionArea>
+        </Paper>
+      </div>
+      <Paper elevation={2}>
+        <CardOverflow
+          variant="soft"
+          sx={{ bgcolor: "background.level2", height: "50px" }}
+        >
+          <CardContent orientation="horizontal">
+            <Typography
+              level="body-xs"
+              fontWeight="md"
+              textColor="text.secondary"
+            >
+              about 10 minutes ago
+            </Typography>
+            <Divider orientation="vertical" />
 
-            </CardActionArea>
-          </Paper>
-        </div>
-        <Paper elevation={2}>
-          <CardOverflow
-            variant="soft"
-            sx={{ bgcolor: "background.level2", height: "50px" }}
-          >
-            <CardContent orientation="horizontal">
+            {defaultOffer ? (
+              <Button
+                className="place-order-btn"
+                variant="outlined"
+                endDecorator={<ArrowOutwardOutlinedIcon />}
+                color="primary"
+                onClick={() => {
+                  setSelectedOffer({});
+                }}
+              >
+                See details
+              </Button>
+            ) : (
+
               <Typography
                 level="body-xs"
                 fontWeight="md"
                 textColor="text.secondary"
+                sx={{ position: "absolute", left: "330px" }}
               >
-                about 10 minutes ago
+                <RouteOutlinedIcon />
+                &nbsp; 599m
               </Typography>
-              <Divider orientation="vertical" />
+            )}
+          </CardContent>
+        </CardOverflow>
+      </Paper>
 
-              {defaultOffer ? (
-                <Button
-                className="place-order-btn"
-              
-                  variant="outlined"
-                  endDecorator={<ArrowOutwardOutlinedIcon />}
-                  color="primary"
-
-                  onClick={() => {
-                    setSelectedOffer({});}}
-                >
-                  See details
-                </Button>
-              ) : (
-                <Typography
-                  level="body-xs"
-                  fontWeight="md"
-                  textColor="text.secondary"
-                  sx={{ position: "absolute", left: "330px" }}
-                >
-                  <RouteOutlinedIcon />
-                  &nbsp; 599m
-                </Typography>
-              )}
-            </CardContent>
-          </CardOverflow>
-        </Paper>
-
-     
     </Card>
   );
 }
