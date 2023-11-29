@@ -63,7 +63,7 @@ const Navbar = () => {
                     <>
                         <li><Link to="/" className="navbar-item">Home</Link></li>
                         <li><Link to="/about" className="navbar-item">About</Link></li>
-                        {/* <li><SwitchButton /></li> */}
+                       
                         <li><Link to="/contact" className="navbar-item">Contact</Link></li>
                         <li><Link to="/signin" className="navbar-item"onClick={handleSignIn('consumer')}>Sign In</Link></li>
                     </>

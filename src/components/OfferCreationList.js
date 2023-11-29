@@ -20,7 +20,7 @@ function OfferCreationList({ offers, updateOffer, deleteOffer }) {
         ) : (
           <div className="post_container">
            
-            <img src={emtpy}/> 
+            <img className="empty"src={emtpy}/> 
           </div>
         )}
       </div>
