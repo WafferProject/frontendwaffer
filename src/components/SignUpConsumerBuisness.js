@@ -43,9 +43,13 @@ const SignUpConsumerBuisness = () => {
             " with " +
             JSON.stringify(response.data)
         );
+        alert("successful signup , now redirect to login ");
+
       })
       .catch((error) => {
         console.log("error  " + JSON.stringify(error.response.data.error));
+        alert("error with signup ");
+
       });
   };
 
