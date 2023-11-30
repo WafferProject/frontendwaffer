@@ -1,7 +1,7 @@
 import React from "react";
-import * as Components from './signinupcomponents';
+import * as Components from './utilsSignUpIn';
 
-const SignInUpBusiness = () => {
+const SignInConsumerBuisness = () => {
     const [signIn, toggle] = React.useState(true);
     return(
         <Components.Container>
@@ -58,4 +58,4 @@ const SignInUpBusiness = () => {
     )
 }
 
-export default SignInUpBusiness;
+export default SignInConsumerBuisness;
