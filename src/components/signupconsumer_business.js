@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as Components from "./signinupcomponents";
 import AddButton from "./AddButton";
+import { Link } from 'react-router-dom';
 import "./Signupp.css";
 const SignInUpConsumer = () => {
   const [signIn, toggle] = React.useState(true);
@@ -50,7 +51,9 @@ const SignInUpConsumer = () => {
           <Components.Input type="tel" placeholder="Phone Number" required />
           <Components.Input type="email" placeholder="Email" required />
           <Components.Input type="password" placeholder="Password" required />
+          <Link to="/consumer">
           <Components.Button>Sign Up</Components.Button>
+          </Link>
         </Components.Form>
       </Components.SignUpContainer>
 
@@ -111,7 +114,9 @@ const SignInUpConsumer = () => {
             required
             style={{ height: "30px", width: "100%" }}
           />
+          <Link to="/business">
           <Components.Button>Sign Up</Components.Button>
+          </Link>
         </Components.Form>
       </Components.SignInContainer>
 
@@ -122,6 +127,7 @@ const SignInUpConsumer = () => {
             <Components.Paragraph>
               I am a Business and i want to create an account
             </Components.Paragraph>
+            
             <Components.GhostButton onClick={() => toggle(true)}>
               Sign Up Business
             </Components.GhostButton>

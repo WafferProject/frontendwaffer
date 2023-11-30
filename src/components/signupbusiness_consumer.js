@@ -1,5 +1,6 @@
 import React from "react";
 import * as Components from './signinupcomponents';
+import { Link } from 'react-router-dom';
 
 const SignInUpBusiness = () => {
     const [signIn, toggle] = React.useState(true);
@@ -12,7 +13,9 @@ const SignInUpBusiness = () => {
                     <Components.Input type='email' placeholder='Email' />
                     <Components.Input type='password' placeholder='Password' />
                     <Components.Anchor href='#'>Forgot your password?</Components.Anchor>
+                    <Link to="/consumer">
                     <Components.Button>Sign In</Components.Button>
+                    </Link>
                 </Components.Form>
             </Components.SignUpContainer>
 

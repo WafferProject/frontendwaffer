@@ -45,7 +45,7 @@ const Partners = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="containerr">
       <div className="work-section-top">
       <h1 className="primary-heading">Our Partners</h1>
       </div>
@@ -73,8 +73,6 @@ const Partners = () => {
           <img src={youtubeLogo} alt="logo" />
         </div>
       </section>
-
-     
     </div>
   );
 };
