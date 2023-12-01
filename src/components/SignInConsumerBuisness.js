@@ -1,6 +1,8 @@
 import React from "react";
 import * as Components from './utilsSignUpIn';
 import axios from "axios";
+import { Link } from 'react-router-dom';
+
 
 const SignInConsumerBuisness = () => {
     const [isBuisness, toggleIsBuisness] = React.useState(false);
@@ -56,7 +58,10 @@ const handleInputChange = (event) =>{
                     <Components.Input type='email' placeholder='Email' name="email" onChange={handleInputChange} />
                     <Components.Input type='password' placeholder='Password' name="password" onChange={handleInputChange}  />
                     <Components.Anchor href='#'>Forgot your password?</Components.Anchor>
+                    <Link to="/consumer">
+
                     <Components.Button onClick={handleSubmit}>Sign In</Components.Button>
+                    </Link>
                 </Components.Form>
             </Components.SignUpContainer>
 
@@ -69,7 +74,10 @@ const handleInputChange = (event) =>{
                     <Components.Input name='tax_registration_number' placeholder='Tax Registration Number '  onChange={handleInputChange} />
                     <Components.Input name='password' placeholder='Password' type="password" onChange={handleInputChange} />
                     <Components.Anchor href='#'>Forgot your password?</Components.Anchor>
+                    <Link to="/buisness">
+
                     <Components.Button onClick={handleSubmit}>Sign In</Components.Button>
+                    </Link>
                 </Components.Form>
             </Components.SignInContainer>
 

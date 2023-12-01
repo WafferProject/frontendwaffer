@@ -3,7 +3,7 @@ body{
     font-family: 'Poppins', sans-serif !important;
     background: #eff3f8;
 }
-.container{
+.containerr{
     padding-top: 150px;
 }
 h2{
@@ -49,3 +49,11 @@ h2{
 .copy{
     padding-top: 250px;
 }
+.primary-heading {
+    text-align: center;
+    max-width: 90%;
+  }
+  .primary-text {
+    text-align: center;
+    max-width: 80%;
+  }

@@ -1,25 +1,19 @@
-
-
 import React, { useState } from 'react';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
 import SwitchButton from './SwitchButton';
 import WafferLogo from '../images/WafferLogo.png';
-
 const Navbar = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [userType, setUserType] = useState(''); // Add this state
-
     const handleMobileMenuToggle = () => {
         setMobileMenuOpen(!mobileMenuOpen);
     };
-
     // Call this function when a user signs in
     const handleSignIn = (type) => {
         setUserType(type);
     };
    
-
     return (
         <nav className="navbar">
             <div className="navbar-logo">
@@ -31,9 +25,9 @@ const Navbar = () => {
             <ul className={`navbar-links ${mobileMenuOpen ? 'show' : ''}`}>
                 {userType === 'consumer' ? (
                     <>
-                         
+
                         <li><Link to="/offers" className="navbar-item">Offers</Link></li>
-                        <li><Link to="/feedback" className="navbar-item">Feedback</Link></li>
+                        <li><Link to="/contact" className="navbar-item">Feedback</Link></li>
                         <li><Link to="/logout">
                             <button className="Btn"> 
                                 <div className="sign">
@@ -71,7 +65,5 @@ const Navbar = () => {
             </ul>
         </nav>
     );
-
 }
-
 export default Navbar;

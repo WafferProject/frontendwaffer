@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import * as Components from "./utilsSignUpIn";
 import AddButton from "./AddButton";
 import axios from "axios";
+import { Link } from "react-router-dom";
+
 import { RadioGroup, FormLabel, Radio, FormControlLabel } from "@mui/material";
 
 const SignUpConsumerBuisness = () => {
@@ -31,11 +33,11 @@ const SignUpConsumerBuisness = () => {
     event.preventDefault();
     const entity = isBuisness ? "buisness" : "consumer";
     const url = `http://localhost:8080/api/${entity}/signup`;
-    const signupObject = isBuisness?businessForm:consumerForm;
+    const signupObject = isBuisness ? businessForm : consumerForm;
     console.log(signupObject);
     console.log(url);
     axios
-      .post(url,signupObject )
+      .post(url, signupObject)
       .then((response) => {
         console.log(
           "server responded from " +
@@ -44,20 +46,20 @@ const SignUpConsumerBuisness = () => {
             JSON.stringify(response.data)
         );
         alert("successful signup , now redirect to login ");
-
       })
       .catch((error) => {
         console.log("error  " + JSON.stringify(error.response.data.error));
         alert("error with signup ");
-
       });
   };
 
   const handleInputChange = (event) => {
-    console.log(isBuisness?businessForm:consumerForm);
+    console.log(isBuisness ? businessForm : consumerForm);
     const { name, value } = event.target;
     console.log(name + "  " + value);
-    const newField = isBuisness?({ ...businessForm, [name]: value }):({ ...consumerForm, [name]: value });
+    const newField = isBuisness
+      ? { ...businessForm, [name]: value }
+      : { ...consumerForm, [name]: value };
     isBuisness ? setBusinessForm(newField) : setConsumerForm(newField);
   };
   const handleBuisnessPhoneChange = (event, index) => {
@@ -95,7 +97,12 @@ const SignUpConsumerBuisness = () => {
             required
             onChange={handleInputChange}
           />
-          <Components.Input name="last_name" placeholder="Last Name" required  onChange={handleInputChange}  />
+          <Components.Input
+            name="last_name"
+            placeholder="Last Name"
+            required
+            onChange={handleInputChange}
+          />
 
           <FormLabel style={{ marginTop: "10px" }}>Gender</FormLabel>
           <RadioGroup row name="occupation" onChange={handleInputChange}>
@@ -131,7 +138,11 @@ const SignUpConsumerBuisness = () => {
             required
             onChange={handleInputChange}
           />
-          <Components.Button onClick={handleSubmit}>Sign Up</Components.Button>
+          <Link to="/Signin">
+            <Components.Button onClick={handleSubmit}>
+              Sign Up
+            </Components.Button>
+          </Link>
         </Components.Form>
       </Components.SignUpContainer>
 
@@ -221,7 +232,9 @@ const SignUpConsumerBuisness = () => {
             style={{ height: "30px", width: "100%" }}
             onChange={handleInputChange}
           />
-          <Components.Button type="submit">Sign Up</Components.Button>
+          <Link to="/Signin">
+            <Components.Button type="submit">Sign Up</Components.Button>
+          </Link>
         </Components.Form>
       </Components.SignInContainer>
 
@@ -232,7 +245,9 @@ const SignUpConsumerBuisness = () => {
             <Components.Paragraph>
               I am a Business and i want to create an account
             </Components.Paragraph>
-            <Components.GhostButton onClick={() => toggleIsBuisness(!isBuisness)}>
+            <Components.GhostButton
+              onClick={() => toggleIsBuisness(!isBuisness)}
+            >
               Sign Up Business
             </Components.GhostButton>
           </Components.LeftOverlayPanel>
@@ -242,7 +257,9 @@ const SignUpConsumerBuisness = () => {
             <Components.Paragraph>
               I am a Consumer and i want to create an account
             </Components.Paragraph>
-            <Components.GhostButton onClick={() => toggleIsBuisness(!isBuisness)}>
+            <Components.GhostButton
+              onClick={() => toggleIsBuisness(!isBuisness)}
+            >
               Sign Up Consumer
             </Components.GhostButton>
           </Components.RightOverlayPanel>
