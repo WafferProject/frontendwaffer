@@ -55,7 +55,7 @@ export default function Map({ selectedOffer }) {
     >
       {/* map display if user gives permission */}
       <MapContainer
-        style={{ height: "370px", width: "100%", borderRadius: "30px" }}
+        style={{ height:selectedOffer?"280px":"370px" , width: "100%", borderRadius: "30px" }}
         center={ // centering the map on a specifc offer or the user location 
           selectedOffer
             ? [
