@@ -29,19 +29,19 @@ export default function SideBar() {
             </li>
             </Link>
             <p className="titleDash">Lists</p>
-            <Link to="/consumers" style={{textDecoration:"none",color: "inherit"}}>
+            <Link to="/ConsumerList" style={{textDecoration:"none",color: "inherit"}}>
             <li className="links"> 
             <PersonOutlineIcon className="iconDash" />
             <span className="sideBarHeader"> Consumers</span>
             </li>  
             </Link>
-            <Link to="/businesses" style={{textDecoration:"none",color: "inherit"}}>
+            <Link to="/BusinessList" style={{textDecoration:"none",color: "inherit"}}>
             <li className="links"> 
             <PersonOutlineIcon className="iconDash" />
             <span className="sideBarHeader"> Businesses</span>
             </li>  
             </Link>
-            <Link to="/orders" style={{textDecoration:"none",color: "inherit"}}>
+            <Link to="/OrdersList" style={{textDecoration:"none",color: "inherit"}}>
             <li className="links"> 
               <InventoryIcon className="iconDash"/>
               <span className="sideBarHeader"> Orders</span>
