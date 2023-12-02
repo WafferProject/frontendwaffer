@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
-import SwitchButton from './SwitchButton';
+
 import WafferLogo from '../images/WafferLogo.png';
 const Navbar = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -59,7 +59,7 @@ const Navbar = () => {
                         <li><Link to="/about" className="navbar-item">About</Link></li>
                        
                         <li><Link to="/contact" className="navbar-item">Contact</Link></li>
-                        <li><Link to="/signin" className="navbar-item"onClick={handleSignIn('consumer')}>Sign In</Link></li>
+                        <li><Link to="/signin" className="navbar-item">Sign In</Link></li>
                     </>
                 )}
             </ul>

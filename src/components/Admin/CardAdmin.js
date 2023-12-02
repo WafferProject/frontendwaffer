@@ -2,7 +2,7 @@ import React from 'react'
 import "./CardAdmin.css"
 
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-
+import {Link } from "react-router-dom"
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 
 function CardAdmin({type}) {
@@ -14,7 +14,8 @@ function CardAdmin({type}) {
       data = {
         title: "Consumers",
         
-        link: "See all consumers",
+        linkName: "See all consumers",
+        link:"/consumers",
         icon: (
           <PersonOutlinedIcon
             className="iconMainDash"
@@ -29,8 +30,9 @@ function CardAdmin({type}) {
     case "Businesses":
       data = {
         title: "Businesses",
+        link:"/businesses",
         isMoney: false,
-        link: "See all Businesses",
+        linkName: "See all Businesses",
         icon: (
           <ShoppingCartOutlinedIcon
             className="iconMainDash"
@@ -68,7 +70,7 @@ function CardAdmin({type}) {
         <div className="leftCard">
             <span className="titleCard">{data.title}</span>
             <span className="counter">{data.isMoney && "$"} {amount}</span>
-            <span className="link">{data.link}</span>
+            <Link to={data.link}  style={{textDecoration:"none",color: "inherit"}} className="link">{data.k}</Link>
         
         </div>
         <div className="rightCard">

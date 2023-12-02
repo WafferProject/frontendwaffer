@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Chart.css"
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { AreaChart, Area, XAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 function Chart({aspect, title}) {
   const data = [
@@ -27,7 +27,7 @@ function Chart({aspect, title}) {
    
   </defs>
   <XAxis dataKey="name" stroke="gray"/>
-  {/* <YAxis /> */}
+ 
   <CartesianGrid strokeDasharray="3 3" className="chartGrid" />
   <Tooltip />
   <Area type="monotone" dataKey="Total" stroke="orange" fillOpacity={1} fill="url(#total)" />

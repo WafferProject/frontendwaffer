@@ -15,7 +15,7 @@ const SingleConsumer = () => {
           </div>
         <h1 className="titleSingle">Information</h1>
         <div className="singleItem">
-          <img src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" altt="" className="itemImg"/>
+          <img src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="" className="itemImg"/>
          <div className="singleDetails">
           <h1 className="itemTitle">Jane Doe</h1>
           <div className="detailItem">
