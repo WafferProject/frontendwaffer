@@ -29,10 +29,10 @@ const Navbar = () => {
       });
   }, []);
   return (
-    <div class="outer-container">
+    
     <nav className="navbar">
       <div className="navbar-logo">
-        <img src={WafferLogo} alt="Waffer Logo" width="90px" height="90px"/>
+        <img src={WafferLogo} alt="Waffer Logo" width="100px" height="100px"/>
       </div>
       <div className="navbar-toggle" onClick={handleMobileMenuToggle}>
         {mobileMenuOpen ? 'X' : <div>&#9776;</div>}
@@ -74,12 +74,12 @@ const Navbar = () => {
             <li><Link to="/about" className="navbar-item">About</Link></li>
             {/* <li><SwitchButton /></li> */}
             <li><Link to="/contact" className="navbar-item">Feedback</Link></li>
-            <li><Link to="/signin" className="navbar-item" onClick={() => handleSignIn('consumer')}>Sign In</Link></li>
+            <li><Link to="/signin" className="navbar-item" >Sign In</Link></li>
           </>
         )}
       </ul>
     </nav>
-    </div>
+ 
   );
 }
 
