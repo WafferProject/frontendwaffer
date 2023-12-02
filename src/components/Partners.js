@@ -16,9 +16,10 @@ import youtubeLogo from '../images/youtube.png';
 
 
 const Partners = () => {
+
   useEffect(() => {
     $(document).ready(function () {
-      $('.customer-logos').slick({
+      $('.customer-logos').not('.slick-initialized').slick({
         slidesToShow: 6,
         slidesToScroll: 1,
         autoplay: true,
@@ -44,8 +45,9 @@ const Partners = () => {
     });
   }, []);
 
+
   return (
-    <div className="container">
+    <div className="containerr">
       <div className="work-section-top">
       <h1 className="primary-heading">Our Partners</h1>
       </div>
@@ -73,11 +75,8 @@ const Partners = () => {
           <img src={youtubeLogo} alt="logo" />
         </div>
       </section>
-
-     
     </div>
   );
 };
 
 export default Partners;
-

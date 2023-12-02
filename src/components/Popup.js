@@ -2,13 +2,15 @@ import "./Popup.css";
 import Offer from "./Offer";
 import Button from "@mui/joy/Button";
 import { Check, CheckCircle, CloseOutlined } from "@mui/icons-material";
-import { useState } from "react";
+import { useState , useContext } from "react";
 import Modal from "@mui/joy/Modal";
 import Snackbar from "@mui/joy/Snackbar";
+import {ConsumerContext} from './ConsumerDashContext'
 import Map from "./Map";
-const Popup = ({ setSelectedOffer }) => {
+const Popup = () => {
   const [count, setCount] = useState(1);
   const [isOrderPlaced, setOrderPlaced] = useState(false);
+  const {selectedOffer , setSelectedOffer} = useContext(ConsumerContext);
 
   const increaseCount = () => {
     setCount(count + 1);
@@ -33,7 +35,7 @@ const Popup = ({ setSelectedOffer }) => {
         {/* Content */}
 
         <div onClick={(e) => e.stopPropagation()} className="popup-content">
-          <Map />
+          <Map selectedOffer={selectedOffer} />
           <div className="popup-header">
             <h1 className="popup-title">Offer details</h1>
             {/* close */}
@@ -52,7 +54,7 @@ const Popup = ({ setSelectedOffer }) => {
               borderRadius: "20px",
             }}
           >
-            <Offer setSelectedOffer={setSelectedOffer} />
+            <Offer offerItem={selectedOffer} />
 
             <div style={{ borderLeft: "1px solid grey" }} />
 
