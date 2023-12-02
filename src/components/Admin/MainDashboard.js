@@ -1,7 +1,7 @@
 import React from 'react'
 import "./MainDashboard.css"
 import CardAdmin from"./CardAdmin.js"
-import Featured from "../Featured.js"
+import Featured from "./Featured.js"
 import Chart from './Chart.js'
 import TableAdmin from './TableAdmin.js'
 

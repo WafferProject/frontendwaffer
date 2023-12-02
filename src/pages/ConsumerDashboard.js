@@ -1,6 +1,6 @@
 import React from "react";
 import Map from "../components/Map";
-import OfferList from "../components/OfferList";
+import OfferList from "../components/Business/OfferList";
 import "./ConsumerDashboard.css";
 import Filter from "../components/Filter"
 import {MyContextProvider as ConsumerContext} from "../components/ConsumerDashContext";

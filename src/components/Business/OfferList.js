@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Offer from "./Offer";
+import Offer from "../Offer";
 import "./OfferList.css";
-import Popup from "./Popup";
-import {ConsumerContext} from './ConsumerDashContext'
+import Popup from "../Popup";
+import {ConsumerContext} from '../ConsumerDashContext'
 import { Button } from "@mui/joy";
-import OrderTab from "./OrderTab";
+import OrderTab from "../OrderTab";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-import BuisnessProfile from "./BuisnessProfile";
+import BuisnessProfile from "../BuisnessProfile";
 import axios from "axios";
 import { useContext } from "react";
 
