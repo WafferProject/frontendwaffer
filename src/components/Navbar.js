@@ -40,8 +40,8 @@ const Navbar = () => {
       <ul className={`navbar-links ${mobileMenuOpen ? 'show' : ''}`}>
         {userType === 'consumer' ? (
           <>
-            <li><Link to="/offers" className="navbar-item">Offers</Link></li>
-            <li><Link to="/contact" className="navbar-item">Feedback</Link></li>
+            <li><Link to="/consumer" className="navbar-item">Offers</Link></li>
+            <li><Link to="/contact" className="navbar-item">Contact</Link></li>
             <li className="navbar-item-dropdown">
             <div className="user-info">
   <img src={userProfilePic} alt="User Profile" />
@@ -49,22 +49,22 @@ const Navbar = () => {
 </div>
   <div className="navbar-item-dropdown-content">
     <Link to="/profile">Profile</Link>
-    <Link to="/logout">Logout</Link>
+    <Link to="/">Logout</Link>
   </div>
 </li>
           </>
         ) : userType === 'business' ? (
           <>
-            <li><Link to="/dashboard" className="navbar-item">Dashboard</Link></li>
-            <li><Link to="/feedback" className="navbar-item">Feedback</Link></li>
+            <li><Link to="/business" className="navbar-item">Dashboard</Link></li>
+            <li><Link to="/contact" className="navbar-item">Contact</Link></li>
             <li className="navbar-item-dropdown">
             <div className="user-info">
   <img src={userProfilePic} alt="User Profile" />
   <div className="username">{username}</div>
 </div>
   <div className="navbar-item-dropdown-content">
-    <Link to="/profile">Profile</Link>
-    <Link to="/logout">Logout</Link>
+    <Link to="/settings">Profile</Link>
+    <Link to="/">Logout</Link>
   </div>
 </li>
           </>
@@ -74,7 +74,7 @@ const Navbar = () => {
             <li><Link to="/about" className="navbar-item">About</Link></li>
             
             <li><Link to="/contact" className="navbar-item">Feedback</Link></li>
-            <li><Link to="/signin" className="navbar-item" >Sign In</Link></li>
+            <li><Link to="/signin" className="navbar-item" onClick={handleSignIn("business")}>Sign In</Link></li>
           </>
         )}
       </ul>

@@ -13,9 +13,10 @@ function CardAdmin({type}) {
     case "Consumers":
       data = {
         title: "Consumers",
-        
         linkName: "See all consumers",
-        link:"/consumers",
+        link:"/ConsumerList",
+        count: "consumerCount",
+
         icon: (
           <PersonOutlinedIcon
             className="iconMainDash"
@@ -30,7 +31,7 @@ function CardAdmin({type}) {
     case "Businesses":
       data = {
         title: "Businesses",
-        link:"/businesses",
+        link:"/BusinessList",
         isMoney: false,
         linkName: "See all Businesses",
         icon: (
@@ -49,6 +50,7 @@ function CardAdmin({type}) {
         title: "Offers",
         isMoney: false,
         link: "View all offers",
+        linkName: "See all offers",
         icon: (
           <ShoppingCartOutlinedIcon
             className="iconMainDash"
@@ -70,7 +72,7 @@ function CardAdmin({type}) {
         <div className="leftCard">
             <span className="titleCard">{data.title}</span>
             <span className="counter">{data.isMoney && "$"} {amount}</span>
-            <Link to={data.link}  style={{textDecoration:"none",color: "inherit"}} className="link">{data.k}</Link>
+            <Link to={data.link}  style={{textDecoration:"none",color: "inherit"}} className="link">{data.linkName}</Link>
         
         </div>
         <div className="rightCard">

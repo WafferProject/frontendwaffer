@@ -86,7 +86,7 @@ const SignUpConsumerBuisness = () => {
 
   return (
     // consumer view
-
+    <div className="container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
     <Components.Container>
       <Components.SignUpContainer signIn={isBuisness}>
         <Components.Form>
@@ -266,6 +266,7 @@ const SignUpConsumerBuisness = () => {
         </Components.Overlay>
       </Components.OverlayContainer>
     </Components.Container>
+    </div>
   );
 };
 
