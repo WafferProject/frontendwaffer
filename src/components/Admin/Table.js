@@ -13,7 +13,7 @@ const Table = ({ columns, rows, handleDelete }) => {
             renderCell: (params) => {
                 return (
                     <div className="cellAction">
-                        <div className="viewButton" onClick={() => navigate(`/consumers/${params.row.id}`)}>View</div>
+                        <div className="viewButton" onClick={() => navigate(`/ConsumerList/${params.row.id}`)}>View</div>
                         <div className="deleteButton" onClick={() => handleDelete(params.row.id)}>Delete</div>
                     </div>
                 );

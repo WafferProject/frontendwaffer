@@ -56,10 +56,12 @@ export default function SideBar() {
             <span className="sideBarHeader"> Profile</span>
             </li>
             </Link>  
+            <Link to="/" style={{textDecoration:"none",color: "inherit"}}>
             <li className="links"> 
             <ExitToAppIcon className="iconDash" />
               <span className="sideBarHeader"> Logout</span>
             </li>
+            </Link>
             </ul>
           </div>
           

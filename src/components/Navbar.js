@@ -74,7 +74,7 @@ const Navbar = () => {
             <li><Link to="/about" className="navbar-item">About</Link></li>
             
             <li><Link to="/contact" className="navbar-item">Feedback</Link></li>
-            <li><Link to="/signin" className="navbar-item" onClick={handleSignIn("business")}>Sign In</Link></li>
+            <li><Link to="/signin" className="navbar-item" onClick={handleSignIn("consumer")}>Sign In</Link></li>
           </>
         )}
       </ul>

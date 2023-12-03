@@ -11,7 +11,7 @@ import BusinessList from './pages/BusinessList'
 import ConsumerList from './pages/ConsumerList'
 import OrdersList from './pages/OrdersList';
 import ProfileSettings from './pages/ProfileSettings'
-
+import UserDetails from './components/Admin/UserDetails'
 export default function App() {
   return (
     <BrowserRouter>
@@ -27,6 +27,7 @@ export default function App() {
       <Route path="/admin" element={<HomeAdmin />} />
       <Route path="/BusinessList" element={<BusinessList />} />
       <Route path="/ConsumerList" element={<ConsumerList />} />
+      <Route path="/ConsumerList/:id" element={<UserDetails />} />
       <Route path="/OrdersList" element={<OrdersList />} />
       <Route path="/settings" element={<ProfileSettings />} />
       
