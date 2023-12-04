@@ -1,47 +1,49 @@
-import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
-import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined';
+import StorefrontOutlinedIcon from "@mui/icons-material/StorefrontOutlined";
 import "./BuisnessProfile.css";
-import { forwardRef, useState } from "react";
+import { forwardRef  } from "react";
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function BuisnessProfile({setProfileOpen,   ProfileOpen}) {
-
-
+export default function BuisnessProfile({
+  setProfileOpen: setProfileClosed,
+  profileInfo,
+}) {
   return (
     <>
-      
       <Dialog
-        open={ProfileOpen}
+        open={profileInfo}
         TransitionComponent={Transition}
         keepMounted
-        onClose={()=>setProfileOpen(false)}
+        onClose={() => setProfileClosed(null)}
         aria-describedby="alert-dialog-slide-description"
-        component={'div'}
+        component={"div"}
         PaperProps={{ sx: { borderRadius: "20px" } }}
       >
         <DialogContent>
           <div className="notification">
             <div className="notiglow"></div>
             <div className="notiborderglow"></div>
-            <div className="notititle"> <StorefrontOutlinedIcon/>  &nbsp; YoYo </div>
+            <div className="notititle">
+              {" "}
+              <StorefrontOutlinedIcon /> &nbsp; {profileInfo.name}{" "}
+            </div>
             <div className="notibody">
               <div className="notibody-container">
                 <span>opens at </span>
-                <span>8:00</span>
+                <span>{profileInfo.opening_time}</span>
                 <span> closes at</span>
-                <span>21:00</span>
-                <span>Phone n°</span>
-                <span>92066519</span>
-
+                <span>{profileInfo.closing_time}</span>
+                {profileInfo.WorkPhones.map((phone) => (
+                  <>
+                    <span>Phone n°</span>
+                    <span>{phone.phone_number}</span>
+                  </>
+                ))}
               </div>
             </div>
           </div>

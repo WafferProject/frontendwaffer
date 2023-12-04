@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import * as Components from "./utilsSignUpIn";
 import AddButton from "./AddButton";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { RadioGroup, FormLabel, Radio, FormControlLabel } from "@mui/material";
+import { useAuth } from "./AuthContext";
 
 const SignUpConsumerBuisness = () => {
-  const [isBuisness, toggleIsBuisness] = React.useState(false);
+  const {isBuisness,  setIsBuisness} =useAuth();
   const [consumerForm, setConsumerForm] = useState({
     first_name: "",
     last_name: "",
@@ -28,6 +29,7 @@ const SignUpConsumerBuisness = () => {
     opening_time: "20:00",
     closing_time: "19:00",
   });
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -46,6 +48,7 @@ const SignUpConsumerBuisness = () => {
             JSON.stringify(response.data)
         );
         alert("successful signup , now redirect to login ");
+        navigate("signin");
       })
       .catch((error) => {
         console.log("error  " + JSON.stringify(error.response.data.error));
@@ -246,7 +249,7 @@ const SignUpConsumerBuisness = () => {
               I am a Business and i want to create an account
             </Components.Paragraph>
             <Components.GhostButton
-              onClick={() => toggleIsBuisness(!isBuisness)}
+              onClick={() => setIsBuisness(!isBuisness)}
             >
               Sign Up Business
             </Components.GhostButton>
@@ -258,7 +261,7 @@ const SignUpConsumerBuisness = () => {
               I am a Consumer and i want to create an account
             </Components.Paragraph>
             <Components.GhostButton
-              onClick={() => toggleIsBuisness(!isBuisness)}
+              onClick={() => setIsBuisness(!isBuisness)}
             >
               Sign Up Consumer
             </Components.GhostButton>

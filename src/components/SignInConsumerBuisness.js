@@ -1,13 +1,15 @@
 import React from "react";
 import * as Components from "./utilsSignUpIn";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import {  useAuth } from "./AuthContext";
+
 
 const SignInConsumerBuisness = () => {
-  const [isBuisness, toggleIsBuisness] = React.useState(false);
+  const {isBuisness, setIsBuisness , setIsAuthenticated }= useAuth();
 
   const [businessForm, setBusinessForm] = React.useState({
-    tax_registration_number: "t",
+    tax_registration_number: "",
     password: "",
   });
   const [consumerForm, setConsumerForm] = React.useState({
@@ -24,6 +26,7 @@ const SignInConsumerBuisness = () => {
       : { ...consumerForm, [name]: value };
     isBuisness ? setBusinessForm(newField) : setConsumerForm(newField);
   };
+  const nav = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -40,11 +43,18 @@ const SignInConsumerBuisness = () => {
             " with " +
             JSON.stringify(response.data)
         );
+        setIsAuthenticated(true);
+        nav(`/${entity}`);
+
+
+
         alert("successful login , token attached redirect to dashboard");
       })
       .catch((error) => {
-        console.log("error  " + JSON.stringify(error.response.data));
-        alert("error with login ");
+        console.log("error  " + JSON.stringify(error));
+
+        alert("wrong username or password ");
+        
       });
   };
   return (
@@ -107,7 +117,7 @@ const SignInConsumerBuisness = () => {
               I am a Business and I want to sign in
             </Components.Paragraph>
             <Components.GhostButton
-              onClick={() => toggleIsBuisness(!isBuisness)}
+              onClick={() => setIsBuisness(!isBuisness)}
             >
               Sign In Business
             </Components.GhostButton>
@@ -119,7 +129,7 @@ const SignInConsumerBuisness = () => {
               I am a Consumer and I want to sign in
             </Components.Paragraph>
             <Components.GhostButton
-              onClick={() => toggleIsBuisness(!isBuisness)}
+              onClick={() => setIsBuisness(!isBuisness)}
             >
               Sign in Consumer
             </Components.GhostButton>

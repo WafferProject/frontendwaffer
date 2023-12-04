@@ -1,6 +1,6 @@
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import Burger from "../images/Burger.png";
 import Navbar from "./Navbar";
 import "./Home.css";
