@@ -1,8 +1,6 @@
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
-// import { useNavigate } from "react-router-dom";
 import Burger from "../images/Burger.png";
-import Navbar from "./Navbar";
 import "./Home.css";
 
 import { Outlet ,Link } from "react-router-dom";
@@ -12,7 +10,7 @@ const Home = () => {
   return (
     <div className="home-container">
 
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="home-banner-container">
         <div className="home-text-section">
           <h1 className="primary-heading">

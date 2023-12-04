@@ -1,7 +1,6 @@
 
 import OfferCreationList from '../components/OfferCreationList'
 import FormOffer from "../components/FormOffer";
-import Navbar from "../components/Navbar";
 
 import Footer from "../components/Footer";
 import React, { useState } from 'react';
@@ -57,7 +56,6 @@ function BusinessDashboard() {
 
   return (
     <div>
-       <Navbar />
        <>
       <h1 className="title_offer">Business Dashboard</h1>
       <div className="containerHeader">

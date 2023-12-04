@@ -47,7 +47,6 @@ const SignUpConsumerBuisness = () => {
             " with " +
             JSON.stringify(response.data)
         );
-        alert("successful signup , now redirect to login ");
         navigate("signin");
       })
       .catch((error) => {
@@ -249,7 +248,7 @@ const SignUpConsumerBuisness = () => {
               I am a Business and i want to create an account
             </Components.Paragraph>
             <Components.GhostButton
-              onClick={() => setIsBuisness(!isBuisness)}
+              onClick={() => setIsBuisness(true)}
             >
               Sign Up Business
             </Components.GhostButton>
@@ -261,7 +260,7 @@ const SignUpConsumerBuisness = () => {
               I am a Consumer and i want to create an account
             </Components.Paragraph>
             <Components.GhostButton
-              onClick={() => setIsBuisness(!isBuisness)}
+              onClick={() => setIsBuisness(false)}
             >
               Sign Up Consumer
             </Components.GhostButton>

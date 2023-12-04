@@ -10,12 +10,14 @@ import BusinessDashboard from "./pages/BusinessDashboard";
 import PrivateRoute from "./components/PrivateRoute";
 import { AuthContextProvider } from "./components/AuthContext";
 import ProfileSettings from './pages/ProfileSettings'
+import Navbar from "./components/Navbar";
 
 export default function App() {
   return (
     
     <BrowserRouter>
       <AuthContextProvider>
+      <Navbar/>
         <Routes>
           <Route path="/" element={<ParentHome />} />
           <Route path="/split-screen" element={<SplitScreen />} />

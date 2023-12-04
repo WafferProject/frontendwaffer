@@ -8,6 +8,8 @@ export const useAuth = () => {
 export const AuthContextProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [isBuisness , setIsBuisness] = useState(false);
+  // const [userState, setUserState] = useState(null); // Add this state
+
 
   useEffect(() => {
     // Check if the "token" cookie exists

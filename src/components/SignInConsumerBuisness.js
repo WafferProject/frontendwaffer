@@ -117,7 +117,7 @@ const SignInConsumerBuisness = () => {
               I am a Business and I want to sign in
             </Components.Paragraph>
             <Components.GhostButton
-              onClick={() => setIsBuisness(!isBuisness)}
+              onClick={() => setIsBuisness(true)}
             >
               Sign In Business
             </Components.GhostButton>
@@ -129,7 +129,7 @@ const SignInConsumerBuisness = () => {
               I am a Consumer and I want to sign in
             </Components.Paragraph>
             <Components.GhostButton
-              onClick={() => setIsBuisness(!isBuisness)}
+              onClick={() => setIsBuisness(false)}
             >
               Sign in Consumer
             </Components.GhostButton>
