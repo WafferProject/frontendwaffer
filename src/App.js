@@ -7,12 +7,13 @@ import SignInConsumerBuisness from "./components/SignInConsumerBuisness";
 import ContactPage from "./pages/ContactPage";
 import ConsumerDashboard from "./pages/ConsumerDashboard";
 import BusinessDashboard from "./pages/BusinessDashboard";
-import Partners from "./components/Partners";
 import PrivateRoute from "./components/PrivateRoute";
 import { AuthContextProvider } from "./components/AuthContext";
+import ProfileSettings from './pages/ProfileSettings'
 
 export default function App() {
   return (
+    
     <BrowserRouter>
       <AuthContextProvider>
         <Routes>
@@ -20,6 +21,10 @@ export default function App() {
           <Route path="/split-screen" element={<SplitScreen />} />
           <Route path="/SignUp" element={<SignUpConsumerBuisness />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/profile" element={<ProfileSettings />} />
+          <Route path="/Signin" element={<SignInConsumerBuisness />} />
+
+
           <Route
             path="/consumer"
             element={
@@ -35,10 +40,15 @@ export default function App() {
                 <BusinessDashboard />
               </PrivateRoute>
             }
-          />{" "}
-          <Route path="/Signin" element={<SignInConsumerBuisness />} />
+          />
         </Routes>
       </AuthContextProvider>
     </BrowserRouter>
-  );
+     
+
+    
+ 
+
+  
+  )
 }

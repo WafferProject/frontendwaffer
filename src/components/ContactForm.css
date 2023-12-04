@@ -3,12 +3,12 @@ font-family: 'poppins',sans-serif;
 margin: 0;
 padding: 0;
 box-sizing: border-box;
-position: relative;
+/* position: relative; */
 display: flex;
 justify-content: center;
 align-items: center;
 min-height: 100vh;
-
+z-index: -10000;
 }
 .containerForm::before{
     content:'';
@@ -24,7 +24,7 @@ min-height: 100vh;
     min-width: 1100px;
     min-height: 550px;
     display: flex;
-    z-index: 1000;
+    z-index: -1000;
 
 }
 .contactinfo{
