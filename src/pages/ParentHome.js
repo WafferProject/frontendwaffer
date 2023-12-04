@@ -8,7 +8,6 @@ function ParentHome() {
       <Home/>
       <Work/>
       <Partners/>
-
     </div>
 
   );

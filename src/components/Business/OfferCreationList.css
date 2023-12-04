@@ -32,4 +32,6 @@
     margin: 20px;
     text-align: center;
   }
-  
+  .empty{
+    height: 500%;
+  }

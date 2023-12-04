@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
-import SwitchButton from "./SwitchButton";
 import WafferLogo from "../images/WafferLogo.png";
 import { useAuth } from "./AuthContext";
 
@@ -17,7 +16,7 @@ const Navbar = () => {
   const handleSignIn = () => {
     nav("signin");
   };
-  const [account, setAccount] = useState({ username: "salmen", userProfilePic: "" });
+  const [account] = useState({ username: "salmen", userProfilePic: "" });
 
   return (
     <nav className="navbar">

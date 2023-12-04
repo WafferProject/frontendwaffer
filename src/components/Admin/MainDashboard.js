@@ -12,12 +12,12 @@ function MainDashboard() {
       <div className="widgets">
         <CardAdmin type="Consumers"/>
         <CardAdmin type="Businesses"/>
-        <CardAdmin type="Orders"/>
+        {/* <CardAdmin type="Orders"/> */}
        
       </div>
       <div className="charts">
         <Featured/>
-        <Chart/>
+        <Chart aspect = {2/1} title="Last 6 months (orders)"/>
       </div>
       <div className="listContainer">
         <div className="listTitle">

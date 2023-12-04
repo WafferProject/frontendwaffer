@@ -1,14 +1,15 @@
 .footer {
 
   width: 100%;
-  background-color: #FECDA6; /* Footer background is white */
-  border-top: 5px solid #f4a262; /* Top border is orange, adjust the thickness (5px) as needed */
+  background-color: #f3efee; 
+  
   padding: 10px;
   height: auto; /* or 'auto' if you want the height to adjust based on content */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: black;
+  color: #333;
+  box-shadow: 6px 6px 8px 7px rgba(0, 0, 0, 0.2);
   margin-top: 10px;
 }
  

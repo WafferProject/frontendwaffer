@@ -1,0 +1,25 @@
+.listConsumer {
+    display: flex;
+    width: 100%;
+}
+.listContainerConsumer {
+      flex: 6;
+    }
+.headerConsumer{
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+}
+.addButton{
+    width: 150px;
+    padding: 5px;
+    border: none;
+    background-color: teal;
+    color: white;
+    font-weight: bold;
+    margin-right: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    float: right;
+  
+}

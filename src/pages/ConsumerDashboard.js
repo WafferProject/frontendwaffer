@@ -1,9 +1,10 @@
 import React from "react";
-import Map from "../components/Map";
-import OfferList from "../components/OfferList";
+import Map from "../components/Consumer/Map";
+import OfferList from "../components/Consumer/OfferList";
 import "./ConsumerDashboard.css";
-import Filter from "../components/Filter"
-import {MyContextProvider as ConsumerContext} from "../components/ConsumerDashContext";
+import Filter from "../components/Consumer/Filter"
+import {MyContextProvider as ConsumerContext} from "../components/Consumer/ConsumerDashContext";
+
 
 export default function ConsumerDashboard() {
   return (
@@ -11,7 +12,7 @@ export default function ConsumerDashboard() {
       <Map />
       <Filter/>
       <div className="consumer-container">
-      <OfferList className />
+      <OfferList  />
     </div>
     </ConsumerContext>
 

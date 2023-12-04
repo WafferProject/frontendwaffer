@@ -1,8 +1,8 @@
 import React from 'react';
 import OfferCreation from './OfferCreation';
 import './OfferCreationList.css';
-import emptyStateImage from '../images/emptystate.png'; 
-import emtpy from '../images/emtpy.png'; 
+// import emptyStateImage from '../images/emptystate.png'; 
+import emtpy from '../../images/emtpy.png'; 
 
 function OfferCreationList({ offers, updateOffer, deleteOffer }) {
   return (
@@ -20,7 +20,7 @@ function OfferCreationList({ offers, updateOffer, deleteOffer }) {
         ) : (
           <div className="post_container">
            
-            <img src={emtpy}/> 
+            <img className="empty"src={emtpy}/> 
           </div>
         )}
       </div>
