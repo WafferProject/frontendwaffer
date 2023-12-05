@@ -88,7 +88,7 @@ const Navbar = () => {
                 About
               </Link>
             </li>
-            {/* <li><SwitchButton /></li> */}
+           
             <li>
               <Link to="/contact" className="navbar-item">
                 Feedback

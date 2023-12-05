@@ -6,8 +6,8 @@
     padding: 0.1em 0.1em; /* adjust as needed */
     font-size: 12px;
     color: white;
-    background: #ff4b2b; /* This is the color code for orange */
-    background: linear-gradient(0deg, rgba(255,69,43,1) 0%, rgba(255,65,108,1) 100%);  
+    background: #FF8C00; /* This is the color code for orange */
+    /* background: linear-gradient(0deg, rgba(255,69,43,1) 0%, rgba(255,65,108,1) 100%);   */
     border: none;
     box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
     letter-spacing: 0.05em;

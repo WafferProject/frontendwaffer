@@ -88,7 +88,7 @@ const SignUpConsumerBuisness = () => {
 
   return (
     // consumer view
-    <div className="container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    
     <Components.Container>
       <Components.SignUpContainer signIn={isBuisness}>
         <Components.Form>
@@ -171,6 +171,14 @@ const SignUpConsumerBuisness = () => {
             style={{ height: "30px", width: "100%" }}
             onChange={handleInputChange}
           />
+           <Components.Input
+            type="email"
+            placeholder="Email"
+            name="email"
+            required
+            style={{ height: "30px", width: "100%" }}
+            onChange={handleInputChange}
+          />
           <div style={{ display: "flex", gap: "15px" }}>
             <Components.Input
               placeholder="lat"
@@ -211,9 +219,17 @@ const SignUpConsumerBuisness = () => {
           ))}
 
           <Components.Input
-            type="email"
-            placeholder="Email"
-            name="email"
+            type="time"
+            placeholder="Opening Time"
+            name="opening_time"
+            required
+            style={{ height: "30px", width: "100%" }}
+            onChange={handleInputChange}
+          />
+           <Components.Input
+            type="time"
+            placeholder="Closing Time"
+            name="closing_time"
             required
             style={{ height: "30px", width: "100%" }}
             onChange={handleInputChange}
@@ -268,7 +284,7 @@ const SignUpConsumerBuisness = () => {
         </Components.Overlay>
       </Components.OverlayContainer>
     </Components.Container>
-    </div>
+    
   );
 };
 
