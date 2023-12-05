@@ -6,7 +6,7 @@ import WafferLogo from '../images/WafferLogo.png';
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [userType, setUserType] = useState(''); // Add this state
+  const [userType, setUserType] = useState('consumer'); // Add this state
 
   const handleMobileMenuToggle = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -48,7 +48,7 @@ const Navbar = () => {
   <div className="username">{username}</div>
 </div>
   <div className="navbar-item-dropdown-content">
-    <Link to="/profile">Profile</Link>
+    <Link to="/settings">Profile</Link>
     <Link to="/">Logout</Link>
   </div>
 </li>
@@ -74,7 +74,7 @@ const Navbar = () => {
             <li><Link to="/about" className="navbar-item">About</Link></li>
             
             <li><Link to="/contact" className="navbar-item">Feedback</Link></li>
-            <li><Link to="/signin" className="navbar-item" onClick={handleSignIn("consumer")}>Sign In</Link></li>
+            <li><Link to="/signin" className="navbar-item" >Sign In</Link></li>
           </>
         )}
       </ul>

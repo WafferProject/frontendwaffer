@@ -11,14 +11,17 @@ import BusinessList from './pages/BusinessList'
 import ConsumerList from './pages/ConsumerList'
 import OrdersList from './pages/OrdersList';
 import ProfileSettings from './pages/ProfileSettings'
-import UserDetails from './components/Admin/UserDetails'
+import UserDetails from './components/Admin/ConsumerDetails'
 export default function App() {
   return (
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<ParentHome />} />
       <Route path="/split-screen" element={<SplitScreen />} />
-      <Route path="/SignUp" element={<SignUpConsumerBuisness />} />
+      <Route path="/SignUp" element={
+      
+      <SignUpConsumerBuisness />
+      } />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/consumer" element={<ConsumerDashboard/>}/>
       <Route path="/business" element={<BusinessDashboard/>}/>

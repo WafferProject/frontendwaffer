@@ -3,7 +3,8 @@ import { DataGrid } from '@mui/x-data-grid';
 import { useNavigate } from 'react-router-dom';
 
 import "./Table.css"
-const Table = ({ columns, rows, handleDelete }) => {
+
+const Table = ({ columns, rows, handleDelete, isBusiness}) => {
     const navigate = useNavigate();
     const actionColumn = [
         {
@@ -13,7 +14,10 @@ const Table = ({ columns, rows, handleDelete }) => {
             renderCell: (params) => {
                 return (
                     <div className="cellAction">
-                        <div className="viewButton" onClick={() => navigate(`/ConsumerList/${params.row.id}`)}>View</div>
+                        <div className="viewButton" onClick={() => {
+                            const path = isBusiness ? `/BusinessList/${params.row.id}` : `/ConsumerList/${params.row.id}`;
+                            navigate(path);
+                        }}>View</div>
                         <div className="deleteButton" onClick={() => handleDelete(params.row.id)}>Delete</div>
                     </div>
                 );
