@@ -12,6 +12,7 @@ import ConsumerList from './pages/ConsumerList'
 import OrdersList from './pages/OrdersList';
 import ProfileSettings from './pages/ProfileSettings'
 import UserDetails from './components/Admin/ConsumerDetails'
+import AddBusiness from './components/Admin/AddBusiness'
 export default function App() {
   return (
     <BrowserRouter>
@@ -33,7 +34,7 @@ export default function App() {
       <Route path="/ConsumerList/:id" element={<UserDetails />} />
       <Route path="/OrdersList" element={<OrdersList />} />
       <Route path="/settings" element={<ProfileSettings />} />
-      
+      <Route path="/new" element={<AddBusiness />} />
 
 
     </Routes>
