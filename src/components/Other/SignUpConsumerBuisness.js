@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import * as Components from "./utilsSignUpIn";
 import AddButton from "./AddButton";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { RadioGroup, FormLabel, Radio, FormControlLabel } from "@mui/material";
-import { useAuth } from "./AuthContext";
+import { useAuth } from "../AuthContext";
 
 const SignUpConsumerBuisness = () => {
   const {isBuisness,  setIsBuisness} =useAuth();

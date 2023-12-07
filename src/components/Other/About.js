@@ -2,11 +2,11 @@
 import React from 'react';
 import './About.css'; 
 import { useState } from 'react';
-import teamMemberImage1 from '../images/eyaaa.jpg';
-import teamMemberImage2 from '../images/yasmine2.jpg';
-import teamMemberImage3 from '../images/salmen.png';
-import teamMemberImage5 from '../images/amine.jpg';
-import Gif from '../images/giphy.gif';
+import teamMemberImage1 from '../../images/eyaaa.jpg';
+import teamMemberImage2 from '../../images/yasmine2.jpg';
+import teamMemberImage3 from '../../images/salmen.png';
+import teamMemberImage5 from '../../images/amine.jpg';
+import Gif from '../../images/giphy.gif';
 import { FaLinkedin } from 'react-icons/fa'; // import the LinkedIn icon
 
 

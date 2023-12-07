@@ -1,8 +1,8 @@
 import React from "react";
 
-import PickMeals from "../images/pick-meals-image.png";
-import ChooseMeals from "../images/choose-image.png";
-import DeliveryMeals from "../images/delivery-image.png";
+import PickMeals from "../../images/pick-meals-image.png";
+import ChooseMeals from "../../images/choose-image.png";
+import DeliveryMeals from "../../images/delivery-image.png";
 import "./Work.css";
 
 

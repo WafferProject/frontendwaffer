@@ -1,6 +1,6 @@
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
-import Burger from "../images/Burger.png";
+import Burger from "../../images/Burger.png";
 import "./Home.css";
 
 import { Outlet ,Link } from "react-router-dom";
