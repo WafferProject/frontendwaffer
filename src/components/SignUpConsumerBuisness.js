@@ -26,8 +26,8 @@ const SignUpConsumerBuisness = () => {
     email: "",
     description: "",
     password: "",
-    opening_time: "20:00",
-    closing_time: "19:00",
+    opening_time: "",
+    closing_time: "",
   });
   const navigate = useNavigate();
 
@@ -47,7 +47,7 @@ const SignUpConsumerBuisness = () => {
             " with " +
             JSON.stringify(response.data)
         );
-        navigate("signin");
+        navigate("/signin");
       })
       .catch((error) => {
         console.log("error  " + JSON.stringify(error.response.data.error));
@@ -88,7 +88,7 @@ const SignUpConsumerBuisness = () => {
 
   return (
     // consumer view
-    
+    <div className="container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
     <Components.Container>
       <Components.SignUpContainer signIn={isBuisness}>
         <Components.Form>
@@ -105,6 +105,8 @@ const SignUpConsumerBuisness = () => {
             required
             onChange={handleInputChange}
           />
+         
+
 
           <FormLabel style={{ marginTop: "10px" }}>Gender</FormLabel>
           <RadioGroup row name="occupation" onChange={handleInputChange}>
@@ -140,18 +142,17 @@ const SignUpConsumerBuisness = () => {
             required
             onChange={handleInputChange}
           />
-          <Link to="/Signin">
+          
             <Components.Button onClick={handleSubmit}>
               Sign Up
             </Components.Button>
-          </Link>
         </Components.Form>
       </Components.SignUpContainer>
 
       {/* buisness view */}
 
       <Components.SignInContainer signIn={isBuisness}>
-        <Components.Form onSubmit={handleSubmit}>
+        <Components.Form >
           <Components.Title>Create Account Business</Components.Title>
           <Components.Input
             type="text"
@@ -163,18 +164,22 @@ const SignUpConsumerBuisness = () => {
             onChange={handleInputChange}
             name="tax_registration_number"
           />
+            <Components.Input
+            name="opening_time"
+            placeholder="Opening Time"
+            required
+            onChange={handleInputChange}
+          />
+             <Components.Input
+            name="closing_time"
+            placeholder="closing Time"
+            required
+            onChange={handleInputChange}
+          />
 
           <Components.Input
             placeholder="Your buisness name"
             name="name"
-            required
-            style={{ height: "30px", width: "100%" }}
-            onChange={handleInputChange}
-          />
-           <Components.Input
-            type="email"
-            placeholder="Email"
-            name="email"
             required
             style={{ height: "30px", width: "100%" }}
             onChange={handleInputChange}
@@ -219,17 +224,9 @@ const SignUpConsumerBuisness = () => {
           ))}
 
           <Components.Input
-            type="time"
-            placeholder="Opening Time"
-            name="opening_time"
-            required
-            style={{ height: "30px", width: "100%" }}
-            onChange={handleInputChange}
-          />
-           <Components.Input
-            type="time"
-            placeholder="Closing Time"
-            name="closing_time"
+            type="email"
+            placeholder="Email"
+            name="email"
             required
             style={{ height: "30px", width: "100%" }}
             onChange={handleInputChange}
@@ -250,9 +247,7 @@ const SignUpConsumerBuisness = () => {
             style={{ height: "30px", width: "100%" }}
             onChange={handleInputChange}
           />
-          <Link to="/Signin">
-            <Components.Button type="submit">Sign Up</Components.Button>
-          </Link>
+            <Components.Button onClick={handleSubmit} >Sign Up</Components.Button>
         </Components.Form>
       </Components.SignInContainer>
 
@@ -284,7 +279,7 @@ const SignUpConsumerBuisness = () => {
         </Components.Overlay>
       </Components.OverlayContainer>
     </Components.Container>
-    
+    </div>
   );
 };
 
