@@ -7,6 +7,7 @@ import Modal from "@mui/joy/Modal";
 import Snackbar from "@mui/joy/Snackbar";
 import { ConsumerContext } from "./ConsumerDashContext";
 import Map from "./Map";
+import axios from "axios";
 const Popup = ({ setProfileOpen }) => {
   const [count, setCount] = useState(1);
   const [isOrderPlaced, setOrderPlaced] = useState(false);
@@ -20,6 +21,32 @@ const Popup = ({ setProfileOpen }) => {
     if (count > 1) {
       setCount(count - 1);
     }
+  };
+  const url = `http://localhost:8080/api/consumer/order`;
+  const order = {
+    quantity: count,
+    offer_id: selectedOffer.id,
+    tax_registration_number: selectedOffer.tax_registration_number,
+  };
+  const postOrder = () => {
+    axios
+      .post(url, order, { withCredentials: true })
+      .then((response) => {
+        console.log("order added successfuly" + JSON.stringify(response.data));
+        setOrderPlaced(true);
+        setTimeout(() => {
+          setSelectedOffer(null);
+          window.location.reload();
+        }, 1700);
+      })
+      .catch((error) => {
+        console.log("error  " + JSON.stringify(error.response));
+        if (error.response.status === 400) {
+          return alert("not enough quantity remaining");
+        } else if (error.response.status === 404) {
+          alert("offer not found or may be expired");
+        }
+      });
   };
 
   return (
@@ -61,7 +88,14 @@ const Popup = ({ setProfileOpen }) => {
             <div className="description">
               <h3>Description</h3>
               {selectedOffer.description}
-              <div style={{position:'absolute',bottom:'40px', display: "flex", marginTop: "60px" }}>
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "40px",
+                  display: "flex",
+                  marginTop: "60px",
+                }}
+              >
                 <div class="counter">
                   Qte
                   <span class="down" onClick={decreaseCount}>
@@ -77,12 +111,7 @@ const Popup = ({ setProfileOpen }) => {
                   endDecorator={isOrderPlaced && <Check fontSize="large" />}
                   color="success"
                   variant="plain"
-                  onClick={() => {
-                    setOrderPlaced(true);
-                    setTimeout(() => {
-                      setSelectedOffer(null);
-                    }, 1700);
-                  }}
+                  onClick={postOrder}
                 >
                   Place Order
                 </Button>

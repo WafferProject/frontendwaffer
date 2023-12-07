@@ -32,17 +32,6 @@ export default function OfferList() {
       });
   }, []);
 
-  const toggleDrawer = (inOpen) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
-
-    setOrderOpen(inOpen);
-  };
-
   return (
     <>
       {profileInfo && (
@@ -51,7 +40,10 @@ export default function OfferList() {
           profileInfo={profileInfo}
         />
       )}
-      <OrderTab isOrderOpen={isOrderOpen} setOrderOpen={toggleDrawer} />
+       
+        <OrderTab isOrderOpen={isOrderOpen} setOrderOpen={setOrderOpen} />
+      
+
       <Button
         style={{
           position: "relative",
@@ -59,7 +51,7 @@ export default function OfferList() {
           bottom: "15px",
           width: "200px",
         }}
-        onClick={toggleDrawer(true)}
+        onClick={()=>{setOrderOpen(true)}}
         endDecorator={<RemoveRedEyeIcon />}
       >
         view orders

@@ -7,7 +7,6 @@ import { useAuth } from "./AuthContext";
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { isBuisness, isAuthenticated, logout } = useAuth();
-  const nav = useNavigate();
   const currentPath = useLocation().pathname;
   const handleMobileMenuToggle = () => {
     setMobileMenuOpen(!mobileMenuOpen);

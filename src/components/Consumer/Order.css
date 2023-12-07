@@ -17,9 +17,9 @@
   
   /* Checkout */
   .date {
-    position: relative;
+    position: absolute;
     left: 370px;
-    bottom: 33px;
+    bottom: 150px;
     font-size: 15px;
     font-weight: 700;
     color: black;
@@ -33,7 +33,7 @@
     display: grid;
     grid-template-columns: 3fr 1fr;
     padding: 10px;
-    gap: 5px;
+    gap: 15px;
   }
   
   .checkout .details span {
@@ -62,6 +62,7 @@
     padding: 10px 10px 10px 20px;
     background-color: #efeff3;
     border-radius: 20px;
+    margin-top: 10px;
   }
   
   .price {
