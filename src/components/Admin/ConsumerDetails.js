@@ -1,8 +1,8 @@
 import React from 'react'
 import SideBar from './SideBar.js'
-import "./UserDetails.css"
+import "./ConsumerDetails.css"
 import Chart from "./Chart.js"
-const SingleConsumer = () => {
+const ConsumerDetails = () => {
   return (
     
     <div className="single">
@@ -47,4 +47,4 @@ const SingleConsumer = () => {
   )
 }
 
-export default SingleConsumer
+export default ConsumerDetails;

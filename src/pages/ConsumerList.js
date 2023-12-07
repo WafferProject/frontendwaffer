@@ -35,7 +35,7 @@ const ConsumerList = () => {
       <Sidebar/>
       <div className="listContainerConsumer">
         <h1 className="headerConsumer">List of consumers</h1>
-        <Table columns={columns} rows={data} handleDelete={handleDelete}/>
+        <Table columns={columns} rows={data} handleDelete={handleDelete} isBusiness={false}/>
       </div>
     </div>
   )
