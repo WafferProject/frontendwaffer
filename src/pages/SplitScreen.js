@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 // Import your image
 import rightImage from '../images/Orderfood.png';
 import leftImage from '../images/helppartner.png';
-import { useAuth } from './AuthContext';
+import { useAuth } from '../components/AuthContext';
 
  
 const SplitScreen = () => {
@@ -21,7 +21,7 @@ const SplitScreen = () => {
   
             <h1 className="sell-heading"> Sell</h1>
             <p className="texts">Sell, Don't Waste. Partner with us, Sign Up!</p>
-            <Link to="/SignUp" onClick={()=>{setIsBuisness(true)}} className="btnleft">
+            <Link to="/signup" onClick={()=>{setIsBuisness(true)}} className="btnleft">
               SIGNUP AS A Partner
             </Link>
             <img src={leftImage} alt=" " className="left-image" />
@@ -34,7 +34,7 @@ const SplitScreen = () => {
   
               <h1 className="buy-heading"> Buy</h1>
               <p className="texts">Savor Discounts! Sign up for wallet-friendly indulgence </p>
-              <Link to="/SignUp" className="btnright" onClick={()=>{setIsBuisness(false)}}>
+              <Link to="/signup" className="btnright" onClick={()=>{setIsBuisness(false)}}>
                 SIGNUP AS A Client
               </Link>
   

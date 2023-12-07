@@ -1,52 +1,68 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import WafferLogo from "../images/WafferLogo.png";
 import { useAuth } from "./AuthContext";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { isBuisness, isAuthenticated } = useAuth();
+  const { isBuisness, isAuthenticated, logout } = useAuth();
   const nav = useNavigate();
+  const currentPath = useLocation().pathname;
   const handleMobileMenuToggle = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
   // Call this function when a user signs in
   const handleSignIn = () => {
-    nav("signin");
+    nav("/signin");
   };
+
   const [account] = useState({ username: "salmen", userProfilePic: "" });
 
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <img src={WafferLogo} alt="Waffer Logo" width="100px" height="100px"/>
+        <img src={WafferLogo} alt="Waffer Logo" width="100px" height="100px" />
       </div>
       <div className="navbar-toggle" onClick={handleMobileMenuToggle}>
         {mobileMenuOpen ? "X" : <div>&#9776;</div>}
       </div>
       <ul className={`navbar-links ${mobileMenuOpen ? "show" : ""}`}>
-        {(!isBuisness && isAuthenticated) && (
+        {/* logged in consumer navbar */}
+        {!isBuisness && isAuthenticated && (
           <>
-            <li>
-              <Link to="/consumer" className="navbar-item">
-                Offers
+            {currentPath === "/" && (
+              <li>
+                <Link to="/consumer" className="navbar-item">
+                  Offers
+                </Link>
+              </li>
+            )}
+            {currentPath === "/consumer" && (
+              <Link to="/" className="navbar-item">
+                Home
               </Link>
-            </li>
+            )}
             <li>
               <Link to="/contact" className="navbar-item">
                 Feedback
               </Link>
             </li>
+            <Link to="/about" className="navbar-item">
+                About
+              </Link>
             <li className="navbar-item-dropdown">
               <div className="user-info">
                 {/* <img src={account.userProfilePic} alt="User Profile" /> */}
                 <div className="username">{account.username}</div>
               </div>
+
               <div className="navbar-item-dropdown-content">
                 <Link to="/profile">Profile</Link>
-                <Link to="/logout">Logout</Link>
+                <Link onClick={logout} to="/signin">
+                  Logout
+                </Link>
               </div>
             </li>
           </>
@@ -62,6 +78,9 @@ const Navbar = () => {
               <Link to="/contact" className="navbar-item">
                 Feedback
               </Link>
+              <Link to="/about" className="navbar-item">
+                About
+              </Link>
             </li>
             <li className="navbar-item-dropdown">
               <div className="user-info">
@@ -70,7 +89,10 @@ const Navbar = () => {
               </div>
               <div className="navbar-item-dropdown-content">
                 <Link to="/profile">Profile</Link>
-                <Link to="/logout">Logout</Link>
+                <Link onClick={logout} to="/signin">
+                  {" "}
+                  Logout
+                </Link>
               </div>
             </li>
           </>
@@ -78,17 +100,18 @@ const Navbar = () => {
         {/* not logged in null userState */}
         {!isAuthenticated && (
           <>
-            <li>
-              <Link to="/" className="navbar-item">
-                Home
-              </Link>
-            </li>
+            {currentPath !== "/" && (
+              <li>
+                <Link to="/" className="navbar-item">
+                  Home
+                </Link>
+              </li>
+            )}
             <li>
               <Link to="/about" className="navbar-item">
                 About
               </Link>
             </li>
-            {/* <li><SwitchButton /></li> */}
             <li>
               <Link to="/contact" className="navbar-item">
                 Feedback
@@ -96,13 +119,16 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                to="/signin"
+                to={
+                  currentPath === "/signup" || currentPath === "/"||currentPath === "/split-screen"
+                    ? "/signin"
+                    : "/split-screen"
+                }
                 className="navbar-item"
-                onClick={() => {
-                  handleSignIn();
-                }}
               >
-                Sign In
+                {currentPath === "/signup" || currentPath === "/"||currentPath === "/split-screen"
+                  ? "Sign In"
+                  : "Sign Up"}
               </Link>
             </li>
           </>

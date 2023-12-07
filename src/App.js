@@ -1,5 +1,5 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import SplitScreen from "./components/SplitScreen";
+import SplitScreen from "./pages/SplitScreen";
 import ParentHome from "./pages/ParentHome";
 import SignUpConsumerBuisness from "./components/SignUpConsumerBuisness";
 import SignInConsumerBuisness from "./components/SignInConsumerBuisness";
@@ -25,10 +25,10 @@ export default function App() {
         <Routes>
           <Route path="/" element={<ParentHome />} />
           <Route path="/split-screen" element={<SplitScreen />} />
-          <Route path="/SignUp" element={<SignUpConsumerBuisness />} />
+          <Route path="/signup" element={<SignUpConsumerBuisness />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/profile" element={<ProfileSettings />} />
-          <Route path="/Signin" element={<SignInConsumerBuisness />} />
+          <Route path="/signin" element={<SignInConsumerBuisness />} />
           <Route path="/admin" element={<HomeAdmin />} />
           <Route path="/BusinessList" element={<BusinessList />} />
           <Route path="/ConsumerList" element={<ConsumerList />} />

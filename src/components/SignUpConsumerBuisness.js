@@ -47,7 +47,7 @@ const SignUpConsumerBuisness = () => {
             " with " +
             JSON.stringify(response.data)
         );
-        navigate("signin");
+        navigate("/signin");
       })
       .catch((error) => {
         console.log("error  " + JSON.stringify(error.response.data.error));
@@ -140,18 +140,16 @@ const SignUpConsumerBuisness = () => {
             required
             onChange={handleInputChange}
           />
-          <Link to="/Signin">
             <Components.Button onClick={handleSubmit}>
               Sign Up
             </Components.Button>
-          </Link>
         </Components.Form>
       </Components.SignUpContainer>
 
       {/* buisness view */}
 
       <Components.SignInContainer signIn={isBuisness}>
-        <Components.Form onSubmit={handleSubmit}>
+        <Components.Form >
           <Components.Title>Create Account Business</Components.Title>
           <Components.Input
             type="text"
@@ -234,9 +232,7 @@ const SignUpConsumerBuisness = () => {
             style={{ height: "30px", width: "100%" }}
             onChange={handleInputChange}
           />
-          <Link to="/Signin">
-            <Components.Button type="submit">Sign Up</Components.Button>
-          </Link>
+            <Components.Button onClick={handleSubmit} >Sign Up</Components.Button>
         </Components.Form>
       </Components.SignInContainer>
 
