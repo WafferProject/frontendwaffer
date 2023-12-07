@@ -70,7 +70,7 @@ export default function Map({ selectedOffer }) {
   // }
   return hasPermission.current ? (
     <Paper
-      elevation={8}
+      elevation={0}
       className="map-container-container"
       style={{ borderRadius: "40px" }}
     >
