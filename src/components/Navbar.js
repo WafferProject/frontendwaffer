@@ -42,11 +42,11 @@ const Navbar = () => {
             <li className="navbar-item-dropdown">
               <div className="user-info">
                 {/* <img src={account.userProfilePic} alt="User Profile" /> */}
-                <div className="username">{account.username}</div>
+                <div className="navbar-item">{account.username}</div>
               </div>
               <div className="navbar-item-dropdown-content">
                 <Link to="/profile">Profile</Link>
-                <Link to="/logout">Logout</Link>
+                <Link to="/">Logout</Link>
               </div>
             </li>
           </>
@@ -66,11 +66,11 @@ const Navbar = () => {
             <li className="navbar-item-dropdown">
               <div className="user-info">
                 {/* <img src={userProfilePic} alt="User Profile" /> */}
-                <div className="username">{account.username}</div>
+                <div className="navbar-item">{account.username}</div>
               </div>
               <div className="navbar-item-dropdown-content">
                 <Link to="/profile">Profile</Link>
-                <Link to="/logout">Logout</Link>
+                <Link to="/">Logout</Link>
               </div>
             </li>
           </>

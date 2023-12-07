@@ -10,26 +10,68 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 const TableAdmin = () => {
+  // const [rows, setRows] = useState([
+  //   {
+  //     id: null,
+  //     OfferName: "",
+  //     bussinessName:"",
+  //     consumer: "",
+  //     date: "",
+  //     status: "",
+  //   },
+  // ]);
+  // const url = "http://localhost:8080/api/";
+  // useEffect(() => {
+  //   axios.get(url)
+  //     .then((response) => {
+  //       setRows(response.data);
+  //     })
+  //     .catch((error) => {
+  //       console.log("error fetching data")
+  //     })
+  // }, []);
   const [rows, setRows] = useState([
     {
-      id: null,
-      OfferName: "",
-      bussinessName:"",
-      consumer: "",
-      date: "",
-      status: "",
+      id: 1,
+      OfferName: "Offer 1",
+      bussinessName: "Business 1",
+      consumer: "Consumer 1",
+      date: "2022-01-01",
+      status: "Pending",
+    },
+    {
+      id: 2,
+      OfferName: "Offer 2",
+      bussinessName: "Business 2",
+      consumer: "Consumer 2",
+      date: "2022-02-01",
+      status: "Approved",
+    },
+    {
+      id: 3,
+      OfferName: "Offer 3",
+      bussinessName: "Business 3",
+      consumer: "Consumer 3",
+      date: "2022-03-01",
+      status: "Pending",
+    },
+    {
+      id: 4,
+      OfferName: "Offer 4",
+      bussinessName: "Business 4",
+      consumer: "Consumer 4",
+      date: "2022-04-01",
+      status: "Approved",
+    },
+    {
+      id: 5,
+      OfferName: "Offer 5",
+      bussinessName: "Business 5",
+      consumer: "Consumer 5",
+      date: "2022-05-01",
+      status: "Pending",
     },
   ]);
-  const url = "http://localhost:8080/api/";
-  useEffect(() => {
-    axios.get(url)
-      .then((response) => {
-        setRows(response.data);
-      })
-      .catch((error) => {
-        console.log("error fetching data")
-      })
-  }, []);
   return (
   
        <TableContainer component={Paper} className="table" >

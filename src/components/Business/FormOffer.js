@@ -1,9 +1,9 @@
 import './FormOffer.css';
 import React, { useState } from 'react';
-
+import meal from "../../images/pick-meals-image.png";
 
 function FormOffer({addOffer}) {
-  const defaultImagePreview = 'https://bootdey.com/img/Content/avatar/avatar1.png';
+  const defaultImagePreview = meal;
   const [formData, setFormData] = useState({
     offerName: '',
     category: '',

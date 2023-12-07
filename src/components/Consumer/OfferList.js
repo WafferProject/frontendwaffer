@@ -58,6 +58,7 @@ export default function OfferList() {
           left: " 830px",
           bottom: "15px",
           width: "200px",
+          backgroundColor: "#FF8C00",
         }}
         onClick={toggleDrawer(true)}
         endDecorator={<RemoveRedEyeIcon />}
