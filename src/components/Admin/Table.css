@@ -1,0 +1,24 @@
+.userTable{
+    height: 638px;
+    padding: 30px;
+    margin-top: 30px;
+}
+.cellAction{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.viewButton{
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: rgb(0, 139, 93);
+    border: 1px dotted rgba(0, 139, 86, 0.596);
+    cursor: pointer;
+}
+.deleteButton{
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: rgb(220, 120, 20);
+    border: 1px dotted rgba(220, 117, 20, 0.6);
+    cursor: pointer;
+}

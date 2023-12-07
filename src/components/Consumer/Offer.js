@@ -24,7 +24,7 @@ export default function Offer({
 
 
 {
-  const { setSelectedOffer} = useContext(ConsumerContext);
+  const { setSelectedOffer , offerDistance} = useContext(ConsumerContext);
 
   const timeDifference = new Date() - new Date(offerItem.creation_date);
   const minutesDifference = Math.floor(timeDifference / (1000 * 60));
@@ -48,7 +48,7 @@ export default function Offer({
         <Paper className="img-restaurant-div" variant="outlined">
           <CardActionArea
             onClick={() => {
-              setProfileOpen(true);
+              setProfileOpen(offerItem.Buisness);
             }}
           >
             <Paper elevation={6} style={{ marginBottom: "15px" }}>
@@ -176,10 +176,10 @@ export default function Offer({
                 level="body-xs"
                 fontWeight="md"
                 textColor="text.secondary"
-                sx={{ position: "absolute", left: "330px" }}
+                sx={{ position: "absolute", left: "310px" }}
               >
                 <RouteOutlinedIcon />
-                &nbsp; 599m
+                &nbsp; {offerDistance} m
               </Typography>
             )}
           </CardContent>

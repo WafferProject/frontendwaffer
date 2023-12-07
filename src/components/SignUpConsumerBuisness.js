@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import * as Components from "./utilsSignUpIn";
 import AddButton from "./AddButton";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { RadioGroup, FormLabel, Radio, FormControlLabel } from "@mui/material";
+import { useAuth } from "./AuthContext";
 
 const SignUpConsumerBuisness = () => {
-  const [isBuisness, toggleIsBuisness] = React.useState(false);
+  const {isBuisness,  setIsBuisness} =useAuth();
   const [consumerForm, setConsumerForm] = useState({
     first_name: "",
     last_name: "",
@@ -28,6 +29,7 @@ const SignUpConsumerBuisness = () => {
     opening_time: "20:00",
     closing_time: "19:00",
   });
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -45,7 +47,7 @@ const SignUpConsumerBuisness = () => {
             " with " +
             JSON.stringify(response.data)
         );
-        alert("successful signup , now redirect to login ");
+        navigate("/signin");
       })
       .catch((error) => {
         console.log("error  " + JSON.stringify(error.response.data.error));
@@ -86,7 +88,7 @@ const SignUpConsumerBuisness = () => {
 
   return (
     // consumer view
-
+    <div className="container" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
     <Components.Container>
       <Components.SignUpContainer signIn={isBuisness}>
         <Components.Form>
@@ -138,18 +140,16 @@ const SignUpConsumerBuisness = () => {
             required
             onChange={handleInputChange}
           />
-          <Link to="/Signin">
             <Components.Button onClick={handleSubmit}>
               Sign Up
             </Components.Button>
-          </Link>
         </Components.Form>
       </Components.SignUpContainer>
 
       {/* buisness view */}
 
       <Components.SignInContainer signIn={isBuisness}>
-        <Components.Form onSubmit={handleSubmit}>
+        <Components.Form >
           <Components.Title>Create Account Business</Components.Title>
           <Components.Input
             type="text"
@@ -232,9 +232,7 @@ const SignUpConsumerBuisness = () => {
             style={{ height: "30px", width: "100%" }}
             onChange={handleInputChange}
           />
-          <Link to="/Signin">
-            <Components.Button type="submit">Sign Up</Components.Button>
-          </Link>
+            <Components.Button onClick={handleSubmit} >Sign Up</Components.Button>
         </Components.Form>
       </Components.SignInContainer>
 
@@ -246,7 +244,7 @@ const SignUpConsumerBuisness = () => {
               I am a Business and i want to create an account
             </Components.Paragraph>
             <Components.GhostButton
-              onClick={() => toggleIsBuisness(!isBuisness)}
+              onClick={() => setIsBuisness(true)}
             >
               Sign Up Business
             </Components.GhostButton>
@@ -258,7 +256,7 @@ const SignUpConsumerBuisness = () => {
               I am a Consumer and i want to create an account
             </Components.Paragraph>
             <Components.GhostButton
-              onClick={() => toggleIsBuisness(!isBuisness)}
+              onClick={() => setIsBuisness(false)}
             >
               Sign Up Consumer
             </Components.GhostButton>
@@ -266,6 +264,7 @@ const SignUpConsumerBuisness = () => {
         </Components.Overlay>
       </Components.OverlayContainer>
     </Components.Container>
+    </div>
   );
 };
 

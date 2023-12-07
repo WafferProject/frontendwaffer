@@ -2,15 +2,15 @@ import "./Popup.css";
 import Offer from "./Offer";
 import Button from "@mui/joy/Button";
 import { Check, CheckCircle, CloseOutlined } from "@mui/icons-material";
-import { useState , useContext } from "react";
+import { useState, useContext } from "react";
 import Modal from "@mui/joy/Modal";
 import Snackbar from "@mui/joy/Snackbar";
-import {ConsumerContext} from './ConsumerDashContext'
+import { ConsumerContext } from "./ConsumerDashContext";
 import Map from "./Map";
-const Popup = () => {
+const Popup = ({ setProfileOpen }) => {
   const [count, setCount] = useState(1);
   const [isOrderPlaced, setOrderPlaced] = useState(false);
-  const {selectedOffer , setSelectedOffer} = useContext(ConsumerContext);
+  const { selectedOffer, setSelectedOffer } = useContext(ConsumerContext);
 
   const increaseCount = () => {
     setCount(count + 1);
@@ -28,9 +28,9 @@ const Popup = () => {
       <Modal
         open={true}
         sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
-
-        onClose={()=>{setSelectedOffer(null)}}
-        
+        onClose={() => {
+          setSelectedOffer(null);
+        }}
       >
         {/* Content */}
 
@@ -54,16 +54,14 @@ const Popup = () => {
               borderRadius: "20px",
             }}
           >
-            <Offer offerItem={selectedOffer} />
+            <Offer offerItem={selectedOffer} setProfileOpen={setProfileOpen} />
 
             <div style={{ borderLeft: "1px solid grey" }} />
 
             <div className="description">
               <h3>Description</h3>
-              Apples are nutricious Apples may be good for weight loss Apples
-              may be good for bone health They're linked to a lowest risk of
-              diabetes <br />
-              <div style={{ display: "flex", marginTop: "60px" }}>
+              {selectedOffer.description}
+              <div style={{position:'absolute',bottom:'40px', display: "flex", marginTop: "60px" }}>
                 <div class="counter">
                   Qte
                   <span class="down" onClick={decreaseCount}>
@@ -83,7 +81,6 @@ const Popup = () => {
                     setOrderPlaced(true);
                     setTimeout(() => {
                       setSelectedOffer(null);
-
                     }, 1700);
                   }}
                 >
@@ -98,10 +95,8 @@ const Popup = () => {
         variant="soft"
         color="success"
         open={isOrderPlaced}
-
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         startDecorator={<CheckCircle />}
-        
       >
         Your order was placed successfully
       </Snackbar>

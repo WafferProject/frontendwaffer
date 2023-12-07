@@ -1,12 +1,11 @@
 
-import OfferCreationList from '../components/OfferCreationList'
-import FormOffer from "../components/FormOffer";
-import Navbar from "../components/Navbar";
+import OfferCreationList from '../components/Business/OfferCreationList'
+import FormOffer from "../components/Business/FormOffer";
 
 import Footer from "../components/Footer";
 import React, { useState } from 'react';
 import "./BusinessDahboard.css"
-import OfferCreationHistory from '../components/OfferCreationHistory';
+import OfferCreationHistory from '../components/Business/OfferCreationHistory';
 
 function BusinessDashboard() {
   const [offers, setOffers] = useState([]);
@@ -57,7 +56,6 @@ function BusinessDashboard() {
 
   return (
     <div>
-       <Navbar />
        <>
       <h1 className="title_offer">Business Dashboard</h1>
       <div className="containerHeader">

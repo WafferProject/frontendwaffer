@@ -8,13 +8,8 @@ import AddLocationAltOutlinedIcon from "@mui/icons-material/AddLocationAltOutlin
 import "./Map.css";
 import { useContext } from "react";
 import { ConsumerContext } from "./ConsumerDashContext";
-import { valHooks } from "jquery";
 
 export default function Map({ selectedOffer }) {
-  const { offersData } = useContext(ConsumerContext);
-  // console.log(selectedOffer.location);
-  console.log(offersData.location);
-
   let DefaultIcon = L.icon({
     iconUrl: icon,
     shadowUrl: iconShadow,
@@ -26,13 +21,30 @@ export default function Map({ selectedOffer }) {
 
   const [userCord, setUserCord] = useState({});
   const hasPermission = useRef(false); // Using useRef to store hasPermission
+  const { offersData, setOfferDistance } = useContext(ConsumerContext);
 
   const askPermission = () => {
+    console.log("asking loc permission");
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        setUserCord({
-          lat: position.coords.latitude,
-          long: position.coords.longitude,
+        setUserCord(() => {
+          const newcord = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+          if (selectedOffer) {
+
+            const selectedLatLng = L.latLng(
+              selectedOffer.Buisness.location.coordinates
+            );
+            const userLatLng = L.latLng(newcord);
+            console.log(" this is popup view  " + JSON.stringify(userLatLng));
+
+            console.log(selectedLatLng);
+            const distance = selectedLatLng.distanceTo(userLatLng);
+            setOfferDistance(Math.floor(distance));
+          }
+          return newcord;
         });
         hasPermission.current = true; // Update the ref's current property
       },
@@ -46,7 +58,16 @@ export default function Map({ selectedOffer }) {
   };
 
   useEffect(askPermission, []);
+ 
 
+  // if(selectedOffer){
+
+  //   const selectedLatLng = L.latLng(selectedOffer.Buisness.location.coordinates);
+  //   const userLatLng = L.latLng(userCord);
+  //   console.log(selectedLatLng) ;
+  //   const distance = selectedLatLng.distanceTo(userLatLng);
+  //   setOfferDistance(distance);
+  // }
   return hasPermission.current ? (
     <Paper
       elevation={8}
@@ -55,14 +76,19 @@ export default function Map({ selectedOffer }) {
     >
       {/* map display if user gives permission */}
       <MapContainer
-        style={{ height:selectedOffer?"280px":"370px" , width: "100%", borderRadius: "30px" }}
-        center={ // centering the map on a specifc offer or the user location 
+        style={{
+          height: selectedOffer ? "280px" : "370px",
+          width: "100%",
+          borderRadius: "30px",
+        }}
+        center={
+          // centering the map on a specifc offer or the user location
           selectedOffer
             ? [
                 selectedOffer.Buisness.location.coordinates[0],
                 selectedOffer.Buisness.location.coordinates[1],
               ]
-            : [userCord.lat, userCord.long]
+            : [userCord.lat, userCord.lng]
         }
         zoom={9}
         scrollWheelZoom={false}
@@ -96,7 +122,7 @@ export default function Map({ selectedOffer }) {
             </Marker>
           ))
         )}
-        <Marker position={[userCord.lat, userCord.long]}>
+        <Marker position={[userCord.lat, userCord.lng]}>
           <Tooltip sticky>
             <span>you are here</span>
           </Tooltip>

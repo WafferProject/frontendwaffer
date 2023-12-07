@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import OfferCreation from './OfferCreation'; 
-import emtpy from '../images/emtpy.png'; 
+import emtpy from '../../images/emtpy.png'; 
 import "./OfferCreationHistory.css"
 function OfferCreationHistory({ deletedOffers }) {
   return (
