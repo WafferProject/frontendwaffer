@@ -1,8 +1,8 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import SplitScreen from "./pages/SplitScreen";
 import ParentHome from "./pages/ParentHome";
-import SignUpConsumerBuisness from "./components/SignUpConsumerBuisness";
-import SignInConsumerBuisness from "./components/SignInConsumerBuisness";
+import SignUpConsumerBuisness from "./components/Other/SignUpConsumerBuisness";
+import SignInConsumerBuisness from "./components/Other/SignInConsumerBuisness";
 import PrivateRoute from "./components/PrivateRoute";
 import { AuthContextProvider } from "./components/AuthContext";
 import ProfileSettings from "./pages/ProfileSettings";
@@ -15,7 +15,8 @@ import BusinessList from "./pages/BusinessList";
 import ConsumerList from "./pages/ConsumerList";
 import OrdersList from "./pages/OrdersList";
 import UserDetails from "./components/Admin/UserDetails";
-import Footer from "./components/Footer";
+import Footer from "./components/Other/Footer";
+import About from "./components/Other/About";
 
 export default function App() {
   return (
@@ -35,6 +36,8 @@ export default function App() {
           <Route path="/ConsumerList/:id" element={<UserDetails />} />
           <Route path="/OrdersList" element={<OrdersList />} />
           <Route path="/settings" element={<ProfileSettings />} />
+          <Route path="/about" element={<About />} />
+
           <Route
             path="/consumer"
             element={

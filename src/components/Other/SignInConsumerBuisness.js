@@ -1,8 +1,8 @@
 import React from "react";
 import * as Components from "./utilsSignUpIn";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "./AuthContext";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../AuthContext";
 
 const SignInConsumerBuisness = () => {
   const { isBuisness, setIsBuisness, setIsAuthenticated } = useAuth();
