@@ -13,7 +13,7 @@
 
 }
 
-.container{
+.containerOfferForm{
   
   max-width:650px;
   padding: 28px;
@@ -135,7 +135,7 @@ input[type="file"]{
   background-color: #0d8bf5;
 }
 @media(max-width:600px){
-  .container{
+  .containerOfferForm{
     min-width: 280px;
 
   }

@@ -26,8 +26,8 @@ const SignUpConsumerBuisness = () => {
     email: "",
     description: "",
     password: "",
-    opening_time: "20:00",
-    closing_time: "19:00",
+    opening_time: "",
+    closing_time: "",
   });
   const navigate = useNavigate();
 
@@ -165,6 +165,20 @@ const SignUpConsumerBuisness = () => {
           <Components.Input
             placeholder="Your buisness name"
             name="name"
+            required
+            style={{ height: "30px", width: "100%" }}
+            onChange={handleInputChange}
+          />
+          <Components.Input
+            placeholder="Opening Time"
+            name="opening_time"
+            required
+            style={{ height: "30px", width: "100%" }}
+            onChange={handleInputChange}
+          />
+          <Components.Input
+            placeholder="Closing Time"
+            name="closing_time"
             required
             style={{ height: "30px", width: "100%" }}
             onChange={handleInputChange}

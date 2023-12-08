@@ -45,7 +45,7 @@ function FormOffer({addOffer}) {
   return (
    
     <div className="formContainer">
-      <form onSubmit={handleSubmit} className="container">
+      <form onSubmit={handleSubmit} className="containerOfferForm">
         <h2 className="header">Create a new food offer</h2>
         <div className="content">
           <div className="input_field">

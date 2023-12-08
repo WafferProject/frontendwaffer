@@ -13,7 +13,7 @@ const navigate = useNavigate();
   <h3 class="w3-center w3-animate-right">You dont have permission to view this site.</h3>
   <h3 class="w3-center w3-animate-zoom">🚫🚫🚫🚫</h3>
   <h6 class="w3-center w3-animate-zoom"><strong>Error Code</strong>: 403 forbidden</h6>
-  <Button  onClick={()=>{navigate("/signin")}} style={{marginTop:"30px" , width:"200px"}}> Login </Button>
+  <Button  onClick={()=>{navigate("/signin")}} style={{marginTop:"30px" , width:"200px",}}> Login </Button>
 </div>  
 </div>
 )
