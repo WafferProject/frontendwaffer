@@ -2,7 +2,7 @@
 import OfferCreationList from '../components/Business/OfferCreationList'
 import FormOffer from "../components/Business/FormOffer";
 
-import Footer from "../components/Footer";
+import Footer from "../components/Other/Footer";
 import React, { useState } from 'react';
 import "./BusinessDahboard.css"
 import OfferCreationHistory from '../components/Business/OfferCreationHistory';

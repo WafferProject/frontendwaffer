@@ -1,12 +1,11 @@
 import React from "react";
 import * as Components from "./utilsSignUpIn";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
-import {  useAuth } from "./AuthContext";
-
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../AuthContext";
 
 const SignInConsumerBuisness = () => {
-  const {isBuisness, setIsBuisness , setIsAuthenticated }= useAuth();
+  const { isBuisness, setIsBuisness, setIsAuthenticated } = useAuth();
 
   const [businessForm, setBusinessForm] = React.useState({
     tax_registration_number: "",
@@ -46,15 +45,16 @@ const SignInConsumerBuisness = () => {
         setIsAuthenticated(true);
         nav(`/${entity}`);
 
-
-
-        alert("successful login , token attached redirect to dashboard");
       })
       .catch((error) => {
-        console.log("error  " + JSON.stringify(error));
-
-        alert("wrong username or password ");
-        
+        console.log("error  " + JSON.stringify(error.response.status));
+        if (error.response.status===303) {
+          alert(
+            "already logged in as  " +
+              (isBuisness ? "business" : "consumer") +
+              "please logout first"
+          );
+        }
       });
   };
   return (
@@ -76,11 +76,7 @@ const SignInConsumerBuisness = () => {
             onChange={handleInputChange}
           />
           <Components.Anchor href="#">Forgot your password?</Components.Anchor>
-          <Link to="/consumer">
-            <Components.Button onClick={handleSubmit}>
-              Sign In
-            </Components.Button>
-          </Link>
+          <Components.Button onClick={handleSubmit}>Sign In</Components.Button>
         </Components.Form>
       </Components.SignUpContainer>
 
@@ -101,11 +97,7 @@ const SignInConsumerBuisness = () => {
             onChange={handleInputChange}
           />
           <Components.Anchor href="#">Forgot your password?</Components.Anchor>
-          <Link to="/buisness">
-            <Components.Button onClick={handleSubmit}>
-              Sign In
-            </Components.Button>
-          </Link>
+          <Components.Button onClick={handleSubmit}>Sign In</Components.Button>
         </Components.Form>
       </Components.SignInContainer>
 
@@ -116,9 +108,7 @@ const SignInConsumerBuisness = () => {
             <Components.Paragraph>
               I am a Business and I want to sign in
             </Components.Paragraph>
-            <Components.GhostButton
-              onClick={() => setIsBuisness(true)}
-            >
+            <Components.GhostButton onClick={() => setIsBuisness(true)}>
               Sign In Business
             </Components.GhostButton>
           </Components.LeftOverlayPanel>
@@ -128,9 +118,7 @@ const SignInConsumerBuisness = () => {
             <Components.Paragraph>
               I am a Consumer and I want to sign in
             </Components.Paragraph>
-            <Components.GhostButton
-              onClick={() => setIsBuisness(false)}
-            >
+            <Components.GhostButton onClick={() => setIsBuisness(false)}>
               Sign in Consumer
             </Components.GhostButton>
           </Components.RightOverlayPanel>

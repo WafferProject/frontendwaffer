@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import * as Components from "./utilsSignUpIn";
 import AddButton from "./AddButton";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { RadioGroup, FormLabel, Radio, FormControlLabel } from "@mui/material";
-import { useAuth } from "./AuthContext";
+import { useAuth } from "../AuthContext";
 
 const SignUpConsumerBuisness = () => {
   const {isBuisness,  setIsBuisness} =useAuth();
@@ -26,8 +26,8 @@ const SignUpConsumerBuisness = () => {
     email: "",
     description: "",
     password: "",
-    opening_time: "",
-    closing_time: "",
+    opening_time: "20:00",
+    closing_time: "19:00",
   });
   const navigate = useNavigate();
 
@@ -105,8 +105,6 @@ const SignUpConsumerBuisness = () => {
             required
             onChange={handleInputChange}
           />
-         
-
 
           <FormLabel style={{ marginTop: "10px" }}>Gender</FormLabel>
           <RadioGroup row name="occupation" onChange={handleInputChange}>
@@ -142,7 +140,6 @@ const SignUpConsumerBuisness = () => {
             required
             onChange={handleInputChange}
           />
-          
             <Components.Button onClick={handleSubmit}>
               Sign Up
             </Components.Button>
@@ -163,18 +160,6 @@ const SignUpConsumerBuisness = () => {
             style={{ height: "30px", width: "100%" }}
             onChange={handleInputChange}
             name="tax_registration_number"
-          />
-            <Components.Input
-            name="opening_time"
-            placeholder="Opening Time"
-            required
-            onChange={handleInputChange}
-          />
-             <Components.Input
-            name="closing_time"
-            placeholder="closing Time"
-            required
-            onChange={handleInputChange}
           />
 
           <Components.Input
