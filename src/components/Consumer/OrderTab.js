@@ -31,7 +31,7 @@ export default function OrderTab({ isOrderOpen, setOrderOpen }) {
   }
 
   return (
-    <Drawer open={isOrderOpen} onClose={setOrderOpen(false)}>
+    <Drawer style={{ zIndex: 400000 }}open={isOrderOpen} onClose={setOrderOpen(false)}>
       {Order()}
     </Drawer>
   );

@@ -22,7 +22,7 @@ const SplitScreen = () => {
             <h1 className="sell-heading"> Sell</h1>
             <p className="texts">Sell, Don't Waste. Partner with us, Sign Up!</p>
             <Link to="/signup" onClick={()=>{setIsBuisness(true)}} className="btnleft">
-              SIGNUP AS A Partner
+              Business Signup
             </Link>
             <img src={leftImage} alt=" " className="left-image" />
           </div>
@@ -35,7 +35,7 @@ const SplitScreen = () => {
               <h1 className="buy-heading"> Buy</h1>
               <p className="texts">Savor Discounts! Sign up for wallet-friendly indulgence </p>
               <Link to="/signup" className="btnright" onClick={()=>{setIsBuisness(false)}}>
-                SIGNUP AS A Client
+                Consumer Signup
               </Link>
   
             <img src={rightImage} alt=" " className="right-image" />

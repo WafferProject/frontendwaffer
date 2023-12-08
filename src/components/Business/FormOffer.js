@@ -1,9 +1,9 @@
 import './FormOffer.css';
 import React, { useState } from 'react';
-
+import meal from "../../images/pick-meals-image.png";
 
 function FormOffer({addOffer}) {
-  const defaultImagePreview = 'https://bootdey.com/img/Content/avatar/avatar1.png';
+  const defaultImagePreview = meal;
   const [formData, setFormData] = useState({
     offerName: '',
     category: '',
@@ -45,7 +45,7 @@ function FormOffer({addOffer}) {
   return (
    
     <div className="formContainer">
-      <form onSubmit={handleSubmit} className="container">
+      <form onSubmit={handleSubmit} className="containerOfferForm">
         <h2 className="header">Create a new food offer</h2>
         <div className="content">
           <div className="input_field">

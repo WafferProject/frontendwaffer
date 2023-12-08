@@ -1,9 +1,8 @@
-
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Sidebar from '../components/Admin/SideBar'
 import "./BusinessList.css"
-
 import Table from '../components/Admin/Table'
-import React, { useState } from 'react';
 import { useNavigate} from 'react-router-dom';
 
 
@@ -28,9 +27,25 @@ const BusinessList = () => {
     { id: 9, BusinessName: 'Roxie',email: "10snow@gmail.com",OffersNumber:20},
   ];
   const [data, setData] = useState(rows);
+  const url="http://localhost:8080/api/";
+  useEffect(() => {
+    axios.get(url)
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.log("error fetching data")
+      })
+  }, []);
 
   const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+    axios.delete(`${url}/${id}`)
+    .then((response) => {
+      setData(data.filter((item) => item.id !== id));
+    })
+    .catch((error) => {
+      console.log("error deleting item")
+    })
   };
   const navigate = useNavigate();
   return (
@@ -41,7 +56,7 @@ const BusinessList = () => {
         
         <h1 className="headerConsumer">List of Businesses</h1>
         <button className="addButton" onClick={() => navigate('/new')}>Create New</button>
-        <Table columns={columns} rows={data} handleDelete={handleDelete}/>
+        <Table columns={columns} rows={data} handleDelete={handleDelete}isBusiness={true}/>
       </div>
     </div>
   )

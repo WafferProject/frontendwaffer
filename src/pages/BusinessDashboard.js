@@ -90,7 +90,7 @@ function BusinessDashboard() {
         {renderTabContent()}
       </div>
     </>
-      <Footer />
+   
     </div>
   )
 }
