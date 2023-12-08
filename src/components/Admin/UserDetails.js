@@ -4,23 +4,29 @@ import SideBar from './SideBar.js';
 import Chart from './Chart.js';
 import "./UserDetails.css";
 
-// Assuming you have a function to fetch user details, you can import or define it here
-// import { fetchUserDetails } from 'your-data-fetching-service';
-
+const mockData = {
+    business: {
+        image:"https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+        name: "Business Name",
+        email: "business@example.com",
+        phone: "+123456789",
+        address: "123 Business St."
+    },
+    consumer: {
+        image: "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
+        name: "Consumer Name",
+        email: "consumer@example.com",
+        phone: "+987654321",
+        address: "321 Consumer Ave."
+    }
+};
 const UserDetails = ({ userType }) => {
     const { id } = useParams();
-    const [userData, setUserData] = useState(null);
+    const [userData, setUserData] = useState(mockData[userType]);
 
-    useEffect(() => {
-        // Replace this with your actual data fetching logic
-        // fetchUserDetails(userType, id).then(data => setUserData(data));
-        // For demonstration, we'll use a mock function to simulate fetching user data
-        fetchMockUserData(userType, id).then(data => setUserData(data));
-    }, [userType, id]);
 
-    if (!userData) {
-        return <div>Loading...</div>; // or any other loading state representation
-    }
+   
+
 
     return (
         <div className="single">
@@ -58,32 +64,5 @@ const UserDetails = ({ userType }) => {
     );
 };
 
-// Mock function to simulate data fetching
-const fetchMockUserData = async (userType, id) => {
-    // Mock data
-    const data = {
-        business: {
-            image: "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-            name: "Business Name",
-            email: "business@example.com",
-            phone: "+123456789",
-            address: "123 Business St."
-        },
-        consumer: {
-            image: "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
-            name: "Consumer Name",
-            email: "consumer@example.com",
-            phone: "+987654321",
-            address: "321 Consumer Ave."
-        }
-    };
-
-    // Simulating a network request
-    return new Promise(resolve => {
-        setTimeout(() => {
-            resolve(data[userType]);
-        }, 1000);
-    });
-};
 
 export default UserDetails;
