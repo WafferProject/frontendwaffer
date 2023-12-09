@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import WafferLogo from "../images/WafferLogo.png";
 import { useAuth } from "./AuthContext";
 
@@ -8,6 +8,7 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { isBuisness, isAuthenticated, logout } = useAuth();
   const currentPath = useLocation().pathname;
+  console.log("is Auth ? " + isAuthenticated + "is Buisness ? " + isBuisness);
   const handleMobileMenuToggle = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
@@ -50,27 +51,15 @@ const Navbar = () => {
             {!isBuisness &&
               currentPath !== "/consumer" &&
               renderLink("/consumer", "Offers")}
-            {currentPath !== "/" && renderLink("/", "Home")}
-            {renderLink("/contact", "Feedback")}
-            {renderLink("/about", "About")}
-            {renderDropdown()}
-          </>
-        )}
-        {isBuisness && isAuthenticated && (
-          <>
-            {currentPath !== "/buisness" &&
+
+            {isBuisness &&
+              currentPath !== "/buisness" &&
               renderLink("/buisness", "Dashboard")}
-            {currentPath !== "/" && renderLink("/", "Home")}
-            {renderLink("/contact", "Feedback")}
-            {renderLink("/about", "About")}
-            {renderDropdown()}
           </>
         )}
+        {currentPath !== "/" && renderLink("/", "Home")}
         {!isAuthenticated && (
           <>
-            {currentPath !== "/" && renderLink("/", "Home")}
-            {renderLink("/about", "About")}
-            {renderLink("/contact", "Feedback")}
             {renderLink(
               currentPath === "/signup" ||
                 currentPath === "/" ||
@@ -83,8 +72,12 @@ const Navbar = () => {
                 ? "Sign In"
                 : "Sign Up"
             )}
+            {currentPath !== "/about" && renderLink("/about", "About")}
           </>
         )}
+
+        {currentPath !== "/contact" && renderLink("/contact", "Contact")}
+        {isAuthenticated && renderDropdown()}
       </ul>
     </nav>
   );

@@ -11,18 +11,35 @@ import axios from "axios";
 import { useContext } from "react";
 
 export default function OfferList() {
-  const { offersData, setOffersData } = useContext(ConsumerContext);
+  const { offersData, setOffersData, selectedOffer, filter } =
+    useContext(ConsumerContext);
   //offer selection for the popup
-  const { selectedOffer } = useContext(ConsumerContext);
   //for order tab state
   const [isOrderOpen, setOrderOpen] = useState(false);
   //for buisness profile state
   const [profileInfo, setProfile] = useState(null);
+  console.log(filter);
 
   useEffect(() => {
     const url = "http://localhost:8080/api/consumer/offer";
+
+    // Function to build the URL with query parameters
+    const buildUrl = () => {
+      const params = new URLSearchParams();
+
+      // Add filterObj properties to the URL parameters
+      Object.entries(filter).forEach(([key, value]) => {
+        params.append(key, value);
+      });
+
+      // Combine the base URL and the parameters
+      const fullUrl = `${url}?${params.toString()}`;
+      return fullUrl;
+    };
+    console.log(buildUrl());
+
     axios
-      .get(url, { withCredentials: true })
+      .get(buildUrl(), { withCredentials: true })
       .then((response) => {
         console.log(response);
         setOffersData(response.data.offers);
@@ -30,7 +47,7 @@ export default function OfferList() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [selectedOffer, filter]);
 
   return (
     <>
@@ -40,9 +57,8 @@ export default function OfferList() {
           profileInfo={profileInfo}
         />
       )}
-       
-        <OrderTab isOrderOpen={isOrderOpen} setOrderOpen={setOrderOpen} />
-      
+
+      <OrderTab isOrderOpen={isOrderOpen} setOrderOpen={setOrderOpen} />
 
       <Button
         style={{
@@ -51,7 +67,9 @@ export default function OfferList() {
           bottom: "15px",
           width: "200px",
         }}
-        onClick={()=>{setOrderOpen(true)}}
+        onClick={() => {
+          setOrderOpen(true);
+        }}
         endDecorator={<RemoveRedEyeIcon />}
       >
         view orders
