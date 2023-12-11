@@ -1,20 +1,24 @@
-import './FormOffer.css';
-import React, { useState } from 'react';
+import axios from "axios";
+import "./FormOffer.css";
+import React, { useState } from "react";
+import { Snackbar } from "@mui/joy";
+import { CheckCircle } from "@mui/icons-material";
 
-
-function FormOffer({addOffer}) {
-  const defaultImagePreview = 'https://bootdey.com/img/Content/avatar/avatar1.png';
+function FormOffer({ addOffer, setSelectedTab }) {
+  const defaultImagePreview =
+    "https://bootdey.com/img/Content/avatar/avatar1.png";
   const [formData, setFormData] = useState({
-    offerName: '',
-    category: '',
-    quantityAvailable: '',
-    originalPrice: '',
-    discountedPrice: '',
-    expirationDate: '',
-    productDescription: '',
+    offerName: "",
+    category: "",
+    quantity: "",
+    old_price: "",
+    new_price: "",
+    expiration_date: "",
+    description: "",
     image: null,
-    imagePreview: defaultImagePreview
+    imagePreview: defaultImagePreview,
   });
+  const [offerPosted, setOfferPosted] = useState(false);
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -28,7 +32,11 @@ function FormOffer({addOffer}) {
   };
 
   const handleResetImage = () => {
-    setFormData({ ...formData, image: null, imagePreview: defaultImagePreview });
+    setFormData({
+      ...formData,
+      image: null,
+      imagePreview: defaultImagePreview,
+    });
   };
 
   const handleChange = (e) => {
@@ -38,133 +46,150 @@ function FormOffer({addOffer}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addOffer(formData);
-    
+    const url = "http://localhost:8080/api/buisness/offer";
+    //exlcuding images bcz not handled in backend
+    const { image, imagePreview, ...offerObj } = formData;
+    console.log(offerObj);
+    axios
+      .post(url, offerObj, { withCredentials: true })
+      .then((response) => {
+        console.log(response.data);
+        addOffer(formData);
+        setTimeout(() => {
+          setSelectedTab("offers");
+        }, 2000);
+        setOfferPosted(true);
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("there was an error creating your offer");
+      });
   };
 
   return (
-   
-    <div className="formContainer">
-      <form onSubmit={handleSubmit} className="container">
-        <h2 className="header">Create a new food offer</h2>
-        <div className="content">
-          <div className="input_field">
-            <div className="field">
-              <label>Offer Name:</label>
-              <input
-                type="text"
-                name="offerName"
-                value={formData.offerName}
-                onChange={handleChange}
-                required
-              />
+    <>
+      <div className="formContainer">
+        <form onSubmit={handleSubmit} className="container">
+          <h2 className="header">Create a new food offer</h2>
+          <div className="content">
+            <div className="input_field">
+              <div className="field">
+                <label>Category of Food:</label>
+                <input
+                  type="text"
+                  name="category"
+                  value={formData.category}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="field">
+                <label>Original Price:</label>
+                <input
+                  type="number"
+                  name="old_price"
+                  value={formData.old_price}
+                  onChange={handleChange}
+                  min="0"
+                  required
+                />
+              </div>
             </div>
-            <div className="field">
-              <label>Category of Food:</label>
-              <input
-                type="text"
-                name="category"
-                value={formData.category}
-                onChange={handleChange}
-                required
-              />
+            <div className="input_field">
+              <div className="field">
+                <label>Quantity Available:</label>
+                <input
+                  type="number"
+                  name="quantity"
+                  value={formData.quantity}
+                  onChange={handleChange}
+                  min="0"
+                  required
+                />
+              </div>
+              <div className="field">
+                <label>Expiration Date:</label>
+                <input
+                  type="date"
+                  name="expiration_date"
+                  value={formData.expiration_date}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
             </div>
-          </div>
-          <div className="input_field">
-  <div className="field">
-    <label>Quantity Available:</label>
-    <input
-      type="number"
-      name="quantityAvailable"
-      value={formData.quantityAvailable}
-      onChange={handleChange}
-      min="0"
-      required
-    />
-  </div>
-  <div className="field">
-    <label>Original Price:</label>
-    <input
-      type="number"
-      name="originalPrice"
-      value={formData.originalPrice}
-      onChange={handleChange}
-      min="0"
-      required
-    />
-  </div>
-</div>
-<div className="input_field">
-  <div className="field">
-    <label>Discounted Price:</label>
-    <input
-      type="number"
-      name="discountedPrice"
-      value={formData.discountedPrice}
-      onChange={handleChange}
-      min="0"
-      required
-    />
-  </div>
-  <div className="field">
-    <label>Expiration Date:</label>
-    <input
-      type="date"
-      name="expirationDate"
-      value={formData.expirationDate}
-      onChange={handleChange}
-      required
-    />
-  </div>
-</div>
-<div className="input_field">
-  <div className="field">
-    <label>Product Description:</label>
-    <textarea
-      name="productDescription"
-      value={formData.productDescription}
-      onChange={handleChange}
-      required
-    />
-  </div>
-  {/* <div className="field">
-  <label htmlFor="imageUpload" className="upload-button">
-    Upload Image
-  </label>
-  <input
-    type="file"
-    id="imageUpload"
-    name="image"
-    accept="image/*"
-    onChange={handleChange}
-    required
-  />
-  {formData.imageName && (
-            <p className="file-name">Selected image: {formData.imageName}</p>
-          )}
-</div> */}
- <div className=" field tab-pane fade active show" id="account-general">
+            <div className="input_field">
+              <div className="field">
+                <label>Discounted Price:</label>
+                <input
+                  type="number"
+                  name="new_price"
+                  value={formData.new_price}
+                  onChange={handleChange}
+                  min="0"
+                  required
+                />
+              </div>
+            </div>
+            <div className="input_field">
+              <div className="field">
+                <label>Product Description:</label>
+                <textarea
+                  name="description"
+                  value={formData.description}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className=" field tab-pane fade active show" id="uploadPic">
                 <div className="card-body media align-items-center">
-                <img src={formData.imagePreview} alt="User Avatar" className="d-block ui-w-80"/>
+                  <img
+                    src={formData.imagePreview}
+                    alt="User Avatar"
+                    className="d-block ui-w-80"
+                  />
                   <div className="upload media-body ml-4">
                     <label className="btn btn-outline-primary">
                       Upload new photo
-                      <input type="file" className="account-settings-fileinput" onClick={handleImageChange}/>
-                    </label> &nbsp;
-                    <button type="button" className="btn btn-default md-btn-flat" onClick={handleResetImage}>Reset</button>
-                    
+                      <input
+                        type="file"
+                        className="account-settings-fileinput"
+                        onClick={handleImageChange}
+                      />
+                    </label>{" "}
+                    &nbsp;
+                    <button
+                      type="button"
+                      className="btn btn-default md-btn-flat"
+                      onClick={handleResetImage}
+                    >
+                      Reset
+                    </button>
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="button_container">
+              <button className="button_submit" type="submit">
+                {" "}
+                Add{" "}
+              </button>
+            </div>
           </div>
-          <div className="button_container">    
-            <button className="button_submit" type="submit"> Add </button>
-          </div>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
+      <Snackbar
+        variant="soft"
+        color="success"
+        open={offerPosted}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        startDecorator={<CheckCircle />}
+      >
+        Your offer was posted successfully
+      </Snackbar>
+    </>
   );
 }
 
 export default FormOffer;
-

@@ -36,7 +36,6 @@ export default function OfferList() {
       const fullUrl = `${url}?${params.toString()}`;
       return fullUrl;
     };
-    console.log(buildUrl());
 
     axios
       .get(buildUrl(), { withCredentials: true })

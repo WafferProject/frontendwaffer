@@ -6,14 +6,11 @@ import { useAuth } from "./AuthContext";
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { isBuisness, isAuthenticated, logout } = useAuth();
+  const { isBuisness, isAuthenticated, logout , userInfoCookie } = useAuth();
   const currentPath = useLocation().pathname;
-  console.log("is Auth ? " + isAuthenticated + "is Buisness ? " + isBuisness);
   const handleMobileMenuToggle = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
-
-  const [account] = useState({ username: "salmen", userProfilePic: "" });
 
   const renderLink = (to, text) => (
     <li>
@@ -26,7 +23,7 @@ const Navbar = () => {
   const renderDropdown = () => (
     <li className="navbar-item-dropdown">
       <div className="user-info">
-        <div className="username">{account.username}</div>
+        <div className="username">{userInfoCookie.first_name}</div>
       </div>
       <div className="navbar-item-dropdown-content">
         <Link to="/profile">Profile</Link>{" "}
