@@ -35,6 +35,7 @@ export const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     const authCookie = getCookieValue("token");
+    const userCookie = JSON.parse(getCookieValue("user"));
     //if auth cookie exists , check with backend if its valid
     if (authCookie) {
       console.log("sending token chek");
@@ -43,7 +44,7 @@ export const AuthContextProvider = ({ children }) => {
         // request passed the middleware so its valid and responds with 200 status
         .then((res) => {
           setIsAuthenticated(true);
-          setIsBuisness(userInfoCookie.type === "business" ? true : false);
+          setIsBuisness(userCookie.type === "business" ? true : false);
         })
         //middleware caught the comromized token
         .catch((err) => {

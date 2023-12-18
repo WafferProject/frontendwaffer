@@ -23,7 +23,7 @@ const Navbar = () => {
   const renderDropdown = () => (
     <li className="navbar-item-dropdown">
       <div className="user-info">
-        <div className="username">{userInfoCookie.first_name}</div>
+        <div className="username">{isBuisness?userInfoCookie.name:userInfoCookie.first_name}</div>
       </div>
       <div className="navbar-item-dropdown-content">
         <Link to="/profile">Profile</Link>{" "}

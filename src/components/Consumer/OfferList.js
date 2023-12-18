@@ -40,7 +40,6 @@ export default function OfferList() {
     axios
       .get(buildUrl(), { withCredentials: true })
       .then((response) => {
-        console.log(response);
         setOffersData(response.data.offers);
       })
       .catch((err) => {
