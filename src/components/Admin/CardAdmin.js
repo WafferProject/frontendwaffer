@@ -1,13 +1,31 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import "./CardAdmin.css"
-
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import {Link } from "react-router-dom"
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 
 function CardAdmin({type}) {
   let data;
-  const amount = 100;
+  const [amount, setAmount] = useState(0);
+
+  const url = `http://localhost:8080/api/${type}`;
+  useEffect(() => {
+
+     
+        // Make an API call to fetch the real-time data based on the type
+        axios
+        .get(url)
+        .then((response)=>{
+          setAmount(response.data.amount);
+        })
+        .catch((error)=>{
+          console.log("error fetching data")
+        })
+        
+       
+   
+  }, [type]);
 
   switch (type) {
     case "Consumers":
@@ -15,7 +33,7 @@ function CardAdmin({type}) {
         title: "Consumers",
         linkName: "See all consumers",
         link:"/ConsumerList",
-        count: "consumerCount",
+        
 
         icon: (
           <PersonOutlinedIcon
@@ -32,7 +50,7 @@ function CardAdmin({type}) {
       data = {
         title: "Businesses",
         link:"/BusinessList",
-        isMoney: false,
+        
         linkName: "See all Businesses",
         icon: (
           <ShoppingCartOutlinedIcon
@@ -45,24 +63,7 @@ function CardAdmin({type}) {
         ),
       };
       break;
-    case "Orders":
-      data = {
-        title: "Offers",
-        isMoney: false,
-        link: "View all offers",
-        linkName: "See all offers",
-        icon: (
-          <ShoppingCartOutlinedIcon
-            className="iconMainDash"
-            style={{
-              backgroundColor: "rgba(218, 165, 32, 0.2)",
-              color: "goldenrod",
-            }}
-          />
-        ),
-      };
-      break;
- 
+    
   }
 
 
@@ -71,7 +72,7 @@ function CardAdmin({type}) {
       <div className="widget">
         <div className="leftCard">
             <span className="titleCard">{data.title}</span>
-            <span className="counter">{data.isMoney && "$"} {amount}</span>
+            <span className="counter"> {amount}</span>
             <Link to={data.link}  style={{textDecoration:"none",color: "inherit"}} className="link">{data.linkName}</Link>
         
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import OfferCreation from './OfferCreation';
 import './OfferCreationList.css';
-// import emptyStateImage from '../images/emptystate.png'; 
+
 import emtpy from '../../images/emtpy.png'; 
 
 function PostedOfferList({ offers, updateOffer, deleteOffer }) {

@@ -5,7 +5,7 @@ import {
   faLocationDot,
   faPhone,
   faEnvelope,
-} from "@fortawesome/free-solid-svg-icons"; // Import the specific icons
+} from "@fortawesome/free-solid-svg-icons"; 
 import {
   faSquareFacebook,
   faInstagram,

@@ -17,36 +17,18 @@ function OfferCreation({ offer, updateOffer, deleteOffer }) {
   const handleViewOrdersClick = () => {
     setIsViewOrdersClicked(true);
   };
-  const [updatedOfferData, setUpdatedOfferData] = useState({
-    offerName: offer.offerName,
-    category: offer.category,
-    quantityAvailable:offer.quantityAvailable,
-    originalPrice:offer.originalPrice,
-    discountedPrice:offer.discountedPrice,
-    expirationDate:offer.expirationDate,
-    productDescription:offer.productDescription,
-    imagePreview:offer.imagePreview
-    
-  });
+
   
  
   const handleUpdateOffer = () => {
-    
-    updateOffer(offer.id, updatedOfferData);
+    updateOffer(offer.id, offer);
   };
 
   const handleDeleteOffer = () => {
-   
     deleteOffer(offer.id);
   };
   
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setUpdatedOfferData({
-      ...updatedOfferData,
-      [name]: value,
-    });
-  };
+ 
   return (
     <div style={{ marginTop: '10px' }}>
     <Card
@@ -72,7 +54,7 @@ function OfferCreation({ offer, updateOffer, deleteOffer }) {
               <img
                 src={offer.imagePreview} // Use the offer's image URL here
                 loading="lazy"
-                alt=""
+                alt={offer.offerName}
               />
             </AspectRatio>
           </Paper>
@@ -140,7 +122,7 @@ function OfferCreation({ offer, updateOffer, deleteOffer }) {
               textColor="text.secondary"
               fontFamily={"roboto"}
             >
-              {offer.quantity} pieces to save !
+              {offer.quantityAvailable} pieces to save !
             </Typography>
             <Divider />
             <Typography
@@ -149,7 +131,7 @@ function OfferCreation({ offer, updateOffer, deleteOffer }) {
               textColor="text.secondary"
               fontFamily={"roboto"}
             >
-              Pickup between {offer.pickupStart} and {offer.pickupEnd}
+              Expires  {offer.expirationDate}
             </Typography>
             <Divider/>
           </div>

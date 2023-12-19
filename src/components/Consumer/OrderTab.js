@@ -65,6 +65,7 @@ export default function OrderTab({ isOrderOpen, setOrderOpen }) {
   return (
     <>
       <Drawer
+      style={{ zIndex: 400000 }}
         open={isOrderOpen}
         onClose={() => {
           setOrderOpen(false);
