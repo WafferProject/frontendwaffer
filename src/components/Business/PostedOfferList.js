@@ -4,7 +4,7 @@ import './OfferCreationList.css';
 
 import emtpy from '../../images/emtpy.png'; 
 
-function OfferCreationList({ offers, updateOffer, deleteOffer }) {
+function PostedOfferList({ offers, updateOffer, deleteOffer }) {
   return (
     <div className="offersContainer">
       <div className="offersCreated">
@@ -20,7 +20,7 @@ function OfferCreationList({ offers, updateOffer, deleteOffer }) {
         ) : (
           <div className="post_container">
            
-            <img className="empty"src={emtpy}/> 
+            <img className="empty"src={emtpy} alt=''/> 
           </div>
         )}
       </div>
@@ -28,4 +28,4 @@ function OfferCreationList({ offers, updateOffer, deleteOffer }) {
   );
 }
 
-export default OfferCreationList;
+export default PostedOfferList;

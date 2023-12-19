@@ -45,7 +45,7 @@ export default function App() {
           <Route
             path="/consumer"
             element={
-              <PrivateRoute>
+              <PrivateRoute allowedRole={"Consumer"}>
                 <ConsumerDashboard />
               </PrivateRoute>
             }
@@ -53,7 +53,7 @@ export default function App() {
           <Route
             path="/buisness"
             element={
-              <PrivateRoute>
+              <PrivateRoute allowedRole={"Buisness"}>
                 <BusinessDashboard />
               </PrivateRoute>
             }

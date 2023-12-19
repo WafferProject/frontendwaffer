@@ -29,6 +29,7 @@ label.btn {
     border-color: #e76f51;
     background  : transparent;
     color       : #e76f51;
+width: fit-content;
 }
 
 .btn {
@@ -130,7 +131,8 @@ label.btn {
   
 .btn-primary {
     background-color: #ff6f00;
-    border-color: #ff6f00
+    border-color: #ff6f00;
+    
 }
 
 
@@ -144,6 +146,7 @@ label.btn {
     background-color: #f0f0f0; 
     color: #333; 
     border-color: #ddd; 
+    
 }
 
 .btn-default:hover {

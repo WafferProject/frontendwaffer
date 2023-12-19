@@ -85,7 +85,6 @@ export default function Offer({
 
         <Paper
           variant="outlined"
-          elevation={24}
           style={{
             padding: "8px",
             width: "175px",

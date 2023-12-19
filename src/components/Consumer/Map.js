@@ -59,15 +59,6 @@ export default function Map({ selectedOffer }) {
 
   useEffect(askPermission, []);
  
-
-  // if(selectedOffer){
-
-  //   const selectedLatLng = L.latLng(selectedOffer.Buisness.location.coordinates);
-  //   const userLatLng = L.latLng(userCord);
-  //   console.log(selectedLatLng) ;
-  //   const distance = selectedLatLng.distanceTo(userLatLng);
-  //   setOfferDistance(distance);
-  // }
   return hasPermission.current ? (
     <Paper
       elevation={0}
