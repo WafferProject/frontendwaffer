@@ -25,7 +25,7 @@ const SignUpConsumerBuisness = () => {
       errorMessage: "Phone number must be numeric",
     },
     email: {
-      validator: (value) => /^[\w\-\.]+@([\w-]+\.)+[\w-]{2,}$/gm.test(value),
+      validator: (value) => /^[\w\-.]+@([\w-]+\.)+[\w-]{2,}$/gm.test(value),
       errorMessage: "Invalid email format",
     },
     password: {
@@ -44,7 +44,7 @@ const SignUpConsumerBuisness = () => {
       errorMessage: "Name is required",
     },
     email: {
-      validator: (value) => /^[\w\-\.]+@([\w-]+\.)+[\w-]{2,}$/gm.test(value),
+      validator: (value) => /^[\w\-.]+@([\w-]+\.)+[\w-]{2,}$/gm.test(value),
       errorMessage: "Invalid email format",
     },
     password: {
