@@ -12,6 +12,11 @@
 
 
 }
+#uploadPic{
+  position: relative;
+  bottom: 40px;
+
+}
 
 .containerOfferForm{
   
@@ -48,9 +53,9 @@
 .field:last-child {
   margin-right: 0;
 }
-.input_field:nth-child(2n){
+/* .input_field:nth-child(2n){
   justify-content: end;
-}
+} */
 
 .input_field label{
 
@@ -121,7 +126,7 @@ input[type="file"]{
   display: none; 
 }
 
-.field label.upload-button {
+/* .field label.upload-button {
   display: inline-block;
   padding: 10px 15px;
   background-color: green;
@@ -129,11 +134,9 @@ input[type="file"]{
   border: none;
   border-radius: 4px;
   cursor: pointer;
-}
+} */
 
-.field label.upload-button:hover {
-  background-color: #0d8bf5;
-}
+
 @media(max-width:600px){
   .containerOfferForm{
     min-width: 280px;
