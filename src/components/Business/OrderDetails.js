@@ -32,6 +32,7 @@ const OrderDetails = ({ handleClose }) => {
     
     setRows(rows.map(row => row.id === id ? { ...row, selected: !row.selected } : row));
   };
+  
   const selectedRows = rows.filter(row => row.selected).map(row => row.id);
 
   return (

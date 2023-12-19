@@ -5,12 +5,10 @@ import WafferLogo from "../images/WafferLogo.png";
 import { useAuth } from "./AuthContext";
 
 const Navbar = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+ 
   const { isBuisness, isAuthenticated, logout , userInfoCookie } = useAuth();
   const currentPath = useLocation().pathname;
-  const handleMobileMenuToggle = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
-  };
+ 
 
   const renderLink = (to, text) => (
     <li>
@@ -39,10 +37,8 @@ const Navbar = () => {
       <div className="navbar-logo">
         <img src={WafferLogo} alt="Waffer Logo" width="100px" height="100px" />
       </div>
-      <div className="navbar-toggle" onClick={handleMobileMenuToggle}>
-        {mobileMenuOpen ? "X" : <div>&#9776;</div>}
-      </div>
-      <ul className={`navbar-links ${mobileMenuOpen ? "show" : ""}`}>
+    
+      <ul className="navbar-links ">
         {isAuthenticated && (
           <>
             {!isBuisness &&
