@@ -1,4 +1,4 @@
-.card {
+.Card {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,13 +17,13 @@
     overflow: hidden; /* add this line to prevent overflow */
 }
 
-.card img {
+.Card img {
     width: 100px; /* make the image take the full width of the card */
     height: auto; /* keep the original aspect ratio of the image */
     object-fit: cover; /* cover the entire width of the card without stretching */
 }
 
-.card p {
+.Card p {
     font-size: 0.8em; /* adjust as needed */
     color: #333; /* dark gray */
     margin: 0.5em 0; /* add some vertical margin between the text elements */
@@ -42,17 +42,17 @@
     padding: 5px; /* add padding to create space around the cards */
 }
   
-  .card p.second-text {
+  .Card p.second-text {
     font-size: 0.9em; /* make the name slightly larger */
     font-weight: bold; /* make the name bold */
   }
   
-.card:hover {
+.Card:hover {
     transform: scale(1.05, 1.05); /* slightly smaller scale on hover */
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1); /* lighter box shadow on hover */
 }
   
-.card:hover ~ * {
+.Card:hover ~ * {
     filter: blur(10px);
 }
 .Btn {
