@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {  } from 'react';
 import OfferCreation from './OfferCreation'; 
 import emtpy from '../../images/emtpy.png'; 
 import "./OfferCreationHistory.css"
@@ -13,7 +13,7 @@ function OfferCreationHistory({ deletedOffers }) {
       ) : (
         <div className="emptyHistoryContainer">
           
-          <img src={emtpy}/> 
+          <img src={emtpy} alt=''/> 
         </div>
       )}
       </div>

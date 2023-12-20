@@ -1,8 +1,8 @@
 import React, {  } from "react";
 import "./Navbar.css";
 import { Link, useLocation } from "react-router-dom";
-import WafferLogo from "../images/WafferLogo.png";
-import { useAuth } from "./AuthContext";
+import WafferLogo from "../../images/WafferLogo.png";
+import { useAuth } from "../AuthContext";
 
 const Navbar = () => {
   const { isBuisness, isAuthenticated, logout, userInfoCookie } = useAuth();

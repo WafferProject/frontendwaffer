@@ -6,7 +6,7 @@ import SignInConsumerBuisness from "./components/Other/SignInConsumerBuisness";
 import PrivateRoute from "./components/PrivateRoute";
 import { AuthContextProvider } from "./components/AuthContext";
 import ProfileSettings from "./pages/ProfileSettings";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Other/Navbar";
 import ContactPage from "./pages/ContactPage";
 import ConsumerDashboard from "./pages/ConsumerDashboard";
 import BusinessDashboard from "./pages/BusinessDashboard";

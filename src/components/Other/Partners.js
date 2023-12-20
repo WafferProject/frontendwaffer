@@ -1,17 +1,16 @@
 import React, { useEffect } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 import $ from "jquery";
 import "slick-carousel";
 import "./Partners.css";
-import adidasLogo from "../../images/adidas.png";
-import facebookLogo from "../../images/facebook.png";
+import PizzaHutLogo from "../../images/pizzaht.png";
 import KFCLogo from "../../images/KFC.png";
-import instagramLogo from "../../images/instagram.png";
-import nikeLogo from "../../images/nike.png";
 import BaristasLogo from "../../images/Baristas.png";
-import youtubeLogo from "../../images/youtube.png";
+import ChanebLogo  from "../../images/chaneb1.png";
+import GeantLogo  from "../../images/Geant.png";
+import CarrefourLogo  from "../../images/Carrefour.png";
+import AzizaLogo  from "../../images/aziza.png";
 
 const Partners = () => {
   useEffect(() => {
@@ -49,28 +48,27 @@ const Partners = () => {
       <div className="work-section-top">
         <h1 className="primary-heading">Our Partners</h1>
       </div>
-
       <section className="customer-logos slider">
         <div className="slide">
-          <img src={adidasLogo} alt="adidaslogo" />
+          <img src={AzizaLogo} alt="Azizalogo" />
         </div>
         <div className="slide">
           <img src={KFCLogo} alt="KFClogo" />
         </div>
         <div className="slide">
-          <img src={facebookLogo} alt="facebooklogo" />
+          <img src={PizzaHutLogo} alt="PizzaHutlogo" />
         </div>
         <div className="slide">
-          <img src={instagramLogo} alt="logo" />
+          <img src={CarrefourLogo} alt="Carrefourlogo" />
         </div>
         <div className="slide">
-          <img src={nikeLogo} alt="logo" />
+          <img src={GeantLogo} alt="Geantlogo" />
         </div>
         <div className="slide">
-          <img src={BaristasLogo} alt="logo" />
+          <img src={BaristasLogo} alt="Baristaslogo" />
         </div>
         <div className="slide">
-          <img src={youtubeLogo} alt="logo" />
+          <img src={ChanebLogo} alt="Chaneblogo" />
         </div>
       </section>
     </div>
