@@ -15,6 +15,7 @@ import pasta from "../../images/offers/pasta.webp";
 import sandwich from "../../images/offers/sandiwch.webp";
 import pizza from "../../images/offers/pizza.webp";
 
+
 function OfferCreation({ offer, updateOffer, deleteOffer, deleted  }) {
   const { userInfoCookie } = useAuth();
   const [isViewOrdersClicked, setIsViewOrdersClicked] = useState(false);

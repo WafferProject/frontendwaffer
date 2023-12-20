@@ -16,6 +16,7 @@ const OrderDetails = ({ handleClose, selectedOffer }) => {
       creation_date: new Date(order.creation_date).toLocaleDateString() ,
       status: order.status, 
     };
+
   });
 
   
@@ -29,6 +30,7 @@ const OrderDetails = ({ handleClose, selectedOffer }) => {
     );
   };
   const selectedRows = rows.filter((row) => row.selected).map((row) => row.id);
+
 
   return (
     <Modal

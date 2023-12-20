@@ -1,10 +1,11 @@
-import React from "react";
+import React ,{useState}from "react";
 import * as Components from "./utilsSignUpIn";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
-
+import Alert from '@mui/material/Alert';
 const SignInConsumerBuisness = () => {
+  const [alertOpen, setAlertOpen] = useState(false);
   const { isBuisness, setIsBuisness, setIsAuthenticated } = useAuth();
 
   const [businessForm, setBusinessForm] = React.useState({
@@ -53,13 +54,35 @@ const SignInConsumerBuisness = () => {
               "please logout first"
           );
         } else {
-          alert("incorrect credentials");
+          setAlertOpen(true);
         }
       });
   };
   return (
     <Components.Container>
       {/* consumer view signin  */}
+      {alertOpen && (
+             <Alert
+             variant="filled"
+             severity="error"
+             onClose={() => setAlertOpen(false)}
+             
+                style={{
+                   position: 'absolute',
+                    top: '20px',
+                    right: '20px',
+                    zIndex: 9999,
+                    width: '300px',
+                    fontSize: '1.2rem',
+                    transition: 'transform 0.3s ease-in-out',
+                    transform: alertOpen ? 'translateX(0)' : 'translateX(100%)'
+                
+             }}
+         >
+         incorrect credentials
+  
+             
+         </Alert>)}
       <Components.SignUpContainer signIn={isBuisness}>
         <Components.Form>
           <Components.Title>Sign in Consumer </Components.Title>

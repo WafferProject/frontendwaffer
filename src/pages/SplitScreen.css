@@ -1,17 +1,26 @@
 .leftside,.rightside{
     height:50vh;
     width:100%;
+    
 }
+
+
 @media screen and (min-width:768px){.leftside,.rightside{height:100vh;}}
 .rightside{
-    background:linear-gradient(to right, #FFEBD9, #FF9773);
+    /* background:linear-gradient(to right, #FFEBD9, #FF9773); */
+    /* background: linear-gradient(to right, #FFEEC1, #FFD1B2); */
+    background: linear-gradient( #FFBE3D, #F06543);
+    
+    
     flex-direction: column;
     justify-content: center;
     padding: 100px
 }
 
 .leftside{ 
-    background:linear-gradient(to right, #FF845F,  #FFE0CC);
+    /* background:linear-gradient(to right, #FF845F,  #FFE0CC); */
+    background: linear-gradient(to bottom, #FFF3E5 0%, #FFFFFF 100%);
+    /* background: linear-gradient(to right, #FAD9C1, #FECBB2); */
     flex-direction: column;
     justify-content: center;
     padding: 100px
@@ -24,14 +33,14 @@
  {
     text-decoration: none;
     padding: 1rem 2rem;
-    background-color: white ;
+    background-color: #FF8C00 ;
     outline: none;
     border: none;
     border-radius: 3rem;
     font-size: 1rem;
     cursor: pointer;
     font-weight: 600;
-    color: #ff6347 ;
+    color: white ;
     transition: 0.2s;
     display: flex;
     align-items: center;
@@ -44,14 +53,14 @@
 .btnright { 
     text-decoration: none;
     padding: 1rem 2rem;
-    background-color:#ff6347 ;
+    background-color:white ;
     outline: none;
     border: none;
     border-radius: 5rem;
     font-size: 1rem;
     cursor: pointer;
     font-weight: 600;
-    color: white;
+    color: #FF8C00;
     transition: 0.2s;
     display: flex;
     align-items: center;
