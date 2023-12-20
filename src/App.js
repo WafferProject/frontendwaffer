@@ -18,7 +18,7 @@ import UserDetails from "./components/Admin/UserDetails";
 
 import Footer from "./components/Other/Footer";
 import AddBusiness from './components/Admin/AddBusiness'
-import About from "./components/Other/About";
+import AboutUs from "./pages/AboutUs";
 
 export default function App() {
   return (
@@ -40,7 +40,7 @@ export default function App() {
           <Route path="/OrdersList" element={<OrdersList />} />
           <Route path="/settings" element={<ProfileSettings />} />
           <Route path="/new" element={<AddBusiness />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about" element={<AboutUs />} />
 
           <Route
             path="/consumer"

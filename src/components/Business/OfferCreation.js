@@ -10,7 +10,7 @@ import { Paper } from "@mui/material";
 import { Button } from "@mui/joy";
 import ArrowOutwardOutlinedIcon from "@mui/icons-material/ArrowOutwardOutlined";
 import OrderDetails from "./OrderDetails";
-import DeleteIcon from '@mui/icons-material/Delete';
+
 
 function OfferCreation({ offer, updateOffer, deleteOffer }) {
   const [isViewOrdersClicked, setIsViewOrdersClicked] = useState(false);

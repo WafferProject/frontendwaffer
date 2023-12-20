@@ -60,7 +60,7 @@ text-align: center;
 export const Title = styled.h1`
 font-weight: bold;
 margin: 0;
-margin-top: 40px;
+margin-top: 100px;
 }
 `;
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import './TeamCard.css';
 import { FaLinkedin } from 'react-icons/fa'; // import the LinkedIn icon
-import eyaImage from '../images/eyaaa.jpg';
-import salmenImage from '../images/salmen.png';
-import yasmineImage from '../images/yasmine2.jpg';
-import amineImage from '../images/amine.jpg';
-
+import eyaImage from '../../images/eya.jpg';
+import salmenImage from '../../images/salmen.jpg';
+import yasmineImage from '../../images/yasmine.jpg';
+import amineImage from '../../images/amine.jpg';
+import walidImage from '../../images/walid.jpg';
 
 
 const teamMembers = [
@@ -37,7 +37,7 @@ const teamMembers = [
     },
     {
   
-      image: 'path_to_image',
+      image: walidImage,
       name: 'Walid Mellouli',
       title: 'Co-Founder and Frontend Developer',
       description: 'Team Member Description',

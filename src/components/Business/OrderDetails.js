@@ -1,6 +1,6 @@
 
 import Modal from '@mui/joy/Modal';
-import { Button } from '@mui/joy';
+
 import "./OrderDetails.css"
 import {  CloseOutlined } from "@mui/icons-material";
 import OrderTable from './OrderTable';
@@ -32,6 +32,7 @@ const OrderDetails = ({ handleClose }) => {
     
     setRows(rows.map(row => row.id === id ? { ...row, selected: !row.selected } : row));
   };
+  
   const selectedRows = rows.filter(row => row.selected).map(row => row.id);
 
   return (
