@@ -11,7 +11,7 @@ import QRCode from "react-qr-code";
 export default function OrderTab({ isOrderOpen, setOrderOpen }) {
   const url = "http://localhost:8080/api/consumer/order";
   const [orderData, setOrderData] = useState([]);
-  const [isQrDisplayed, setQrDisplayed] = useState(false);
+  const [QrValue, setQrValue] = useState(null);
 
   useEffect(() => {
     axios
@@ -52,7 +52,7 @@ export default function OrderTab({ isOrderOpen, setOrderOpen }) {
           </label>
           <Button
             onClick={() => {
-              setQrDisplayed(true);
+              setQrValue(`localhost:8080/buisness/order/${order.id}`);
             }}
             endDecorator={<QrCodeScannerIcon />}
             variant="soft"
@@ -76,13 +76,13 @@ export default function OrderTab({ isOrderOpen, setOrderOpen }) {
 
       <Modal
         sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
-        open={isQrDisplayed}
+        open={QrValue}
         onClose={() => {
           setOrderOpen(false);
-          setQrDisplayed(false);
+          setQrValue(null);
         }}
       >
-        <QRCode value="hjf sjf fn" size={350} />
+        <QRCode value={QrValue} size={350} />
       </Modal>
     </>
   );

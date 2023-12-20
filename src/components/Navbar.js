@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React, {  } from "react";
 import "./Navbar.css";
 import { Link, useLocation } from "react-router-dom";
 import WafferLogo from "../images/WafferLogo.png";
 import { useAuth } from "./AuthContext";
 
 const Navbar = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { isBuisness, isAuthenticated, logout, userInfoCookie } = useAuth();
-
+  
   const currentPath = useLocation().pathname;
  
 
@@ -47,10 +46,8 @@ const Navbar = () => {
               height="100px"
             />
           </div>
-          <div className="navbar-toggle" onClick={handleMobileMenuToggle}>
-            {mobileMenuOpen ? "X" : <div>&#9776;</div>}
-          </div>
-          <ul className={`navbar-links ${mobileMenuOpen ? "show" : ""}`}>
+         
+          <ul className='navbar-links'>
             {isAuthenticated && (
               <>
                 {!isBuisness &&
