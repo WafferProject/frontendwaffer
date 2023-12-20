@@ -1,63 +1,64 @@
+import Modal from "@mui/joy/Modal";
+import "./OrderDetails.css";
+import { CloseOutlined } from "@mui/icons-material";
+import OrderTable from "./OrderTable";
+import React, { useState } from "react";
 
-import Modal from '@mui/joy/Modal';
+const OrderDetails = ({ handleClose, selectedOffer }) => {
 
-import "./OrderDetails.css"
-import {  CloseOutlined } from "@mui/icons-material";
-import OrderTable from './OrderTable';
-import React, { useState, useEffect } from 'react';
+  const ordersData = selectedOffer.placeOrders.map((order) => {
+    //adapting the order rows objects with the columns 
+    return {
+      id: order.id,
+      first_name: order.Consumer.first_name, 
+      last_name: order.Consumer.last_name, 
+      quantity: order.quantity, 
+      creation_date: new Date(order.creation_date).toLocaleDateString() ,
+      status: order.status, 
+    };
 
-const OrderDetails = ({ handleClose }) => {
-  const initialRows = [
-    { id: 1, lastName: 'Snow', firstName: 'Jon', QuantityOrdered: 35 },
-    { id: 2, lastName: 'Lannister', firstName: 'Cersei', QuantityOrdered: 42 },
-    { id: 3, lastName: 'Lannister', firstName: 'Jaime', QuantityOrdered: 45 },
-    { id: 4, lastName: 'Stark', firstName: 'Arya', QuantityOrdered: 16 },
-    { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', QuantityOrdered: null },
-    { id: 6, lastName: 'Melisandre', firstName: null, QuantityOrdered: 150 },
-    { id: 7, lastName: 'Clifford', firstName: 'Ferrara', QuantityOrdered: 44 },
-    { id: 8, lastName: 'Frances', firstName: 'Rossini', QuantityOrdered: 36 },
-    { id: 9, lastName: 'Roxie', firstName: 'Harvey', QuantityOrdered: 65 },
-  ];
- 
-  const [rows, setRows] = useState(() => {
-
-    const savedRows = localStorage.getItem('rows');
-    return savedRows ? JSON.parse(savedRows) : initialRows;
   });
-  useEffect(() => {
-    localStorage.setItem('rows', JSON.stringify(rows));
-  }, [rows]);
+
+  
+  const [rows, setRows] = useState(ordersData);
 
   const handleDeleteRow = (id) => {
-    
-    setRows(rows.map(row => row.id === id ? { ...row, selected: !row.selected } : row));
+    setRows(
+      rows.map((row) =>
+        row.id === id ? { ...row, selected: !row.selected } : row
+      )
+    );
   };
-  
-  const selectedRows = rows.filter(row => row.selected).map(row => row.id);
+  const selectedRows = rows.filter((row) => row.selected).map((row) => row.id);
+
 
   return (
-    <Modal open={true} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} closeAfterTransition>
+    <Modal
+      open={true}
+      sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+      closeAfterTransition
+      onClose={handleClose}
+    >
+      <div>
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className="order-details-content"
+        >
+          <div className="title">
+            <p>Order Details</p>
+          </div>
+          <OrderTable
+            rows={rows}
+            onDeleteRow={handleDeleteRow}
+            selectedRows={selectedRows}
+          />
 
-  <div>
-    <div onClick={(e) => e.stopPropagation()} className="order-details-content">
-      
-      <div className="title">
-        <p>Order Details</p>     
-         </div>
-         <OrderTable rows={rows} onDeleteRow={handleDeleteRow} selectedRows={selectedRows}/>
-
-
-    
-     
-      <div className="close">
-              <CloseOutlined
-                onClick={handleClose}
-              />
-            </div>
-    </div>
-  </div>
-</Modal>
-
+          <div className="close">
+            <CloseOutlined onClick={handleClose} />
+          </div>
+        </div>
+      </div>
+    </Modal>
   );
 };
 

@@ -8,7 +8,7 @@ function OfferCreationHistory({ deletedOffers }) {
       <div className="offerHistoryCreated">
       {deletedOffers && deletedOffers.length > 0 ? (
         deletedOffers.map((offer, index) => (
-          <OfferCreation key={index} offer={offer} />
+          <OfferCreation key={index} offer={offer} deleted={true} />
         ))
       ) : (
         <div className="emptyHistoryContainer">
