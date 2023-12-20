@@ -166,13 +166,16 @@ function FormOffer({ selectedTab, setSelectedTab, toUpdateOffer }) {
             <div className="input_field">
               <div className="field">
                 <label>Category of Food:</label>
-                <input
-                  type="text"
-                  name="category"
-                  value={formData.category}
-                  onChange={handleChange}
-                  
-                />
+                <select
+                    name="category"
+                    value={formData.category}
+                    onChange={handleChange}
+                 >
+                  <option value="">Select a category</option>
+                  <option value="Food">Food </option>
+                  <option value="Pastry">Pastry</option>
+                  <option value="Grocery">Grocery</option>
+                </select>
               </div>
             </div>
 
