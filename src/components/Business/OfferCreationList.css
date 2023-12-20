@@ -1,0 +1,37 @@
+.offersContainer {
+  
+   height: auto;
+   margin: 40px auto 0;
+   width:90%;
+   display: block;
+   padding: 20px;
+   
+   border-radius: 10px;
+   box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  }
+  
+
+.offersCreated{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around ;  
+      flex-wrap: wrap;
+      
+  }
+  .post_container{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column;
+  }
+  .post{
+    text-align: center;
+    font-weight: bold;
+    font-family: "Arial";
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+  }
+  .empty{
+    height: 500%;
+  }

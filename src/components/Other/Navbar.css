@@ -1,0 +1,162 @@
+/* Navbar Container */
+.navbar {
+  
+  background: #f3efee;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000; 
+  
+}
+.navbar-logo {
+  
+  display: flex;
+  align-items: center;
+  color: #333;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-left: 30px;
+  
+}
+
+/* Navbar Toggle Button (for small screens) */
+.navbar-toggle {
+  display: none;
+  cursor: pointer;
+  color: #333;
+  font-size: 1.8em;
+  padding: 5px;
+}
+
+/* Navbar Links Container */
+.navbar-links {
+  list-style: none;
+  display: flex;
+  flex-grow: 5;
+  margin-left: 53%;
+}
+
+/* Navbar Links Item */
+.navbar-links li {
+  margin: 0 15px;
+}
+
+/* Common Style for Navbar Items */
+.navbar-item{
+ 
+    display: flex;
+    justify-content: flex-end;
+  
+  display: inline-block;
+  background: #FF8C00; 
+  padding: 7px 25px;
+  border-radius: 50px; 
+  color: #FFF;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover Style for Navbar Items */
+.navbar-item:hover {
+  background: #E07B00; 
+  color: #FFF;
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+/* Media Query for Small Screens */
+@media (max-width: 768px) {
+  /* Adjusted Navbar Links for Small Screens */
+  .navbar-links {
+    flex-direction: column;
+    position: absolute;
+    top: 90px;
+    left: 0;
+    background: #f3efee;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: none;
+  }
+
+  /* Adjusted Style for Navbar Links Items  on Small Screens */
+  .navbar-links li,
+  .navbar-links  {
+    background: none;
+    padding: 15px 20px;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  /* Display Navbar Links on Small Screens */
+  .navbar-links.show {
+    display: flex;
+  }
+
+
+  
+  .navbar-toggle {
+    display: block;
+    z-index: 1002;
+  }
+}
+
+/* Dropdown Styles */
+.navbar-item-dropdown:hover .navbar-item-dropdown-content {
+  display: block;
+}
+
+.navbar-item-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #FFF;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  border-radius: 25px;
+  z-index: 1;
+}
+
+.navbar-item-dropdown-content a {
+  color: #FF8C00;
+  padding: 15px 20px;
+  text-decoration: none;
+  display: block;
+  font-weight: bold;
+}
+
+.navbar-item-dropdown-content a:hover {
+  background: #E07B00; 
+  color: #FFF;
+  border-radius: 50px;
+}
+
+
+/* User Info Styles */
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.username {
+  color: #333;
+  font-size: 18px;
+}

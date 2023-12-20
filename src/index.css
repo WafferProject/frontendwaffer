@@ -8,7 +8,10 @@
     flex-Direction: "column";
     background-Color: "#FBFAF5";
     border-Radius: "10px";
-    font-Family: "Comic Sans MS"
+    font-Family: "Comic Sans MS";
+   
+        min-height: "100vh";
+      
   
 }
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');

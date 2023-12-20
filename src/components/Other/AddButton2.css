@@ -1,0 +1,27 @@
+.cssbuttons-io-button {
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    font-weight: 500;
+    padding: 0.1em 0.1em;
+    font-size: 12px;
+    color: white;
+    background: #FF8C00; 
+    /* background: linear-gradient(0deg, rgba(255,69,43,1) 0%, rgba(255,65,108,1) 100%);   */
+    border: none;
+    box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+    letter-spacing: 0.05em;
+    border-radius: 20em;
+  }
+  
+  .cssbuttons-io-button svg {
+    margin-right: 6px;
+  }
+  
+  .cssbuttons-io-button:hover {
+    box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
+  }
+  
+  .cssbuttons-io-button:active {
+    box-shadow: 0 0.3em 1em -0.5em #ff4b2b98;
+  }

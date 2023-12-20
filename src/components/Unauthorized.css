@@ -1,0 +1,26 @@
+
+.w3-display-middle h1 {
+    color: red;
+    }
+    
+    .w3-display-middle h6{
+    color: red;
+      font-weight: 100;
+    text-decoration: none; /*underline;*/
+    }
+    .unauthorized-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* This ensures that your container is at least the height of the viewport */
+    }
+    .w3-display-middle {
+      border-radius: 20px;
+      width: 70%;
+      background-color: #FBC3B0;
+      text-align: center;
+      padding: 20px; /* Adjust as needed */
+    }
+    
+    
