@@ -1,6 +1,7 @@
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
 import Burger from "../../images/Burger.png";
+import food1 from "../../images/food1.png";
 import "./Home.css";
 
 import { Outlet ,Link } from "react-router-dom";
@@ -25,7 +26,7 @@ const Home = () => {
           </Link>
         </div>
         <div className="home-image-section">
-          <img src={Burger} alt="" />
+          <img src={food1} alt="" />
         </div>
       </div>
       <Outlet />
