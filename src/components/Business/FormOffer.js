@@ -50,7 +50,7 @@ function FormOffer({ selectedTab, setSelectedTab, toUpdateOffer }) {
     const url = "http://localhost:8080/api/buisness/offer";
     //exlcuding images bcz not handled in backend
     const { image, imagePreview, ...offerObj } = formData;
-    if (selectedTab === "addOffer") {
+    if (!selectedTab) {
       axios
         .post(url, offerObj, { withCredentials: true })
         .then((response) => {
@@ -66,7 +66,7 @@ function FormOffer({ selectedTab, setSelectedTab, toUpdateOffer }) {
           console.log(err);
           alert("there was an error creating your offer");
         });
-    } else {
+    } if(selectedTab==="updateOffer") {
       const updatedFormData = Object.fromEntries(
         Object.entries(offerObj).filter(([key, value]) => value !== "")
       );
