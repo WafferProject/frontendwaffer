@@ -5,7 +5,7 @@ import { Snackbar } from "@mui/joy";
 import { CheckCircle } from "@mui/icons-material";
 import meal from "../../images/pick-meals-image.png";
 
-function FormOffer({ addOffer, setSelectedTab }) {
+function FormOffer({ selectedTab, setSelectedTab, toUpdateOffer }) {
   const defaultImagePreview = meal;
 
   const [formData, setFormData] = useState({
@@ -50,29 +50,59 @@ function FormOffer({ addOffer, setSelectedTab }) {
     const url = "http://localhost:8080/api/buisness/offer";
     //exlcuding images bcz not handled in backend
     const { image, imagePreview, ...offerObj } = formData;
-    axios
-      .post(url, offerObj, { withCredentials: true })
-      .then((response) => {
-        console.log(response.data);
-        // addOffer(formData);
-        setOfferPosted(true);
+    if (selectedTab === "addOffer") {
+      axios
+        .post(url, offerObj, { withCredentials: true })
+        .then((response) => {
+          console.log(response.data);
+          // addOffer(formData);
+          setOfferPosted(true);
 
-        setTimeout(() => {
-          setSelectedTab("offers");
+          setTimeout(() => {
+            setSelectedTab("offers");
+          }, 2000);
+        })
+        .catch((err) => {
+          console.log(err);
+          alert("there was an error creating your offer");
+        });
+    } else {
+      const updatedFormData = Object.fromEntries(
+        Object.entries(offerObj).filter(([key, value]) => value !== "")
+      );
+      console.log(updatedFormData);
+      console.log(toUpdateOffer.current);
 
-        }, 2000);
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("there was an error creating your offer");
-      });
+      axios
+        .put(
+          url,
+          { ...updatedFormData, offer_id: toUpdateOffer.current },
+          { withCredentials: true }
+        )
+        .then((response) => {
+          console.log(response.data);
+          // addOffer(formData);
+          setOfferPosted(true);
+
+          setTimeout(() => {
+            setSelectedTab("offers");
+          }, 2000);
+        })
+        .catch((err) => {
+          console.log(err);
+          alert("there was an error updating your offer");
+        });
+    }
   };
 
   return (
     <>
       <div className="formContainer">
         <form onSubmit={handleSubmit} className="containerOfferForm">
-          <h2 className="header">Create a new food offer</h2>
+          <h2 className="header">
+            {" "}
+            {selectedTab ? "Update the offer" : " create a new offer"}{" "}
+          </h2>
           <div className="content">
             <div className="input_field">
               <div className="field">
@@ -83,7 +113,7 @@ function FormOffer({ addOffer, setSelectedTab }) {
                   value={formData.new_price}
                   onChange={handleChange}
                   min="0"
-                  required
+                  
                 />
               </div>
               <div className="field">
@@ -94,7 +124,7 @@ function FormOffer({ addOffer, setSelectedTab }) {
                   value={formData.old_price}
                   onChange={handleChange}
                   min="0"
-                  required
+                  
                 />
               </div>
             </div>
@@ -107,7 +137,7 @@ function FormOffer({ addOffer, setSelectedTab }) {
                   value={formData.quantity}
                   onChange={handleChange}
                   min="0"
-                  required
+                  
                 />
               </div>
               <div className="field">
@@ -117,7 +147,7 @@ function FormOffer({ addOffer, setSelectedTab }) {
                   name="expiration_date"
                   value={formData.expiration_date}
                   onChange={handleChange}
-                  required
+                  
                 />
               </div>
             </div>
@@ -129,7 +159,7 @@ function FormOffer({ addOffer, setSelectedTab }) {
                   name="description"
                   value={formData.description}
                   onChange={handleChange}
-                  required
+                  
                 />
               </div>
             </div>
@@ -141,7 +171,7 @@ function FormOffer({ addOffer, setSelectedTab }) {
                   name="category"
                   value={formData.category}
                   onChange={handleChange}
-                  required
+                  
                 />
               </div>
             </div>
@@ -175,8 +205,7 @@ function FormOffer({ addOffer, setSelectedTab }) {
             </div>
             <div className="button_container">
               <button className="button_submit" type="submit">
-                {" "}
-                Add{" "}
+                {selectedTab ? "Update" : "Add"}
               </button>
             </div>
           </div>

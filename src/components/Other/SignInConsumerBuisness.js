@@ -1,9 +1,10 @@
-import React ,{useState}from "react";
+import React, { useState } from "react";
 import * as Components from "./utilsSignUpIn";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
-import Alert from '@mui/material/Alert';
+import { Snackbar } from "@mui/joy";
+import PriorityHighOutlinedIcon from "@mui/icons-material/PriorityHighOutlined";
 const SignInConsumerBuisness = () => {
   const [alertOpen, setAlertOpen] = useState(false);
   const { isBuisness, setIsBuisness, setIsAuthenticated } = useAuth();
@@ -20,7 +21,6 @@ const SignInConsumerBuisness = () => {
   const handleInputChange = (event) => {
     console.log(isBuisness ? businessForm : consumerForm);
     const { name, value } = event.target;
-    console.log(name + "  " + value);
     const newField = isBuisness
       ? { ...businessForm, [name]: value }
       : { ...consumerForm, [name]: value };
@@ -61,28 +61,16 @@ const SignInConsumerBuisness = () => {
   return (
     <Components.Container>
       {/* consumer view signin  */}
-      {alertOpen && (
-             <Alert
-             variant="filled"
-             severity="error"
-             onClose={() => setAlertOpen(false)}
-             
-                style={{
-                   position: 'absolute',
-                    top: '20px',
-                    right: '20px',
-                    zIndex: 9999,
-                    width: '300px',
-                    fontSize: '1.2rem',
-                    transition: 'transform 0.3s ease-in-out',
-                    transform: alertOpen ? 'translateX(0)' : 'translateX(100%)'
-                
-             }}
-         >
-         incorrect credentials
-  
-             
-         </Alert>)}
+
+      <Snackbar
+        variant="plain"
+        color="danger"
+        open={alertOpen}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        startDecorator={<PriorityHighOutlinedIcon />}
+      >
+        Wrong Credentials{" "}
+      </Snackbar>
       <Components.SignUpContainer signIn={isBuisness}>
         <Components.Form>
           <Components.Title>Sign in Consumer </Components.Title>

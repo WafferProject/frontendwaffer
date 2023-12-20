@@ -65,7 +65,7 @@ export default function OrderTab({ isOrderOpen, setOrderOpen }) {
   return (
     <>
       <Drawer
-      style={{ zIndex: 400000 }}
+      style={{ zIndex: 4000 }}
         open={isOrderOpen}
         onClose={() => {
           setOrderOpen(false);
@@ -77,6 +77,8 @@ export default function OrderTab({ isOrderOpen, setOrderOpen }) {
       <Modal
         sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
         open={QrValue}
+        style={{ zIndex: 40000 }}
+
         onClose={() => {
           setOrderOpen(false);
           setQrValue(null);

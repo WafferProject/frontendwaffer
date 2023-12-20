@@ -10,13 +10,12 @@ import { Button } from "@mui/joy";
 import ArrowOutwardOutlinedIcon from "@mui/icons-material/ArrowOutwardOutlined";
 import OrderDetails from "./OrderDetails";
 import { useAuth } from "../AuthContext";
-import chicken from   "../../images/offers/chicken.webp";
+import chicken from "../../images/offers/chicken.webp";
 import pasta from "../../images/offers/pasta.webp";
 import sandwich from "../../images/offers/sandiwch.webp";
 import pizza from "../../images/offers/pizza.webp";
 
-
-function OfferCreation({ offer, updateOffer, deleteOffer, deleted  }) {
+function OfferCreation({ offer, deleteOffer, deleted, setSelectedTab , toUpdateOffer }) {
   const { userInfoCookie } = useAuth();
   const [isViewOrdersClicked, setIsViewOrdersClicked] = useState(false);
 
@@ -29,7 +28,9 @@ function OfferCreation({ offer, updateOffer, deleteOffer, deleted  }) {
   const minutesDifference = Math.floor(timeDifference / (1000 * 60));
 
   const handleUpdateOffer = () => {
-    updateOffer(offer.id, offer);
+    toUpdateOffer.current=offer.id;
+    setSelectedTab("updateOffer");
+    
   };
 
   const handleDeleteOffer = () => {
@@ -39,11 +40,9 @@ function OfferCreation({ offer, updateOffer, deleteOffer, deleted  }) {
   //random img
   function getRandomImagePath() {
     // Generate a random index within the range of the array length
-    const imagePaths = [
-      chicken,pizza,sandwich,pasta
-    ];
+    const imagePaths = [chicken, pizza, sandwich, pasta];
     const randomIndex = Math.floor(Math.random() * imagePaths.length);
-console.log(imagePaths[randomIndex]);
+    console.log(imagePaths[randomIndex]);
     // Return the randomly chosen path
     return imagePaths[randomIndex];
   }
@@ -73,7 +72,7 @@ console.log(imagePaths[randomIndex]);
             <Paper elevation={6} style={{ marginBottom: "15px" }}>
               <AspectRatio ratio="2">
                 <img
-                  src={(getRandomImagePath())}
+                  src={getRandomImagePath()}
                   // Use the offer's image URL here
                   loading="lazy"
                   alt={offer.offerName}

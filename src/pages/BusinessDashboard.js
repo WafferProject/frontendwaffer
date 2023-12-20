@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./BusinessDahboard.css";
 import PostedOfferList from "../components/Business/PostedOfferList";
 import FormOffer from "../components/Business/FormOffer";
@@ -8,6 +8,8 @@ import axios from "axios";
 function BusinessDashboard() {
   const [offers, setOffers] = useState([]);
   const [selectedTab, setSelectedTab] = useState("offers");
+  const toUpdateOffer = useRef();
+  // const [toUpdateOffer , setUpdateOffer] = useState(null);
   const [deletedOffers, setDeletedOffers] = useState([]);
   useEffect(() => {
     const url = "http://localhost:8080/api/buisness/offer";
@@ -30,44 +32,46 @@ function BusinessDashboard() {
       {selectedTab === "offers" && (
         <PostedOfferList
           offers={offers}
-          updateOffer={updateOffer}
+          setSelectedTab={setSelectedTab}
           deleteOffer={deleteOffer}
+          toUpdateOffer={toUpdateOffer}
         />
       )}
       {selectedTab === "addOffer" && (
         <FormOffer addOffer={addOffer} setSelectedTab={setSelectedTab} />
-      )}{" "}
+      )}
+      {selectedTab === "updateOffer" && (
+        <FormOffer selectedTab={selectedTab} setSelectedTab={setSelectedTab} toUpdateOffer={toUpdateOffer}  />
+      )}
       {selectedTab === "history" && (
         <OfferCreationHistory deletedOffers={deletedOffers} />
       )}
     </>
   );
 
-
   const addOffer = (newOffer) => {
     setOffers([...offers, newOffer]);
   };
 
-  const updateOffer = (offerId, updatedOfferData) => {
+  // const updateOffer = (offerId, updatedOfferData) => {
 
-    const offerIndex = offers.findIndex((offer) => offer.id === offerId);
-    
-    if (offerIndex !== -1) {
-      const updatedOffers = [...offers];
-      updatedOffers[offerIndex] = {
-        ...updatedOffers[offerIndex],
-        ...updatedOfferData,
-      };
+  //   const offerIndex = offers.findIndex((offer) => offer.id === offerId);
 
-      setOffers(updatedOffers);
+  //   if (offerIndex !== -1) {
+  //     const updatedOffers = [...offers];
+  //     updatedOffers[offerIndex] = {
+  //       ...updatedOffers[offerIndex],
+  //       ...updatedOfferData,
+  //     };
 
-    } else {
-      console.error(`Offer with ID ${offerId} not found.`);
-    }
-  };
+  //     setOffers(updatedOffers);
+
+  //   } else {
+  //     console.error(`Offer with ID ${offerId} not found.`);
+  //   }
+  // };
 
   const deleteOffer = (offerId) => {
-
     const deletedOffer = offers.find((offer) => offer.id === offerId);
 
     if (deletedOffer) {
