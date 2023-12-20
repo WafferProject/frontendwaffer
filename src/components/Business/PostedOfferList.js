@@ -1,9 +1,9 @@
-import React from 'react';
-import './OfferCreationList.css';
-import OfferCreation from './OfferCreation';
-import emtpy from '../../images/emtpy.png'; 
+import React from "react";
+import "./OfferCreationList.css";
+import OfferCreation from "./OfferCreation";
+import emtpy from "../../images/emtpy.png";
 
-function PostedOfferList({ offers, updateOffer, deleteOffer }) {
+function PostedOfferList({ offers, setSelectedTab, deleteOffer , toUpdateOffer }) {
   return (
     <div className="offersContainer">
       <div className="offersCreated">
@@ -14,9 +14,9 @@ function PostedOfferList({ offers, updateOffer, deleteOffer }) {
               <OfferCreation
                 key={index}
                 offer={offer}
-                updateOffer={updateOffer}
+                setSelectedTab={setSelectedTab}
                 deleteOffer={deleteOffer}
-              />
+                toUpdateOffer={toUpdateOffer}              />
             ))
         ) : (
           <div className="post_container">

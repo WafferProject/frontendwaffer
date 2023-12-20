@@ -81,7 +81,7 @@ export default function Map({ selectedOffer }) {
               ]
             : [userCord.lat, userCord.lng]
         }
-        zoom={9}
+        zoom={11}
         scrollWheelZoom={false}
       >
         <TileLayer

@@ -6,6 +6,8 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Alert from "@mui/material/Alert";
+import { useEffect } from "react";
+import emailjs from "@emailjs/browser";
 function ContactPage() {
   const [data, setData] = useState({
     FirstName: "",
@@ -20,10 +22,29 @@ function ContactPage() {
     const value = e.target.value;
     setData({ ...data, [name]: value });
   };
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    emailjs.init("j9neKX-9nBIglqBRg"); // Replace with your Email.js User ID
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setAlertOpen(true);
+    const serviceId = "service_wqzhfxj";
+    const templateId = "template_9hjyexq"; // Replace with your Email.js Template ID
+
+    try {
+      await emailjs.send(serviceId, templateId, {
+        from_name: data.FirstName + " " + data.LastName,
+        from_email: data.email,
+        message: data.message,
+        to_email: "e27.ouenniche@gmail.com", // Replace with the recipient's email address
+      });
+
+      setAlertOpen(true);
+    } catch (error) {
+      console.error("Error sending email:", error);
+      alert("error");
+    }
   };
 
   return (
