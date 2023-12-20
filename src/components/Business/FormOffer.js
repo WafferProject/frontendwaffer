@@ -7,6 +7,7 @@ import meal from "../../images/pick-meals-image.png";
 
 function FormOffer({ addOffer, setSelectedTab }) {
   const defaultImagePreview = meal;
+
   const [formData, setFormData] = useState({
     category: "",
     quantity: "",
@@ -17,6 +18,7 @@ function FormOffer({ addOffer, setSelectedTab }) {
     image: null,
     imagePreview: defaultImagePreview,
   });
+
   const [offerPosted, setOfferPosted] = useState(false);
 
   const handleImageChange = (event) => {
