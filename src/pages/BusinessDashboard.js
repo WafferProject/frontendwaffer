@@ -1,8 +1,7 @@
-import PostedOfferList from "../components/Business/PostedOfferList";
-import FormOffer from "../components/Business/FormOffer";
-
 import React, { useEffect, useState } from "react";
 import "./BusinessDahboard.css";
+import PostedOfferList from "../components/Business/PostedOfferList";
+import FormOffer from "../components/Business/FormOffer";
 import OfferCreationHistory from "../components/Business/OfferCreationHistory";
 import axios from "axios";
 
@@ -43,26 +42,34 @@ function BusinessDashboard() {
       )}
     </>
   );
+
+
   const addOffer = (newOffer) => {
     setOffers([...offers, newOffer]);
   };
 
   const updateOffer = (offerId, updatedOfferData) => {
+
     const offerIndex = offers.findIndex((offer) => offer.id === offerId);
+    
     if (offerIndex !== -1) {
       const updatedOffers = [...offers];
       updatedOffers[offerIndex] = {
         ...updatedOffers[offerIndex],
         ...updatedOfferData,
       };
+
       setOffers(updatedOffers);
+
     } else {
       console.error(`Offer with ID ${offerId} not found.`);
     }
   };
 
   const deleteOffer = (offerId) => {
+
     const deletedOffer = offers.find((offer) => offer.id === offerId);
+
     if (deletedOffer) {
       const updatedOffers = offers.filter((offer) => offer.id !== offerId);
       const url = "http://localhost:8080/api/buisness/offer";

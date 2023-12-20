@@ -9,7 +9,8 @@ import { useAuth } from "../AuthContext";
 
 const SignUpConsumerBuisness = () => {
   const [alertOpen, setAlertOpen] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [consumerErrors, setConsumerErrors] = useState({});
+  const [businessErrors, setBusinessErrors] = useState({});
 
   const consumerValidationRules = {
     first_name: {
@@ -37,7 +38,7 @@ const SignUpConsumerBuisness = () => {
   const businessValidationRules = {
     tax_registration_number: {
       validator: (value) => /^\d+$/.test(value),
-      errorMessage: "Tax registration number must be numeric",
+      errorMessage: "Must be numeric",
     },
     name: {
       validator: (value) => value.trim() !== "",
@@ -133,8 +134,8 @@ const SignUpConsumerBuisness = () => {
   const formType = isBuisness ? 'business' : 'consumer';
 
   const errorMessage = validateInput(formType, name, value);
- 
-  setErrors({ ...errors, [name]: errorMessage });
+  const setError = formType === 'business' ? setBusinessErrors : setConsumerErrors;
+  setError((prevErrors) => ({ ...prevErrors, [name]: errorMessage }));
 
   if (!errorMessage) {
     console.log(isBuisness ? businessForm : consumerForm);
@@ -163,7 +164,7 @@ const SignUpConsumerBuisness = () => {
   const handleBuisnessLocationChange = (event) => {
     const { name, value } = event.target;
     const errorMessage = validateInput('business', name, value);
-    setErrors({ ...errors, [name]: errorMessage });
+    setBusinessErrors({ ...businessErrors, [name]: errorMessage });
     
     const locationValue = [...businessForm.location];
 
@@ -208,14 +209,14 @@ const SignUpConsumerBuisness = () => {
             required
             onChange={handleInputChange}
           />
-          {errors.first_name && <div style={{ color: 'red' }}>{errors.first_name}</div>}
+          {consumerErrors.first_name && <div style={{ color: 'red' }}>{consumerErrors.first_name}</div>}
           <Components.Input
             name="last_name"
             placeholder="Last Name"
             required
             onChange={handleInputChange}
           />
-           {errors.last_name && <div style={{ color: 'red' }}>{errors.last_name}</div>}
+           {consumerErrors.last_name && <div style={{ color: 'red' }}>{consumerErrors.last_name}</div>}
 
           <FormLabel style={{ marginTop: "10px" }}>Occupation</FormLabel>
           <RadioGroup row name="occupation" onChange={handleInputChange}>
@@ -237,7 +238,7 @@ const SignUpConsumerBuisness = () => {
             required
             onChange={handleInputChange}
           />
-           {errors.phone_number && <div style={{ color: 'red' }}>{errors.phone_number}</div>}
+           {consumerErrors.phone_number && <div style={{ color: 'red' }}>{consumerErrors.phone_number}</div>}
           <Components.Input
             type="email"
             placeholder="Email"
@@ -245,7 +246,7 @@ const SignUpConsumerBuisness = () => {
             required
             onChange={handleInputChange}
           />
-          {errors.email && <div style={{ color: 'red' }}>{errors.email}</div>}
+          {consumerErrors.email && <div style={{ color: 'red' }}>{consumerErrors.email}</div>}
 
           <Components.Input
             type="password"
@@ -254,7 +255,7 @@ const SignUpConsumerBuisness = () => {
             required
             onChange={handleInputChange}
           />
-          {errors.password && <div style={{ color: 'red' }}>{errors.password}</div>}
+          {consumerErrors.password && <div style={{ color: 'red' }}>{consumerErrors.password}</div>}
             <Components.Button onClick={handleSubmit}>
               Sign Up
             </Components.Button>
@@ -277,7 +278,7 @@ const SignUpConsumerBuisness = () => {
             name="tax_registration_number"
           />
           
-          {errors.tax_registration_number && <div style={{ color: 'red' }}>{errors.tax_registration_number}</div>}
+          {businessErrors.tax_registration_number && <div style={{ color: 'red' }}>{businessErrors.tax_registration_number}</div>}
 
           <Components.Input
             placeholder="Your buisness name"
@@ -286,7 +287,7 @@ const SignUpConsumerBuisness = () => {
             style={{ height: "30px", width: "100%" }}
             onChange={handleInputChange}
           />
-          {errors.name && <div style={{ color: 'red' }}>{errors.name}</div>}
+          {businessErrors.name && <div style={{ color: 'red' }}>{businessErrors.name}</div>}
 
           <Components.Input
             placeholder="Opening Time"
@@ -295,7 +296,7 @@ const SignUpConsumerBuisness = () => {
             style={{ height: "30px", width: "100%" }}
             onChange={handleInputChange}
           />
-          {errors.opening_time && <div style={{ color: 'red' }}>{errors.opening_time}</div>}
+          {businessErrors.opening_time && <div style={{ color: 'red' }}>{businessErrors.opening_time}</div>}
           <Components.Input
             placeholder="Closing Time"
             name="closing_time"
@@ -303,7 +304,7 @@ const SignUpConsumerBuisness = () => {
             style={{ height: "30px", width: "100%" }}
             onChange={handleInputChange}
           />
-          {errors.closing_time && <div style={{ color: 'red' }}>{errors.closing_time}</div>}
+          {businessErrors.closing_time && <div style={{ color: 'red' }}>{businessErrors.closing_time}</div>}
 
           <div style={{ display: "flex", gap: "15px" }}>
             <Components.Input
@@ -313,7 +314,7 @@ const SignUpConsumerBuisness = () => {
               style={{ height: "30px", width: "30%" }}
               onChange={handleBuisnessLocationChange}
             />
-            {errors.lat && <div style={{ color: 'red' }}>{errors.lat}</div>}
+            {businessErrors.lat && <div style={{ color: 'red' }}>{businessErrors.lat}</div>}
             <Components.Input
               placeholder="long"
               name="long"
@@ -321,7 +322,7 @@ const SignUpConsumerBuisness = () => {
               style={{ height: "30px", width: "30%" }}
               onChange={handleBuisnessLocationChange}
             />
-             {errors.long && <div style={{ color: 'red' }}>{errors.long}</div>}
+             {businessErrors.long && <div style={{ color: 'red' }}>{businessErrors.long}</div>}
           </div>
 
           {businessForm.work_phones.map((phoneNumber, index) => (
@@ -354,7 +355,7 @@ const SignUpConsumerBuisness = () => {
             style={{ height: "30px", width: "100%" }}
             onChange={handleInputChange}
           />
-          {errors.email && <div style={{ color: 'red' }}>{errors.email}</div>}
+          {businessErrors.email && <div style={{ color: 'red' }}>{businessErrors.email}</div>}
           <Components.Input
             placeholder="Description"
             name="description"
@@ -371,7 +372,7 @@ const SignUpConsumerBuisness = () => {
             style={{ height: "30px", width: "100%" }}
             onChange={handleInputChange}
           />
-          {errors.password && <div style={{ color: 'red' }}>{errors.password}</div>}
+          {businessErrors.password && <div style={{ color: 'red' }}>{businessErrors.password}</div>}
 
             <Components.Button onClick={handleSubmit} >Sign Up</Components.Button>
         </Components.Form>
