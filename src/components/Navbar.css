@@ -26,13 +26,15 @@
 .navbar-links {
   list-style: none;
   display: flex;
-  flex-grow: 5;
-  margin-left: 53%;
+  /* flex-grow: 5; */
+  margin-left: 50%;
 }
 
 /* Navbar Links Item */
 .navbar-links li {
-  margin: 0 15px;
+  /* margin:  15px; */
+  margin-left: 20px;
+  margin-right: 5px;
 }
 
 /* Common Style for Navbar Items */
@@ -60,7 +62,38 @@
 }
 
 
+/* Dropdown Styles */
+.navbar-item-dropdown:hover .navbar-item-dropdown-content {
+  display: block;
+  margin-right: 30px;
 
+}
+
+.navbar-item-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #FFF;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  border-radius: 25px;
+  z-index: 1;
+ 
+}
+
+.navbar-item-dropdown-content a {
+  color: #FF8C00;
+  padding: 15px 20px;
+  text-decoration: none;
+  display: block;
+  font-weight: bold;
+}
+
+.navbar-item-dropdown-content a:hover {
+  background: #E07B00; 
+  color: #FFF;
+  border-radius: 50px;
+}
 
 
 
@@ -68,6 +101,13 @@
 .user-info {
   display: flex;
   align-items: center;
+  border: 2px solid #FF8C00; 
+  padding: 7px 25px;
+  border-radius: 50px ; 
+  color: #FF8C00;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .user-info img {
@@ -79,6 +119,6 @@
 }
 
 .username {
-  color: #333;
+  
   font-size: 18px;
 }

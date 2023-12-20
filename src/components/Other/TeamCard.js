@@ -59,7 +59,7 @@ const teamMembers = [
     return (
       <div className="team-card-container">
         {teamMembers.map((teamMember, index) => (
-          <div key={index} className={`card ${teamMember.color}`}>
+          <div key={index} className={`Card ${teamMember.color}`}>
             <img src={teamMember.image} alt={teamMember.name} />
             <p className="second-text">{teamMember.name}</p>
             <p>{teamMember.title}</p>
