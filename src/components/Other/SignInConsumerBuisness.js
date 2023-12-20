@@ -46,7 +46,6 @@ const SignInConsumerBuisness = () => {
         nav(`/${entity}`);
       })
       .catch((error) => {
-        console.log("error  " + JSON.stringify(error.response.status));
         if (error.response.status === 303) {
           alert(
             "already logged in as  " +
