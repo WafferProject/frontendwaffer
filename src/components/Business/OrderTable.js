@@ -1,49 +1,46 @@
-import { useState } from "react";
+import { styled } from "@mui/material/styles";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import TablePagination from "@mui/material/TablePagination";
 import "./OrderTable.css";
-import { styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import TablePagination from '@mui/material/TablePagination';
-
+import { useState } from "react";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: "orange",
     color: theme.palette.common.white,
-    ontWeight:"bold",
+    ontWeight: "bold",
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
-    
   },
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
+  "&:nth-of-type(odd)": {
     backgroundColor: theme.palette.action.hover,
   },
-  
-  '&:last-child td, &:last-child th': {
+
+  "&:last-child td, &:last-child th": {
     border: 0,
   },
 }));
 
 const columns = [
-  { id: 'firstName', label: 'First name', minWidth: 150 },
-  { id: 'lastName', label: 'Last name', minWidth: 150 },
-  { id: 'QuantityOrdered', label: 'Quantity Ordered', minWidth: 150, align: 'right' },
-  { id: 'delete', label: 'Status', minWidth: 150, align: 'right' },
+  { id: "first_name", label: "First name", minWidth: 150 },
+  { id: "last_name", label: "Last name", minWidth: 150 },
+  { id: "quantity", label: "Quantity Ordered", minWidth: 150, align: "right" },
+  { id: "creation_date", label: "Date", minWidth: 150, align: "right" },
+  { id: "delete", label: "Status", minWidth: 150, align: "right" },
 ];
 
 function OrderTable({ rows, onDeleteRow, selectedRows }) {
-
   const [page, setPage] = useState(0);
-
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const handleChangePage = (event, newPage) => {
@@ -55,11 +52,7 @@ function OrderTable({ rows, onDeleteRow, selectedRows }) {
     setPage(0);
   };
 
-  const handleDeleteRow = (id) => {
-    
-    onDeleteRow(id);
-  };
-  
+   
   const sortedRows = [...rows].sort((a, b) => {
     const aIsChecked = selectedRows.includes(a.id);
     const bIsChecked = selectedRows.includes(b.id);
@@ -72,7 +65,7 @@ function OrderTable({ rows, onDeleteRow, selectedRows }) {
     }
   });
   return (
-    <TableContainer component={Paper}  className="scrollable-table">
+    <TableContainer component={Paper} className="scrollable-table">
       <Table stickyHeader sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <StyledTableRow>
@@ -91,40 +84,50 @@ function OrderTable({ rows, onDeleteRow, selectedRows }) {
           {sortedRows
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             .map((row) => (
-              <StyledTableRow hover role="checkbox" tabIndex={-1} key={row.id} className={selectedRows.includes(row.id) ? 'selected-row' : ''}>
+              <StyledTableRow
+                hover
+                role="checkbox"
+                tabIndex={-1}
+                key={row.id}
+                className={selectedRows.includes(row.id) ? "selected-row" : ""}
+              >
                 {columns.map((column) => {
                   const value = row[column.id];
                   return (
                     <StyledTableCell key={column.id} align={column.align}>
-                      {column.id === 'delete' ? (
+                      {column.id === "delete" ? (
                         <div className="checkbox-wrapper-19">
-                           <input
-                              id={`cbtest-${row.id}`}
-                              type="checkbox"
-                              checked={selectedRows.includes(row.id)}
-                              onClick={() => handleDeleteRow(row.id)}
-                            />
-                            <label className="check-box" htmlFor={`cbtest-${row.id}`}></label>
-                          </div>
-                        ) : value}
-                      </StyledTableCell>
-                    );
-                  })}
-                </StyledTableRow>
-              ))}
-          </TableBody>
-        </Table>
-        <TablePagination
-          rowsPerPageOptions={[10, 25, 100]}
-          component="div"
-          count={rows.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onPageChange={handleChangePage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-        />
-      </TableContainer>
-   
+                          <input
+                            id={`cbtest-${row.id}`}
+                            type="checkbox"
+                            checked={selectedRows.includes(row.id)}
+                            onClick={() => onDeleteRow(row.id)}
+                          />
+                          <label
+                            className="check-box"
+                            htmlFor={`cbtest-${row.id}`}
+                          ></label>
+                        </div>
+                      ) : (
+                        value
+                      )}
+                    </StyledTableCell>
+                  );
+                })}
+              </StyledTableRow>
+            ))}
+        </TableBody>
+      </Table>
+      <TablePagination
+        rowsPerPageOptions={[10, 25, 100]}
+        component="div"
+        count={rows.length}
+        rowsPerPage={rowsPerPage}
+        page={page}
+        onPageChange={handleChangePage}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
+    </TableContainer>
   );
 }
 

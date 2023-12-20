@@ -3,28 +3,27 @@ import "./BusinessDahboard.css";
 import PostedOfferList from "../components/Business/PostedOfferList";
 import FormOffer from "../components/Business/FormOffer";
 import OfferCreationHistory from "../components/Business/OfferCreationHistory";
+import axios from "axios";
 
 function BusinessDashboard() {
   const [offers, setOffers] = useState([]);
   const [selectedTab, setSelectedTab] = useState("offers");
   const [deletedOffers, setDeletedOffers] = useState([]);
-
-//   useEffect(() => {
-// const url = "http://localhost:3000/api/buisness/offer"
-//     axios
-//     .get(url, { withCredentials: true })
-//     .then((response) => {
-//       console.log(response);
-//       setOffersData(response.data.offers);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// }, [selectedOffer, filter]);
-
-
-
-//   }, [offers]);
+  useEffect(() => {
+    const url = "http://localhost:8080/api/buisness/offer";
+    axios
+      .get(url, { withCredentials: true })
+      .then((response) => {
+        console.log(response);
+        setOffers(response.data.result.filter((offer) => offer.status === 1));
+        setDeletedOffers(
+          response.data.result.filter((offer) => offer.status === 0)
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [selectedTab]);
 
   const renderTabContent = () => (
     <>
@@ -35,7 +34,9 @@ function BusinessDashboard() {
           deleteOffer={deleteOffer}
         />
       )}
-      {selectedTab === "addOffer" && <FormOffer addOffer={addOffer} setSelectedTab={setSelectedTab} />}{" "}
+      {selectedTab === "addOffer" && (
+        <FormOffer addOffer={addOffer} setSelectedTab={setSelectedTab} />
+      )}{" "}
       {selectedTab === "history" && (
         <OfferCreationHistory deletedOffers={deletedOffers} />
       )}
@@ -71,9 +72,20 @@ function BusinessDashboard() {
 
     if (deletedOffer) {
       const updatedOffers = offers.filter((offer) => offer.id !== offerId);
-      setOffers(updatedOffers);
-      
-      setDeletedOffers([...deletedOffers, deletedOffer]);
+      const url = "http://localhost:8080/api/buisness/offer";
+
+      axios
+        .delete(url, {
+          data: { offer_id: offerId },
+          withCredentials: true,
+        })
+        .then((response) => {
+          setOffers(updatedOffers);
+          setDeletedOffers([...deletedOffers, deletedOffer]);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   };
 
