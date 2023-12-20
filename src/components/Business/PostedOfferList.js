@@ -1,7 +1,6 @@
 import React from 'react';
-import OfferCreation from './OfferCreation';
 import './OfferCreationList.css';
-
+import OfferCreation from './OfferCreation';
 import emtpy from '../../images/emtpy.png'; 
 
 function PostedOfferList({ offers, updateOffer, deleteOffer }) {

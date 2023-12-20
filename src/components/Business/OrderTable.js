@@ -1,4 +1,5 @@
-import * as React from 'react';
+import { useState } from "react";
+import "./OrderTable.css";
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -8,7 +9,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import TablePagination from '@mui/material/TablePagination';
-import "./OrderTable.css";
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -40,8 +41,10 @@ const columns = [
 ];
 
 function OrderTable({ rows, onDeleteRow, selectedRows }) {
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const [page, setPage] = useState(0);
+
+  const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -56,6 +59,7 @@ function OrderTable({ rows, onDeleteRow, selectedRows }) {
     
     onDeleteRow(id);
   };
+  
   const sortedRows = [...rows].sort((a, b) => {
     const aIsChecked = selectedRows.includes(a.id);
     const bIsChecked = selectedRows.includes(b.id);

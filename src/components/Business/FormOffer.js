@@ -2,11 +2,13 @@ import axios from "axios";
 import "./FormOffer.css";
 import React, { useState } from "react";
 import { Snackbar } from "@mui/joy";
-import { CheckCircle } from "@mui/icons-material";import meal from "../../images/pick-meals-image.png";
+import { CheckCircle } from "@mui/icons-material";
+import meal from "../../images/pick-meals-image.png";
 
 function FormOffer({ addOffer, setSelectedTab }) {
  
   const defaultImagePreview = meal;
+
   const [formData, setFormData] = useState({
     offerName: "",
     category: "",
@@ -18,6 +20,7 @@ function FormOffer({ addOffer, setSelectedTab }) {
     image: null,
     imagePreview: defaultImagePreview,
   });
+
   const [offerPosted, setOfferPosted] = useState(false);
 
   const handleImageChange = (event) => {

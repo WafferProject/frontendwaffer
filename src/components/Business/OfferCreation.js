@@ -14,12 +14,11 @@ import OrderDetails from "./OrderDetails";
 
 function OfferCreation({ offer, updateOffer, deleteOffer }) {
   const [isViewOrdersClicked, setIsViewOrdersClicked] = useState(false);
+  
   const handleViewOrdersClick = () => {
     setIsViewOrdersClicked(true);
   };
 
-  
- 
   const handleUpdateOffer = () => {
     updateOffer(offer.id, offer);
   };
@@ -52,7 +51,7 @@ function OfferCreation({ offer, updateOffer, deleteOffer }) {
           <Paper elevation={6} style={{ marginBottom: "15px" }}>
             <AspectRatio ratio="2">
               <img
-                src={offer.imagePreview} // Use the offer's image URL here
+                src={offer.imagePreview} 
                 loading="lazy"
                 alt={offer.offerName}
               />

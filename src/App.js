@@ -15,7 +15,6 @@ import BusinessList from "./pages/BusinessList";
 import ConsumerList from "./pages/ConsumerList";
 import OrdersList from "./pages/OrdersList";
 import UserDetails from "./components/Admin/UserDetails";
-
 import Footer from "./components/Other/Footer";
 import AddBusiness from './components/Admin/AddBusiness'
 import AboutUs from "./pages/AboutUs";

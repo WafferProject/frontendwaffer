@@ -1,12 +1,12 @@
-
-import Modal from '@mui/joy/Modal';
-
+import React, { useState, useEffect } from 'react';
 import "./OrderDetails.css"
+import Modal from '@mui/joy/Modal';
 import {  CloseOutlined } from "@mui/icons-material";
 import OrderTable from './OrderTable';
-import React, { useState, useEffect } from 'react';
+
 
 const OrderDetails = ({ handleClose }) => {
+
   const initialRows = [
     { id: 1, lastName: 'Snow', firstName: 'Jon', QuantityOrdered: 35 },
     { id: 2, lastName: 'Lannister', firstName: 'Cersei', QuantityOrdered: 42 },
@@ -24,6 +24,7 @@ const OrderDetails = ({ handleClose }) => {
     const savedRows = localStorage.getItem('rows');
     return savedRows ? JSON.parse(savedRows) : initialRows;
   });
+  
   useEffect(() => {
     localStorage.setItem('rows', JSON.stringify(rows));
   }, [rows]);
