@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './Description.css';
-import sec1Image from '../images/sect1.jpg';
-import sec2Image from '../images/sect2.jpg';
-import sec3Image from '../images/sect3.jpg';
-import sec4Image from '../images/sect4.jpg';
-import sec5Image from '../images/sect5.png';
+import sec1Image from '../../images/sect1.jpg';
+import sec2Image from '../../images/sect2.jpg';
+import sec3Image from '../../images/sect3.jpg';
+import sec4Image from '../../images/sect4.jpg';
+import sec5Image from '../../images/sect5.png';
 const Description = () => {
     const [activeCard, setActiveCard] = useState(null);
 
